@@ -1,0 +1,12 @@
+E:\Projetos\SysBanhoTosa\SysBanhoTosa\bin\Debug\SysBanhoTosa.exe.config
+E:\Projetos\SysBanhoTosa\SysBanhoTosa\bin\Debug\SysBanhoTosa.exe
+E:\Projetos\SysBanhoTosa\SysBanhoTosa\bin\Debug\SysBanhoTosa.pdb
+E:\Projetos\SysBanhoTosa\SysBanhoTosa\obj\Debug\SysBanhoTosa.csproj.AssemblyReference.cache
+E:\Projetos\SysBanhoTosa\SysBanhoTosa\obj\Debug\SysBanhoTosa.Form1.resources
+E:\Projetos\SysBanhoTosa\SysBanhoTosa\obj\Debug\SysBanhoTosa.Properties.Resources.resources
+E:\Projetos\SysBanhoTosa\SysBanhoTosa\obj\Debug\SysBanhoTosa.csproj.GenerateResource.cache
+E:\Projetos\SysBanhoTosa\SysBanhoTosa\obj\Debug\SysBanhoTosa.csproj.CoreCompileInputs.cache
+E:\Projetos\SysBanhoTosa\SysBanhoTosa\obj\Debug\SysBanhoTosa.exe
+E:\Projetos\SysBanhoTosa\SysBanhoTosa\obj\Debug\SysBanhoTosa.pdb
+E:\Projetos\SysBanhoTosa\SysBanhoTosa\obj\Debug\SysBanhoTosa.Views.FormClientes.resources
+E:\Projetos\SysBanhoTosa\SysBanhoTosa\obj\Debug\SysBanhoTosa.Views.FormPets.resources

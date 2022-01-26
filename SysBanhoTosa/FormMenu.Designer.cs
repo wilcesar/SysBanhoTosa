@@ -1,7 +1,7 @@
 ﻿
 namespace SysBanhoTosa
 {
-    partial class Form1
+    partial class FormMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -32,6 +32,7 @@ namespace SysBanhoTosa
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnPets = new System.Windows.Forms.Button();
             this.btnServicos = new System.Windows.Forms.Button();
+            this.btnLancamentoServicos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClientes
@@ -67,16 +68,28 @@ namespace SysBanhoTosa
             this.btnServicos.UseVisualStyleBackColor = true;
             this.btnServicos.Click += new System.EventHandler(this.btnServicos_Click);
             // 
-            // Form1
+            // btnLancamentoServicos
+            // 
+            this.btnLancamentoServicos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLancamentoServicos.Location = new System.Drawing.Point(153, 12);
+            this.btnLancamentoServicos.Name = "btnLancamentoServicos";
+            this.btnLancamentoServicos.Size = new System.Drawing.Size(135, 57);
+            this.btnLancamentoServicos.TabIndex = 3;
+            this.btnLancamentoServicos.Text = "Lançamento de Serviço";
+            this.btnLancamentoServicos.UseVisualStyleBackColor = true;
+            this.btnLancamentoServicos.Click += new System.EventHandler(this.btnLancamentoServicos_Click);
+            // 
+            // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnLancamentoServicos);
             this.Controls.Add(this.btnServicos);
             this.Controls.Add(this.btnPets);
             this.Controls.Add(this.btnClientes);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "FormMenu";
+            this.Text = "Sistema de banho e tosa";
             this.ResumeLayout(false);
 
         }
@@ -86,6 +99,7 @@ namespace SysBanhoTosa
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button btnPets;
         private System.Windows.Forms.Button btnServicos;
+        private System.Windows.Forms.Button btnLancamentoServicos;
     }
 }
 

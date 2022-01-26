@@ -49,11 +49,11 @@
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\PetController.cs" />
     <Compile Include="Controllers\ServicoController.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormMenu.Designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Classes\Endereco.cs" />
     <Compile Include="Models\Classes\Cliente.cs" />
@@ -70,6 +70,12 @@
     <Compile Include="Views\FormClientes.Designer.cs">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FormLancamentoServicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormLancamentoServicos.Designer.cs">
+      <DependentUpon>FormLancamentoServicos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FormPets.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,8 +88,8 @@
     <Compile Include="Views\FormServicos.Designer.cs">
       <DependentUpon>FormServicos.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -96,6 +102,9 @@
     </Compile>
     <EmbeddedResource Include="Views\FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormLancamentoServicos.resx">
+      <DependentUpon>FormLancamentoServicos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FormPets.resx">
       <DependentUpon>FormPets.cs</DependentUpon>

@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace SysBanhoTosa
 {
-    public partial class Form1 : Form
+    public partial class FormMenu : Form
     {
-        public Form1()
+        public FormMenu()
         {
             InitializeComponent();
         }
@@ -35,6 +35,11 @@ namespace SysBanhoTosa
         {
             FormServicos objFormServicos = new FormServicos();
             objFormServicos.Show();
+        }
+
+        private void btnLancamentoServicos_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -19,7 +19,7 @@ namespace SysBanhoTosa.Views
         public FormPets()
         {
             InitializeComponent();
-            limpaCampos();
+            LimpaCampos();
             AtualizarGrid();
         }
         private void AtualizarGrid()
@@ -38,7 +38,7 @@ namespace SysBanhoTosa.Views
             }
         }
 
-        private void limpaCampos()
+        private void LimpaCampos()
         {
             txtCodigo.Text = "";
             txtNome.Text = "";
@@ -92,13 +92,13 @@ namespace SysBanhoTosa.Views
 
                 objPetController.AtualizarPet(objPet, lstPets);
                 AtualizarGrid();
-                limpaCampos();
+                LimpaCampos();
             }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            limpaCampos();
+            LimpaCampos();
         }
 
         private void dgvPets_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

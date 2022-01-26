@@ -30,5 +30,11 @@ namespace SysBanhoTosa
             FormPets objFormPets = new FormPets();
             objFormPets.Show();
         }
+
+        private void btnServicos_Click(object sender, EventArgs e)
+        {
+            FormServicos objFormServicos = new FormServicos();
+            objFormServicos.Show();
+        }
     }
 }

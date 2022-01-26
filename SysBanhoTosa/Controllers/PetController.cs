@@ -34,7 +34,7 @@ namespace SysBanhoTosa.Controllers
         public List<Pet> GetPets()
         {
             List<Pet> lstPets = new List<Pet>();
-            int intI = 0;
+
             foreach (string strLinha in objPetDAO.GetPets())
             {
                 string[] strArrayArquivo = strLinha.Split('|');
@@ -51,10 +51,7 @@ namespace SysBanhoTosa.Controllers
                 objPets.Tutor = objCliente;
 
                 lstPets.Add(objPets);
-
-                intI++;
             }
-
 
             return lstPets;
         }

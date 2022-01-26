@@ -10,3 +10,4 @@ E:\Projetos\SysBanhoTosa\SysBanhoTosa\obj\Debug\SysBanhoTosa.exe
 E:\Projetos\SysBanhoTosa\SysBanhoTosa\obj\Debug\SysBanhoTosa.pdb
 E:\Projetos\SysBanhoTosa\SysBanhoTosa\obj\Debug\SysBanhoTosa.Views.FormClientes.resources
 E:\Projetos\SysBanhoTosa\SysBanhoTosa\obj\Debug\SysBanhoTosa.Views.FormPets.resources
+E:\Projetos\SysBanhoTosa\SysBanhoTosa\obj\Debug\SysBanhoTosa.Views.FormServicos.resources

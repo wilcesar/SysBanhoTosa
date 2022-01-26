@@ -20,7 +20,7 @@ namespace SysBanhoTosa.Views
             InitializeComponent();
             AtualizarGrid();
         }
-        private void limpaCampos()
+        private void LimpaCampos()
         {
             txtCodigo.Text = "";
             txtNome.Text = "";
@@ -106,7 +106,7 @@ namespace SysBanhoTosa.Views
                 
                 objClientecontroller.AtualizarCliente(objCliente, lstClientes);
                 AtualizarGrid();
-                limpaCampos();
+                LimpaCampos();
             };
 
         }
@@ -154,7 +154,7 @@ namespace SysBanhoTosa.Views
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            limpaCampos();
+            LimpaCampos();
             txtNome.Focus();
         }
     }

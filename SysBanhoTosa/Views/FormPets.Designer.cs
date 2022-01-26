@@ -30,6 +30,9 @@ namespace SysBanhoTosa.Views
         private void InitializeComponent()
         {
             this.pnlCampos = new System.Windows.Forms.Panel();
+            this.cboTutor = new System.Windows.Forms.ComboBox();
+            this.txtTutor = new System.Windows.Forms.TextBox();
+            this.lblTutor = new System.Windows.Forms.Label();
             this.lblRaca = new System.Windows.Forms.Label();
             this.lblEspecie = new System.Windows.Forms.Label();
             this.cboRaca = new System.Windows.Forms.ComboBox();
@@ -40,19 +43,15 @@ namespace SysBanhoTosa.Views
             this.txtNome = new System.Windows.Forms.TextBox();
             this.pnlBotoes = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnExluir = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgvPets = new System.Windows.Forms.DataGridView();
-            this.txtTutor = new System.Windows.Forms.TextBox();
-            this.lblTutor = new System.Windows.Forms.Label();
             this.clnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnIdDono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnNomeDono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnEspecie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnRaca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cboTutor = new System.Windows.Forms.ComboBox();
             this.pnlCampos.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.pnlGrid.SuspendLayout();
@@ -76,6 +75,30 @@ namespace SysBanhoTosa.Views
             this.pnlCampos.Name = "pnlCampos";
             this.pnlCampos.Size = new System.Drawing.Size(447, 167);
             this.pnlCampos.TabIndex = 0;
+            // 
+            // cboTutor
+            // 
+            this.cboTutor.FormattingEnabled = true;
+            this.cboTutor.Location = new System.Drawing.Point(176, 106);
+            this.cboTutor.Name = "cboTutor";
+            this.cboTutor.Size = new System.Drawing.Size(242, 21);
+            this.cboTutor.TabIndex = 18;
+            // 
+            // txtTutor
+            // 
+            this.txtTutor.Location = new System.Drawing.Point(23, 106);
+            this.txtTutor.Name = "txtTutor";
+            this.txtTutor.Size = new System.Drawing.Size(121, 20);
+            this.txtTutor.TabIndex = 16;
+            // 
+            // lblTutor
+            // 
+            this.lblTutor.AutoSize = true;
+            this.lblTutor.Location = new System.Drawing.Point(23, 89);
+            this.lblTutor.Name = "lblTutor";
+            this.lblTutor.Size = new System.Drawing.Size(32, 13);
+            this.lblTutor.TabIndex = 17;
+            this.lblTutor.Text = "Tutor";
             // 
             // lblRaca
             // 
@@ -188,7 +211,6 @@ namespace SysBanhoTosa.Views
             // pnlBotoes
             // 
             this.pnlBotoes.Controls.Add(this.btnCancelar);
-            this.pnlBotoes.Controls.Add(this.btnExluir);
             this.pnlBotoes.Controls.Add(this.btnConfirmar);
             this.pnlBotoes.Location = new System.Drawing.Point(448, 3);
             this.pnlBotoes.Name = "pnlBotoes";
@@ -197,22 +219,13 @@ namespace SysBanhoTosa.Views
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(1, 89);
+            this.btnCancelar.Location = new System.Drawing.Point(1, 46);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 37);
             this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnExluir
-            // 
-            this.btnExluir.Location = new System.Drawing.Point(1, 46);
-            this.btnExluir.Name = "btnExluir";
-            this.btnExluir.Size = new System.Drawing.Size(75, 37);
-            this.btnExluir.TabIndex = 4;
-            this.btnExluir.Text = "Excluir";
-            this.btnExluir.UseVisualStyleBackColor = true;
             // 
             // btnConfirmar
             // 
@@ -250,22 +263,6 @@ namespace SysBanhoTosa.Views
             this.dgvPets.TabIndex = 0;
             this.dgvPets.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPets_CellDoubleClick);
             // 
-            // txtTutor
-            // 
-            this.txtTutor.Location = new System.Drawing.Point(23, 106);
-            this.txtTutor.Name = "txtTutor";
-            this.txtTutor.Size = new System.Drawing.Size(121, 20);
-            this.txtTutor.TabIndex = 16;
-            // 
-            // lblTutor
-            // 
-            this.lblTutor.AutoSize = true;
-            this.lblTutor.Location = new System.Drawing.Point(23, 89);
-            this.lblTutor.Name = "lblTutor";
-            this.lblTutor.Size = new System.Drawing.Size(32, 13);
-            this.lblTutor.TabIndex = 17;
-            this.lblTutor.Text = "Tutor";
-            // 
             // clnId
             // 
             this.clnId.HeaderText = "ID";
@@ -302,14 +299,6 @@ namespace SysBanhoTosa.Views
             this.clnRaca.Name = "clnRaca";
             this.clnRaca.Visible = false;
             // 
-            // cboTutor
-            // 
-            this.cboTutor.FormattingEnabled = true;
-            this.cboTutor.Location = new System.Drawing.Point(176, 106);
-            this.cboTutor.Name = "cboTutor";
-            this.cboTutor.Size = new System.Drawing.Size(242, 21);
-            this.cboTutor.TabIndex = 18;
-            // 
             // FormPets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -334,7 +323,6 @@ namespace SysBanhoTosa.Views
         private System.Windows.Forms.Panel pnlCampos;
         private System.Windows.Forms.Panel pnlBotoes;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnExluir;
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.Panel pnlGrid;
         private System.Windows.Forms.DataGridView dgvPets;

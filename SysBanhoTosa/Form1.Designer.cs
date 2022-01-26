@@ -65,6 +65,7 @@ namespace SysBanhoTosa
             this.btnServicos.TabIndex = 2;
             this.btnServicos.Text = "Serviços";
             this.btnServicos.UseVisualStyleBackColor = true;
+            this.btnServicos.Click += new System.EventHandler(this.btnServicos_Click);
             // 
             // Form1
             // 

@@ -57,6 +57,7 @@
     </Compile>
     <Compile Include="Models\Classes\Endereco.cs" />
     <Compile Include="Models\Classes\Cliente.cs" />
+    <Compile Include="Models\Classes\Lancamento.cs" />
     <Compile Include="Models\Classes\Pet.cs" />
     <Compile Include="Models\Classes\Servico.cs" />
     <Compile Include="Models\ClienteDAO.cs" />

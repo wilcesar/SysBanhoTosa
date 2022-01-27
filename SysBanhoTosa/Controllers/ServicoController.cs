@@ -76,5 +76,22 @@ namespace SysBanhoTosa.Controllers
                 intContador++;
             }
         }
+        public Servico GeServicoById(int pId)
+        {
+            Servico objServico = new Servico();
+            foreach (string strLinha in objServicoDAO.GetServicos())
+            {
+                string[] strArrayArquivo = strLinha.Split('|');
+                if (pId == int.Parse(strArrayArquivo[0]))
+                {
+
+                    objServico.Id = int.Parse(strArrayArquivo[0]);
+                    objServico.Nome = strArrayArquivo[1];
+                    objServico.Descricao = strArrayArquivo[2];
+                    break;
+                }
+            }
+            return objServico;
+        }
     }
 }

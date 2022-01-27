@@ -12,12 +12,18 @@ using System.Windows.Forms;
 
 namespace SysBanhoTosa.Views
 {
-    public partial class FormLancamentoServicos : Form
+    public partial class FormLancamentosServicos : Form
     {
+        /// <summary>
+        /// Realiza lançamentos de serviços feitos
+        /// </summary>
         ClienteController objClienteController = new ClienteController();
+        /// <summary>
+        /// Realiza lançamentos de serviços feitos
+        /// </summary>
         PetController objPetController = new PetController();
         ServicoController objServicoController = new ServicoController();
-        public FormLancamentoServicos()
+        public FormLancamentosServicos()
         {
             InitializeComponent();
         }
@@ -33,6 +39,11 @@ namespace SysBanhoTosa.Views
             objLancamento.Pet = objPetController.GetPetById(int.Parse(cboPet.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
             objLancamento.Servico = objServicoController.GeServicoById(int.Parse(cboServico.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
             objLancamento.Valor = float.Parse(txtValor.Text);               
+        }
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

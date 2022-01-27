@@ -39,8 +39,8 @@ namespace SysBanhoTosa
 
         private void btnLancamentoServicos_Click(object sender, EventArgs e)
         {
-            FormLancamentoServicos objFormLancamentoServicos = new FormLancamentoServicos();
-            objFormLancamentoServicos.Show();
+            FormLancamentosServicos objFormLancamentosServicos = new FormLancamentosServicos();
+            objFormLancamentosServicos.Show();
         }
     }
 }

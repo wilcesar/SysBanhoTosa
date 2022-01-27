@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\LancamentoServicosController.cs" />
     <Compile Include="Controllers\PetController.cs" />
     <Compile Include="Controllers\ServicoController.cs" />
     <Compile Include="FormMenu.cs">
@@ -61,6 +62,7 @@
     <Compile Include="Models\Classes\Pet.cs" />
     <Compile Include="Models\Classes\Servico.cs" />
     <Compile Include="Models\ClienteDAO.cs" />
+    <Compile Include="Models\LancamentoServicosDAO.cs" />
     <Compile Include="Models\PetDAO.cs" />
     <Compile Include="Models\ServicoDAO.cs" />
     <Compile Include="Program.cs" />
@@ -71,11 +73,11 @@
     <Compile Include="Views\FormClientes.Designer.cs">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FormLancamentoServicos.cs">
+    <Compile Include="Views\FormLancamentosServicos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FormLancamentoServicos.Designer.cs">
-      <DependentUpon>FormLancamentoServicos.cs</DependentUpon>
+    <Compile Include="Views\FormLancamentosServicos.Designer.cs">
+      <DependentUpon>FormLancamentosServicos.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FormPets.cs">
       <SubType>Form</SubType>
@@ -104,8 +106,8 @@
     <EmbeddedResource Include="Views\FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FormLancamentoServicos.resx">
-      <DependentUpon>FormLancamentoServicos.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FormLancamentosServicos.resx">
+      <DependentUpon>FormLancamentosServicos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FormPets.resx">
       <DependentUpon>FormPets.cs</DependentUpon>

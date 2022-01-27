@@ -1,7 +1,7 @@
 ﻿
 namespace SysBanhoTosa.Views
 {
-    partial class FormLancamentoServicos
+    partial class FormLancamentosServicos
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,10 @@ namespace SysBanhoTosa.Views
         private void InitializeComponent()
         {
             this.pnlLancamento = new System.Windows.Forms.Panel();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.lblCodigo = new System.Windows.Forms.Label();
+            this.btnRemover = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.dtpAgendamento = new System.Windows.Forms.DateTimePicker();
             this.lblValor = new System.Windows.Forms.Label();
             this.lblServico = new System.Windows.Forms.Label();
@@ -41,14 +45,10 @@ namespace SysBanhoTosa.Views
             this.cboTutor = new System.Windows.Forms.ComboBox();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgvLancamentos = new System.Windows.Forms.DataGridView();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnRemover = new System.Windows.Forms.Button();
             this.clnPet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnServico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.lblCodigo = new System.Windows.Forms.Label();
             this.pnlLancamento.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLancamentos)).BeginInit();
@@ -74,9 +74,46 @@ namespace SysBanhoTosa.Views
             this.pnlLancamento.Size = new System.Drawing.Size(676, 217);
             this.pnlLancamento.TabIndex = 0;
             // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Enabled = false;
+            this.txtCodigo.Location = new System.Drawing.Point(10, 26);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(121, 20);
+            this.txtCodigo.TabIndex = 11;
+            // 
+            // lblCodigo
+            // 
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Location = new System.Drawing.Point(10, 9);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(40, 13);
+            this.lblCodigo.TabIndex = 12;
+            this.lblCodigo.Text = "Código";
+            // 
+            // btnRemover
+            // 
+            this.btnRemover.Location = new System.Drawing.Point(429, 115);
+            this.btnRemover.Name = "btnRemover";
+            this.btnRemover.Size = new System.Drawing.Size(75, 23);
+            this.btnRemover.TabIndex = 10;
+            this.btnRemover.Text = "Remover";
+            this.btnRemover.UseVisualStyleBackColor = true;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(348, 115);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 9;
+            this.btnAdd.Text = "Adicionar";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // dtpAgendamento
             // 
-            this.dtpAgendamento.Location = new System.Drawing.Point(463, 121);
+            this.dtpAgendamento.Location = new System.Drawing.Point(125, 118);
             this.dtpAgendamento.Name = "dtpAgendamento";
             this.dtpAgendamento.Size = new System.Drawing.Size(182, 20);
             this.dtpAgendamento.TabIndex = 8;
@@ -84,7 +121,7 @@ namespace SysBanhoTosa.Views
             // lblValor
             // 
             this.lblValor.AutoSize = true;
-            this.lblValor.Location = new System.Drawing.Point(348, 105);
+            this.lblValor.Location = new System.Drawing.Point(10, 102);
             this.lblValor.Name = "lblValor";
             this.lblValor.Size = new System.Drawing.Size(31, 13);
             this.lblValor.TabIndex = 7;
@@ -119,7 +156,7 @@ namespace SysBanhoTosa.Views
             // 
             // txtValor
             // 
-            this.txtValor.Location = new System.Drawing.Point(348, 121);
+            this.txtValor.Location = new System.Drawing.Point(10, 118);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(95, 20);
             this.txtValor.TabIndex = 3;
@@ -171,25 +208,6 @@ namespace SysBanhoTosa.Views
             this.dgvLancamentos.Size = new System.Drawing.Size(662, 225);
             this.dgvLancamentos.TabIndex = 0;
             // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(69, 121);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 9;
-            this.btnAdd.Text = "Adicionar";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnRemover
-            // 
-            this.btnRemover.Location = new System.Drawing.Point(150, 121);
-            this.btnRemover.Name = "btnRemover";
-            this.btnRemover.Size = new System.Drawing.Size(75, 23);
-            this.btnRemover.TabIndex = 10;
-            this.btnRemover.Text = "Remover";
-            this.btnRemover.UseVisualStyleBackColor = true;
-            // 
             // clnPet
             // 
             this.clnPet.HeaderText = "PET";
@@ -212,31 +230,14 @@ namespace SysBanhoTosa.Views
             this.clnData.HeaderText = "DATA";
             this.clnData.Name = "clnData";
             // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Enabled = false;
-            this.txtCodigo.Location = new System.Drawing.Point(10, 26);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(121, 20);
-            this.txtCodigo.TabIndex = 11;
-            // 
-            // lblCodigo
-            // 
-            this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(10, 9);
-            this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(40, 13);
-            this.lblCodigo.TabIndex = 12;
-            this.lblCodigo.Text = "Código";
-            // 
-            // FormLancamentoServicos
+            // FormLancamentosServicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(768, 450);
             this.Controls.Add(this.pnlGrid);
             this.Controls.Add(this.pnlLancamento);
-            this.Name = "FormLancamentoServicos";
+            this.Name = "FormLancamentosServicos";
             this.Text = "Lancamento de servicos";
             this.pnlLancamento.ResumeLayout(false);
             this.pnlLancamento.PerformLayout();

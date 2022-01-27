@@ -45,6 +45,8 @@ namespace SysBanhoTosa.Views
             this.cboTutor = new System.Windows.Forms.ComboBox();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgvLancamentos = new System.Windows.Forms.DataGridView();
+            this.clnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnPet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnServico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -198,6 +200,8 @@ namespace SysBanhoTosa.Views
             this.dgvLancamentos.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvLancamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLancamentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clnId,
+            this.clnCliente,
             this.clnPet,
             this.clnServico,
             this.clnValor,
@@ -207,6 +211,16 @@ namespace SysBanhoTosa.Views
             this.dgvLancamentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLancamentos.Size = new System.Drawing.Size(662, 225);
             this.dgvLancamentos.TabIndex = 0;
+            // 
+            // clnId
+            // 
+            this.clnId.HeaderText = "CÓDIGO";
+            this.clnId.Name = "clnId";
+            // 
+            // clnCliente
+            // 
+            this.clnCliente.HeaderText = "TUTOR";
+            this.clnCliente.Name = "clnCliente";
             // 
             // clnPet
             // 
@@ -263,11 +277,13 @@ namespace SysBanhoTosa.Views
         private System.Windows.Forms.DateTimePicker dtpAgendamento;
         private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.Label lblCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnPet;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnServico;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnData;
-        private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.Label lblCodigo;
     }
 }

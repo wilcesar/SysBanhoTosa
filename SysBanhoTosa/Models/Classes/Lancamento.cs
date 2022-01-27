@@ -13,6 +13,7 @@ namespace SysBanhoTosa.Models.Classes
         private Pet pet;
         private Servico servico;
         private float valor;
+        private DateTime dataHora;
 
         public int Id { get => id; set => id = value; }
 
@@ -23,6 +24,8 @@ namespace SysBanhoTosa.Models.Classes
         public Servico Servico { get => servico; set => servico = value; }
 
         public float Valor { get => valor; set => valor = value ; }
+
+        public DateTime DataHora { get => dataHora; set => dataHora = value; }
 
     }
 }

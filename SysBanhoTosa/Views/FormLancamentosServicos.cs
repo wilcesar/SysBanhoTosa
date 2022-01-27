@@ -15,19 +15,29 @@ namespace SysBanhoTosa.Views
     public partial class FormLancamentosServicos : Form
     {
         /// <summary>
-        /// Realiza lançamentos de serviços feitos
+        /// Controller de clientes
         /// </summary>
         ClienteController objClienteController = new ClienteController();
         /// <summary>
-        /// Realiza lançamentos de serviços feitos
+        /// Controller de pets
         /// </summary>
         PetController objPetController = new PetController();
+        /// <summary>
+        /// Controller de serviços
+        /// </summary>
         ServicoController objServicoController = new ServicoController();
+        LancamentoServicosController objLancamentoServicosController = new LancamentoServicosController();
         public FormLancamentosServicos()
         {
             InitializeComponent();
         }
-
+        private void LimpaCampos()
+        {
+            txtCodigo.Text = "";
+            cboTutor.SelectedIndex = 0;
+            cboPet.SelectedIndex = 0;
+            cboServico.SelectedIndex = 0;            
+        }
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Lancamento objLancamento = new Lancamento();
@@ -38,12 +48,23 @@ namespace SysBanhoTosa.Views
             objLancamento.Cliente = objClienteController.GetClienteById(int.Parse(cboTutor.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
             objLancamento.Pet = objPetController.GetPetById(int.Parse(cboPet.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
             objLancamento.Servico = objServicoController.GeServicoById(int.Parse(cboServico.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
-            objLancamento.Valor = float.Parse(txtValor.Text);               
+            objLancamento.Valor = float.Parse(txtValor.Text);
+            objLancamento.DataHora = dtpAgendamento.Value;
+            if (objLancamentoServicosController.ValidaLancamento(objLancamento))
+            {
+                dgvLancamentos.Rows.Add(1,
+                    objLancamento.Cliente.Id,
+                    objLancamento.Pet.Id,
+                    objLancamento.Servico.Id,
+                    objLancamento.Valor,
+                    objLancamento.DataHora);
+            }
+
         }
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

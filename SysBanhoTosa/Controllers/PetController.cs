@@ -41,18 +41,18 @@ namespace SysBanhoTosa.Controllers
             {
                 string[] strArrayArquivo = strLinha.Split('|');
 
-                Pet objPets = new Pet();
-                objPets.Id = int.Parse(strArrayArquivo[0]);
-                objPets.Nome = strArrayArquivo[1];
-                objPets.Especie = strArrayArquivo[2];
-                objPets.Raca = strArrayArquivo[3];
+                Pet objPet = new Pet();
+                objPet.Id = int.Parse(strArrayArquivo[0]);
+                objPet.Nome = strArrayArquivo[1];
+                objPet.Especie = strArrayArquivo[2];
+                objPet.Raca = strArrayArquivo[3];
 
                 Cliente objCliente = new Cliente();
                 objCliente.Id = int.Parse(strArrayArquivo[4]);
 
-                objPets.Tutor = objCliente;
+                objPet.Tutor = objCliente;
 
-                lstPets.Add(objPets);
+                lstPets.Add(objPet);
             }
 
             return lstPets;

@@ -11,4 +11,4 @@ E:\Projetos\SysBanhoTosa\SysBanhoTosa\obj\Debug\SysBanhoTosa.Views.FormClientes.
 E:\Projetos\SysBanhoTosa\SysBanhoTosa\obj\Debug\SysBanhoTosa.Views.FormPets.resources
 E:\Projetos\SysBanhoTosa\SysBanhoTosa\obj\Debug\SysBanhoTosa.Views.FormServicos.resources
 E:\Projetos\SysBanhoTosa\SysBanhoTosa\obj\Debug\SysBanhoTosa.FormMenu.resources
-E:\Projetos\SysBanhoTosa\SysBanhoTosa\obj\Debug\SysBanhoTosa.Views.FormLancamentoServicos.resources
+E:\Projetos\SysBanhoTosa\SysBanhoTosa\obj\Debug\SysBanhoTosa.Views.FormLancamentosServicos.resources

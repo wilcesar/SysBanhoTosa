@@ -1,2 +1,2 @@
 # SysBanhoTosa
-Sistema para banho e tosa de pets
+Sistema para gerenciamento de banhos e tosas de pets

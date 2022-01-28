@@ -10,22 +10,22 @@ namespace SysBanhoTosa.Models
     class LancamentoServicosDAO
     {
         /// <summary>
-        /// Utilizado para leitura do arquivo de texto
+        /// Utilizado para leitura do arquivo de texto.
         /// </summary>
         StreamWriter stwArquivo;
 
         /// <summary>
-        /// Caminho do arquivo de texto
+        /// Caminho do arquivo de texto.
         /// </summary>
         string strCaminhoArquivo = Directory.GetCurrentDirectory() + "\\arqLancamentos.txt";
 
         /// <summary>
-        /// Separador dos campos vindos do arquivo de texto
+        /// Separador dos campos vindos do arquivo de texto.
         /// </summary>
         const string SEPARADOR = "|";
 
         /// <summary>
-        /// Verifica se o arquivo texto existe, senão o cria 
+        /// Verifica se o arquivo texto existe, senão o cria. 
         /// </summary>
         private void VerificaArquivoExiste()
         {
@@ -48,9 +48,9 @@ namespace SysBanhoTosa.Models
         }
 
         /// <summary>
-        /// Adiciona uma linha nova ao arquivo texto
+        /// Adiciona uma linha nova ao arquivo texto.
         /// </summary>
-        /// <param name="pLinha">String contendo a linha a ser adicionada</param>
+        /// <param name="pLinha">String contendo a linha a ser adicionada.</param>
         public void AdicionarLinhaLancamento(string pLinha)
         {
             VerificaArquivoExiste();
@@ -59,9 +59,9 @@ namespace SysBanhoTosa.Models
         }
 
         /// <summary>
-        /// Lee o arquivo texto extraindo suas linhas
+        /// Lee o arquivo texto extraindo suas linhas.
         /// </summary>
-        /// <returns>Retorna as linhas do arquivo texto</returns>
+        /// <returns>Retorna as linhas do arquivo texto.</returns>
         public IEnumerable<string> GetLancamentos()
         {
             if (!File.Exists(strCaminhoArquivo))

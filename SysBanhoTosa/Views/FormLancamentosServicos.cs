@@ -121,12 +121,7 @@ namespace SysBanhoTosa.Views
                     objLancamento.Observacao);
             }
 
-        }
-
-        private void btnRemover_Click(object sender, EventArgs e)
-        {
-            
-        }
+        }        
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {

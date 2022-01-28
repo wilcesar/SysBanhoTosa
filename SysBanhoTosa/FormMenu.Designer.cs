@@ -33,12 +33,13 @@ namespace SysBanhoTosa
             this.btnPets = new System.Windows.Forms.Button();
             this.btnServicos = new System.Windows.Forms.Button();
             this.btnLancamentoServicos = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.SuspendLayout();
             // 
             // btnClientes
             // 
             this.btnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClientes.Location = new System.Drawing.Point(12, 12);
+            this.btnClientes.Location = new System.Drawing.Point(13, 60);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(99, 40);
             this.btnClientes.TabIndex = 0;
@@ -49,7 +50,7 @@ namespace SysBanhoTosa
             // btnPets
             // 
             this.btnPets.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPets.Location = new System.Drawing.Point(12, 58);
+            this.btnPets.Location = new System.Drawing.Point(13, 106);
             this.btnPets.Name = "btnPets";
             this.btnPets.Size = new System.Drawing.Size(99, 40);
             this.btnPets.TabIndex = 1;
@@ -60,7 +61,7 @@ namespace SysBanhoTosa
             // btnServicos
             // 
             this.btnServicos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnServicos.Location = new System.Drawing.Point(12, 104);
+            this.btnServicos.Location = new System.Drawing.Point(13, 152);
             this.btnServicos.Name = "btnServicos";
             this.btnServicos.Size = new System.Drawing.Size(99, 40);
             this.btnServicos.TabIndex = 2;
@@ -71,13 +72,21 @@ namespace SysBanhoTosa
             // btnLancamentoServicos
             // 
             this.btnLancamentoServicos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLancamentoServicos.Location = new System.Drawing.Point(153, 12);
+            this.btnLancamentoServicos.Location = new System.Drawing.Point(154, 60);
             this.btnLancamentoServicos.Name = "btnLancamentoServicos";
             this.btnLancamentoServicos.Size = new System.Drawing.Size(135, 57);
             this.btnLancamentoServicos.TabIndex = 3;
             this.btnLancamentoServicos.Text = "Lançamento de Serviço";
             this.btnLancamentoServicos.UseVisualStyleBackColor = true;
             this.btnLancamentoServicos.Click += new System.EventHandler(this.btnLancamentoServicos_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // FormMenu
             // 
@@ -88,9 +97,12 @@ namespace SysBanhoTosa
             this.Controls.Add(this.btnServicos);
             this.Controls.Add(this.btnPets);
             this.Controls.Add(this.btnClientes);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMenu";
             this.Text = "Sistema de banho e tosa";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -100,6 +112,7 @@ namespace SysBanhoTosa
         private System.Windows.Forms.Button btnPets;
         private System.Windows.Forms.Button btnServicos;
         private System.Windows.Forms.Button btnLancamentoServicos;
+        private System.Windows.Forms.MenuStrip menuStrip1;
     }
 }
 

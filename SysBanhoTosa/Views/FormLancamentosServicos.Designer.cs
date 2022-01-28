@@ -32,8 +32,6 @@ namespace SysBanhoTosa.Views
             this.pnlLancamento = new System.Windows.Forms.Panel();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
-            this.btnRemover = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.dtpAgendamento = new System.Windows.Forms.DateTimePicker();
             this.lblValor = new System.Windows.Forms.Label();
             this.lblServico = new System.Windows.Forms.Label();
@@ -51,17 +49,26 @@ namespace SysBanhoTosa.Views
             this.clnServico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnlBotoes = new System.Windows.Forms.Panel();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnConfirmar = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.cboStatus = new System.Windows.Forms.ComboBox();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.lblData = new System.Windows.Forms.Label();
             this.pnlLancamento.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLancamentos)).BeginInit();
+            this.pnlBotoes.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlLancamento
             // 
+            this.pnlLancamento.Controls.Add(this.lblData);
+            this.pnlLancamento.Controls.Add(this.lblStatus);
+            this.pnlLancamento.Controls.Add(this.cboStatus);
             this.pnlLancamento.Controls.Add(this.txtCodigo);
             this.pnlLancamento.Controls.Add(this.lblCodigo);
-            this.pnlLancamento.Controls.Add(this.btnRemover);
-            this.pnlLancamento.Controls.Add(this.btnAdd);
             this.pnlLancamento.Controls.Add(this.dtpAgendamento);
             this.pnlLancamento.Controls.Add(this.lblValor);
             this.pnlLancamento.Controls.Add(this.lblServico);
@@ -73,7 +80,7 @@ namespace SysBanhoTosa.Views
             this.pnlLancamento.Controls.Add(this.cboTutor);
             this.pnlLancamento.Location = new System.Drawing.Point(2, 0);
             this.pnlLancamento.Name = "pnlLancamento";
-            this.pnlLancamento.Size = new System.Drawing.Size(676, 217);
+            this.pnlLancamento.Size = new System.Drawing.Size(676, 159);
             this.pnlLancamento.TabIndex = 0;
             // 
             // txtCodigo
@@ -93,32 +100,12 @@ namespace SysBanhoTosa.Views
             this.lblCodigo.TabIndex = 12;
             this.lblCodigo.Text = "Código";
             // 
-            // btnRemover
-            // 
-            this.btnRemover.Location = new System.Drawing.Point(429, 115);
-            this.btnRemover.Name = "btnRemover";
-            this.btnRemover.Size = new System.Drawing.Size(75, 23);
-            this.btnRemover.TabIndex = 10;
-            this.btnRemover.Text = "Remover";
-            this.btnRemover.UseVisualStyleBackColor = true;
-            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(348, 115);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 9;
-            this.btnAdd.Text = "Adicionar";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // dtpAgendamento
             // 
             this.dtpAgendamento.Location = new System.Drawing.Point(125, 118);
             this.dtpAgendamento.Name = "dtpAgendamento";
             this.dtpAgendamento.Size = new System.Drawing.Size(182, 20);
-            this.dtpAgendamento.TabIndex = 8;
+            this.dtpAgendamento.TabIndex = 4;
             // 
             // lblValor
             // 
@@ -169,7 +156,7 @@ namespace SysBanhoTosa.Views
             this.cboServico.Location = new System.Drawing.Point(10, 72);
             this.cboServico.Name = "cboServico";
             this.cboServico.Size = new System.Drawing.Size(297, 21);
-            this.cboServico.TabIndex = 2;
+            this.cboServico.TabIndex = 1;
             // 
             // cboPet
             // 
@@ -177,7 +164,7 @@ namespace SysBanhoTosa.Views
             this.cboPet.Location = new System.Drawing.Point(348, 72);
             this.cboPet.Name = "cboPet";
             this.cboPet.Size = new System.Drawing.Size(297, 21);
-            this.cboPet.TabIndex = 1;
+            this.cboPet.TabIndex = 2;
             // 
             // cboTutor
             // 
@@ -190,9 +177,9 @@ namespace SysBanhoTosa.Views
             // pnlGrid
             // 
             this.pnlGrid.Controls.Add(this.dgvLancamentos);
-            this.pnlGrid.Location = new System.Drawing.Point(2, 220);
+            this.pnlGrid.Location = new System.Drawing.Point(2, 165);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(676, 228);
+            this.pnlGrid.Size = new System.Drawing.Size(758, 283);
             this.pnlGrid.TabIndex = 1;
             // 
             // dgvLancamentos
@@ -209,7 +196,7 @@ namespace SysBanhoTosa.Views
             this.dgvLancamentos.Location = new System.Drawing.Point(0, 3);
             this.dgvLancamentos.Name = "dgvLancamentos";
             this.dgvLancamentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLancamentos.Size = new System.Drawing.Size(662, 225);
+            this.dgvLancamentos.Size = new System.Drawing.Size(754, 225);
             this.dgvLancamentos.TabIndex = 0;
             // 
             // clnId
@@ -244,11 +231,81 @@ namespace SysBanhoTosa.Views
             this.clnData.HeaderText = "DATA";
             this.clnData.Name = "clnData";
             // 
+            // pnlBotoes
+            // 
+            this.pnlBotoes.Controls.Add(this.btnImprimir);
+            this.pnlBotoes.Controls.Add(this.btnCancelar);
+            this.pnlBotoes.Controls.Add(this.btnConfirmar);
+            this.pnlBotoes.Location = new System.Drawing.Point(684, 0);
+            this.pnlBotoes.Name = "pnlBotoes";
+            this.pnlBotoes.Size = new System.Drawing.Size(77, 159);
+            this.pnlBotoes.TabIndex = 7;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(1, 47);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 37);
+            this.btnCancelar.TabIndex = 2;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // btnConfirmar
+            // 
+            this.btnConfirmar.Location = new System.Drawing.Point(1, 4);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(75, 37);
+            this.btnConfirmar.TabIndex = 0;
+            this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(1, 90);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(75, 37);
+            this.btnImprimir.TabIndex = 3;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            // 
+            // cboStatus
+            // 
+            this.cboStatus.FormattingEnabled = true;
+            this.cboStatus.Items.AddRange(new object[] {
+            "1-ABERTO",
+            "2-EM PROCESSO",
+            "3-FINALIZADO",
+            "4-CANCELADO"});
+            this.cboStatus.Location = new System.Drawing.Point(348, 118);
+            this.cboStatus.Name = "cboStatus";
+            this.cboStatus.Size = new System.Drawing.Size(297, 21);
+            this.cboStatus.TabIndex = 5;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(348, 102);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(37, 13);
+            this.lblStatus.TabIndex = 14;
+            this.lblStatus.Text = "Status";
+            // 
+            // lblData
+            // 
+            this.lblData.AutoSize = true;
+            this.lblData.Location = new System.Drawing.Point(122, 102);
+            this.lblData.Name = "lblData";
+            this.lblData.Size = new System.Drawing.Size(30, 13);
+            this.lblData.TabIndex = 15;
+            this.lblData.Text = "Data";
+            // 
             // FormLancamentosServicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(768, 450);
+            this.Controls.Add(this.pnlBotoes);
             this.Controls.Add(this.pnlGrid);
             this.Controls.Add(this.pnlLancamento);
             this.Name = "FormLancamentosServicos";
@@ -257,6 +314,7 @@ namespace SysBanhoTosa.Views
             this.pnlLancamento.PerformLayout();
             this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLancamentos)).EndInit();
+            this.pnlBotoes.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -275,8 +333,6 @@ namespace SysBanhoTosa.Views
         private System.Windows.Forms.Label lblPet;
         private System.Windows.Forms.DataGridView dgvLancamentos;
         private System.Windows.Forms.DateTimePicker dtpAgendamento;
-        private System.Windows.Forms.Button btnRemover;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnId;
@@ -285,5 +341,12 @@ namespace SysBanhoTosa.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn clnServico;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnData;
+        private System.Windows.Forms.Panel pnlBotoes;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnConfirmar;
+        private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Label lblData;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.ComboBox cboStatus;
     }
 }

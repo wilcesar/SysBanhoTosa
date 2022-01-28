@@ -10,6 +10,9 @@ namespace SysBanhoTosa.Controllers
 {
     class PetController
     {
+        /// <summary>
+        /// Separador dos campos vindos do arquivo de texto.
+        /// </summary>
         const string SEPARADOR = "|";
         PetDAO objPetDAO = new PetDAO();
         ClienteController objClienteController = new ClienteController();
@@ -31,7 +34,8 @@ namespace SysBanhoTosa.Controllers
                 pPet.Nome + SEPARADOR +
                 pPet.Especie + SEPARADOR +
                 pPet.Raca+SEPARADOR+
-                pPet.Tutor.Id;
+                pPet.Tutor.Id+SEPARADOR+
+                pPet.Situacao+SEPARADOR;
         }
         public List<Pet> GetPets()
         {
@@ -46,6 +50,7 @@ namespace SysBanhoTosa.Controllers
                 objPet.Nome = strArrayArquivo[1];
                 objPet.Especie = strArrayArquivo[2];
                 objPet.Raca = strArrayArquivo[3];
+                objPet.Situacao = strArrayArquivo[5];
 
                 Cliente objCliente = new Cliente();
                 objCliente.Id = int.Parse(strArrayArquivo[4]);
@@ -82,7 +87,8 @@ namespace SysBanhoTosa.Controllers
                 objPet.Nome + SEPARADOR +
                 objPet.Especie + SEPARADOR +
                 objPet.Raca + SEPARADOR +
-                objPet.Tutor.Id+SEPARADOR;
+                objPet.Tutor.Id+SEPARADOR+
+                objPet.Situacao + SEPARADOR;
 
                 objPetDAO.AdicionarLinhaPet(strPet);
 
@@ -102,7 +108,8 @@ namespace SysBanhoTosa.Controllers
                     objPet.Nome = strArrayArquivo[1];
                     objPet.Especie = strArrayArquivo[2];
                     objPet.Raca = strArrayArquivo[3];
-                    objPet.Tutor = objClienteController.GetClienteById(int.Parse(strArrayArquivo[3]));                    
+                    objPet.Tutor = objClienteController.GetClienteById(int.Parse(strArrayArquivo[4]));                    
+                    objPet.Situacao = strArrayArquivo[5];
                     break;
                 }
             }

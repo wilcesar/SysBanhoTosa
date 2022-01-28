@@ -30,24 +30,57 @@ namespace SysBanhoTosa.Controllers
         /// </summary>
         PetController objPetController = new PetController();
 
-        LancamentoServicosDAO objLancamentoServicosDAO = new LancamentoServicosDAO();
-
         /// <summary>
-        /// Realiza o lançamento do serviço prestado.
+        /// Faz a comunicação com o arquivo de texto.
         /// </summary>
-        /// <param name="pLancamento">Lançamento passado para ser salvo</param>
-        public void SalvarLancamento(Lancamento pLancamento)
+        LancamentoServicosDAO objLancamentoServicosDAO = new LancamentoServicosDAO();
+       
+        /// <summary>
+        /// Realiza o lançamento ou atualização do serviço prestado.
+        /// </summary>
+        /// <param name="pLancamento">Lançamento passado para ser salvo.</param>
+        /// <param name="pListLancamentos">Lista de lançamentos vinda da grid.</param>
+        public void AtualizarLancamento(Lancamento pLancamento,List<Lancamento> pListLancamentos)
         {
-                
+            if (pLancamento.Id == 0)
+            {
+                pListLancamentos.Add(pLancamento);
+            }
+            else
+            {
+                for (int intI = 0; intI <= pListLancamentos.Count; intI++)
+                {
+                    if (pListLancamentos[intI].Id == pLancamento.Id)
+                    {
+                        pListLancamentos[intI] = pLancamento;
+                        break;
+                    }
+                }
+            }
+            int intContador = 1;
+            objLancamentoServicosDAO.LimparArquivoLancamentos();
+            foreach (Lancamento objLancamento in pListLancamentos)
+            {
+                string strLancamento = intContador.ToString() + SEPARADOR +
+                objLancamento.Cliente.Id + SEPARADOR +
+                objLancamento.Pet.Id + SEPARADOR +
+                objLancamento.Servico.Id + SEPARADOR +
+                objLancamento.Valor + SEPARADOR+
+                objLancamento.DataHora;
+
+                objLancamentoServicosDAO.AdicionarLinhaLancamento(strLancamento);
+
+                intContador++;
+            }
         }
         /// <summary>
         /// Valida se os campos foram preenchidos corretamente.
         /// </summary>
-        /// <param name="pLancamento">Lançamento a ser validado</param>
-        /// <returns>true caso os campos foram preenchidos corretamente</returns>
-        public Boolean ValidaLancamento(Lancamento pLancamento)
+        /// <param name="pLancamento">Lançamento a ser validado.</param>
+        /// <returns>true caso os campos foram preenchidos corretamente.</returns>
+        public bool ValidaLancamento(Lancamento pLancamento)
         {
-            if ((pLancamento.Cliente != null) || (pLancamento.Pet != null) || (pLancamento.Servico != null))
+            if ((pLancamento.Cliente == null) || (pLancamento.Pet == null) || (pLancamento.Servico == null))
             {
                 return false;
             }

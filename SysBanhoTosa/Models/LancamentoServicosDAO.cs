@@ -17,7 +17,7 @@ namespace SysBanhoTosa.Models
         /// <summary>
         /// Caminho do arquivo de texto
         /// </summary>
-        const string CAMINHO_ARQUIVO = "E:\\Projetos\\SysBanhoTosa\\SysBanhoTosa\\Tables\\arqLancamentos.txt";
+        string strCaminhoArquivo = Directory.GetCurrentDirectory() + "\\arqLancamentos.txt";
 
         /// <summary>
         /// Separador dos campos vindos do arquivo de texto
@@ -29,13 +29,13 @@ namespace SysBanhoTosa.Models
         /// </summary>
         private void VerificaArquivoExiste()
         {
-            if (File.Exists(CAMINHO_ARQUIVO)) 
+            if (File.Exists(strCaminhoArquivo)) 
             { 
-                stwArquivo = File.AppendText(CAMINHO_ARQUIVO);
+                stwArquivo = File.AppendText(strCaminhoArquivo);
             }
             else
             {
-                stwArquivo = File.CreateText(CAMINHO_ARQUIVO);
+                stwArquivo = File.CreateText(strCaminhoArquivo);
             }                
         }
 
@@ -44,7 +44,7 @@ namespace SysBanhoTosa.Models
         /// </summary>
         public void LimparArquivoLancamentos()
         {
-            File.Delete(CAMINHO_ARQUIVO);
+            File.Delete(strCaminhoArquivo);
         }
 
         /// <summary>
@@ -64,14 +64,11 @@ namespace SysBanhoTosa.Models
         /// <returns>Retorna as linhas do arquivo texto</returns>
         public IEnumerable<string> GetLancamentos()
         {
-            if (File.Exists(CAMINHO_ARQUIVO))
+            if (!File.Exists(strCaminhoArquivo))
             {
-                return File.ReadLines(CAMINHO_ARQUIVO);
-            }
-            else
-            {
-                return null;
-            }
+                File.CreateText(strCaminhoArquivo);
+            };
+            return File.ReadLines(strCaminhoArquivo);
         }
 
     }

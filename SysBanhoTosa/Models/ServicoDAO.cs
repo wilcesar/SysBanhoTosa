@@ -10,19 +10,19 @@ namespace SysBanhoTosa.Models
     class ServicoDAO
     {
         StreamWriter stwArquivo;
-        const string CAMINHO_ARQUIVO = "E:\\Projetos\\SysBanhoTosa\\SysBanhoTosa\\Tables\\arqServicos.txt";
+        string strCaminhoArquivo = Directory.GetCurrentDirectory() + "\\arqServicos.txt";
         const string SEPARADOR = "|";
         private void VerificaArquivoExiste()
         {
-            if (File.Exists(CAMINHO_ARQUIVO))
-                stwArquivo = File.AppendText(CAMINHO_ARQUIVO);
+            if (File.Exists(strCaminhoArquivo))
+                stwArquivo = File.AppendText(strCaminhoArquivo);
 
             else
-                stwArquivo = File.CreateText(CAMINHO_ARQUIVO);
+                stwArquivo = File.CreateText(strCaminhoArquivo);
         }
         public void LimparArquivoServicos()
         {
-            File.Delete(CAMINHO_ARQUIVO);
+            File.Delete(strCaminhoArquivo);
         }
         public void AdicionarLinhaServico(string plinha)
         {
@@ -32,14 +32,11 @@ namespace SysBanhoTosa.Models
         }
         public IEnumerable<string> GetServicos()
         {
-            if (File.Exists(CAMINHO_ARQUIVO))
+            if (!File.Exists(strCaminhoArquivo))
             {
-                return File.ReadLines(CAMINHO_ARQUIVO);
-            }
-            else
-            {
-                return null;
-            }
+                File.CreateText(strCaminhoArquivo);
+            };
+            return File.ReadLines(strCaminhoArquivo);
         }
     }
 }

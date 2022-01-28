@@ -40,17 +40,6 @@ namespace SysBanhoTosa.Views
             this.txtNome = new System.Windows.Forms.TextBox();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.clnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnLogradouro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnBairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnComplemento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnCep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnCidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnUf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlEndereco = new System.Windows.Forms.Panel();
             this.txtCEP = new System.Windows.Forms.MaskedTextBox();
             this.lblCep = new System.Windows.Forms.Label();
@@ -68,8 +57,21 @@ namespace SysBanhoTosa.Views
             this.txtLogradouro = new System.Windows.Forms.TextBox();
             this.pnlBotoes = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnExluir = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
+            this.lblSituacao = new System.Windows.Forms.Label();
+            this.cboSituacao = new System.Windows.Forms.ComboBox();
+            this.clnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnLogradouro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnBairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnComplemento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnCep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnCidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlCampos.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
@@ -79,6 +81,8 @@ namespace SysBanhoTosa.Views
             // 
             // pnlCampos
             // 
+            this.pnlCampos.Controls.Add(this.cboSituacao);
+            this.pnlCampos.Controls.Add(this.lblSituacao);
             this.pnlCampos.Controls.Add(this.txtCodigo);
             this.pnlCampos.Controls.Add(this.lblCodigo);
             this.pnlCampos.Controls.Add(this.lblEmail);
@@ -89,7 +93,7 @@ namespace SysBanhoTosa.Views
             this.pnlCampos.Controls.Add(this.txtNome);
             this.pnlCampos.Location = new System.Drawing.Point(3, 1);
             this.pnlCampos.Name = "pnlCampos";
-            this.pnlCampos.Size = new System.Drawing.Size(444, 274);
+            this.pnlCampos.Size = new System.Drawing.Size(444, 292);
             this.pnlCampos.TabIndex = 0;
             // 
             // txtCodigo
@@ -163,9 +167,9 @@ namespace SysBanhoTosa.Views
             // pnlGrid
             // 
             this.pnlGrid.Controls.Add(this.dgvClientes);
-            this.pnlGrid.Location = new System.Drawing.Point(3, 278);
+            this.pnlGrid.Location = new System.Drawing.Point(3, 303);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(521, 202);
+            this.pnlGrid.Size = new System.Drawing.Size(521, 177);
             this.pnlGrid.TabIndex = 2;
             // 
             // dgvClientes
@@ -183,75 +187,15 @@ namespace SysBanhoTosa.Views
             this.clnComplemento,
             this.clnCep,
             this.clnCidade,
-            this.clnUf});
+            this.clnUf,
+            this.clnSituacao});
             this.dgvClientes.Location = new System.Drawing.Point(0, 3);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientes.Size = new System.Drawing.Size(518, 196);
             this.dgvClientes.TabIndex = 0;
+            this.dgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentClick);
             this.dgvClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellDoubleClick);
-            // 
-            // clnId
-            // 
-            this.clnId.HeaderText = "ID";
-            this.clnId.Name = "clnId";
-            this.clnId.Width = 40;
-            // 
-            // clnNome
-            // 
-            this.clnNome.HeaderText = "NOME";
-            this.clnNome.Name = "clnNome";
-            // 
-            // clnEmail
-            // 
-            this.clnEmail.HeaderText = "E-MAIL";
-            this.clnEmail.Name = "clnEmail";
-            // 
-            // clnTelefone
-            // 
-            this.clnTelefone.HeaderText = "FONE";
-            this.clnTelefone.Name = "clnTelefone";
-            // 
-            // clnLogradouro
-            // 
-            this.clnLogradouro.HeaderText = "LOGRADOURO";
-            this.clnLogradouro.Name = "clnLogradouro";
-            this.clnLogradouro.Visible = false;
-            // 
-            // clnNumero
-            // 
-            this.clnNumero.HeaderText = "NRO";
-            this.clnNumero.Name = "clnNumero";
-            this.clnNumero.Visible = false;
-            // 
-            // clnBairro
-            // 
-            this.clnBairro.HeaderText = "BAIRRO";
-            this.clnBairro.Name = "clnBairro";
-            this.clnBairro.Visible = false;
-            // 
-            // clnComplemento
-            // 
-            this.clnComplemento.HeaderText = "COMPLEMENTO";
-            this.clnComplemento.Name = "clnComplemento";
-            this.clnComplemento.Visible = false;
-            // 
-            // clnCep
-            // 
-            this.clnCep.HeaderText = "CEP";
-            this.clnCep.Name = "clnCep";
-            this.clnCep.Visible = false;
-            // 
-            // clnCidade
-            // 
-            this.clnCidade.HeaderText = "CIDADE";
-            this.clnCidade.Name = "clnCidade";
-            // 
-            // clnUf
-            // 
-            this.clnUf.HeaderText = "UF";
-            this.clnUf.Name = "clnUf";
-            this.clnUf.Width = 30;
             // 
             // pnlEndereco
             // 
@@ -269,7 +213,7 @@ namespace SysBanhoTosa.Views
             this.pnlEndereco.Controls.Add(this.txtNumero);
             this.pnlEndereco.Controls.Add(this.lblLogradouro);
             this.pnlEndereco.Controls.Add(this.txtLogradouro);
-            this.pnlEndereco.Location = new System.Drawing.Point(3, 96);
+            this.pnlEndereco.Location = new System.Drawing.Point(3, 127);
             this.pnlEndereco.Name = "pnlEndereco";
             this.pnlEndereco.Size = new System.Drawing.Size(444, 176);
             this.pnlEndereco.TabIndex = 1;
@@ -419,32 +363,21 @@ namespace SysBanhoTosa.Views
             // pnlBotoes
             // 
             this.pnlBotoes.Controls.Add(this.btnCancelar);
-            this.pnlBotoes.Controls.Add(this.btnExluir);
             this.pnlBotoes.Controls.Add(this.btnConfirmar);
             this.pnlBotoes.Location = new System.Drawing.Point(448, 1);
             this.pnlBotoes.Name = "pnlBotoes";
-            this.pnlBotoes.Size = new System.Drawing.Size(77, 274);
-            this.pnlBotoes.TabIndex = 6;
+            this.pnlBotoes.Size = new System.Drawing.Size(77, 292);
+            this.pnlBotoes.TabIndex = 2;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(1, 90);
+            this.btnCancelar.Location = new System.Drawing.Point(1, 47);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 37);
             this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnExluir
-            // 
-            this.btnExluir.Location = new System.Drawing.Point(1, 47);
-            this.btnExluir.Name = "btnExluir";
-            this.btnExluir.Size = new System.Drawing.Size(75, 37);
-            this.btnExluir.TabIndex = 1;
-            this.btnExluir.Text = "Excluir";
-            this.btnExluir.UseVisualStyleBackColor = true;
-            this.btnExluir.Click += new System.EventHandler(this.btnExluir_Click);
             // 
             // btnConfirmar
             // 
@@ -455,6 +388,94 @@ namespace SysBanhoTosa.Views
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            // 
+            // lblSituacao
+            // 
+            this.lblSituacao.AutoSize = true;
+            this.lblSituacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSituacao.Location = new System.Drawing.Point(9, 84);
+            this.lblSituacao.Name = "lblSituacao";
+            this.lblSituacao.Size = new System.Drawing.Size(57, 13);
+            this.lblSituacao.TabIndex = 8;
+            this.lblSituacao.Text = "Situação";
+            // 
+            // cboSituacao
+            // 
+            this.cboSituacao.FormattingEnabled = true;
+            this.cboSituacao.Items.AddRange(new object[] {
+            "ATIVO",
+            "INATIVO"});
+            this.cboSituacao.Location = new System.Drawing.Point(9, 100);
+            this.cboSituacao.Name = "cboSituacao";
+            this.cboSituacao.Size = new System.Drawing.Size(121, 21);
+            this.cboSituacao.TabIndex = 4;
+            // 
+            // clnId
+            // 
+            this.clnId.HeaderText = "ID";
+            this.clnId.Name = "clnId";
+            this.clnId.Width = 40;
+            // 
+            // clnNome
+            // 
+            this.clnNome.HeaderText = "NOME";
+            this.clnNome.Name = "clnNome";
+            // 
+            // clnEmail
+            // 
+            this.clnEmail.HeaderText = "E-MAIL";
+            this.clnEmail.Name = "clnEmail";
+            // 
+            // clnTelefone
+            // 
+            this.clnTelefone.HeaderText = "FONE";
+            this.clnTelefone.Name = "clnTelefone";
+            // 
+            // clnLogradouro
+            // 
+            this.clnLogradouro.HeaderText = "LOGRADOURO";
+            this.clnLogradouro.Name = "clnLogradouro";
+            this.clnLogradouro.Visible = false;
+            // 
+            // clnNumero
+            // 
+            this.clnNumero.HeaderText = "NRO";
+            this.clnNumero.Name = "clnNumero";
+            this.clnNumero.Visible = false;
+            // 
+            // clnBairro
+            // 
+            this.clnBairro.HeaderText = "BAIRRO";
+            this.clnBairro.Name = "clnBairro";
+            this.clnBairro.Visible = false;
+            // 
+            // clnComplemento
+            // 
+            this.clnComplemento.HeaderText = "COMPLEMENTO";
+            this.clnComplemento.Name = "clnComplemento";
+            this.clnComplemento.Visible = false;
+            // 
+            // clnCep
+            // 
+            this.clnCep.HeaderText = "CEP";
+            this.clnCep.Name = "clnCep";
+            this.clnCep.Visible = false;
+            // 
+            // clnCidade
+            // 
+            this.clnCidade.HeaderText = "CIDADE";
+            this.clnCidade.Name = "clnCidade";
+            // 
+            // clnUf
+            // 
+            this.clnUf.HeaderText = "UF";
+            this.clnUf.Name = "clnUf";
+            this.clnUf.Width = 30;
+            // 
+            // clnSituacao
+            // 
+            this.clnSituacao.HeaderText = "SITUACAO";
+            this.clnSituacao.Name = "clnSituacao";
             // 
             // FormClientes
             // 
@@ -500,7 +521,6 @@ namespace SysBanhoTosa.Views
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Panel pnlBotoes;
-        private System.Windows.Forms.Button btnExluir;
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.MaskedTextBox txtCEP;
         private System.Windows.Forms.Label lblCep;
@@ -509,6 +529,9 @@ namespace SysBanhoTosa.Views
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.DataGridView dgvClientes;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label lblSituacao;
+        private System.Windows.Forms.ComboBox cboSituacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnNome;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnEmail;
@@ -520,6 +543,6 @@ namespace SysBanhoTosa.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn clnCep;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnCidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnUf;
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnSituacao;
     }
 }

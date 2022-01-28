@@ -19,6 +19,7 @@ namespace SysBanhoTosa.Views
         {
             InitializeComponent();
             AtualizarGrid();
+            LimpaCampos();
         }
         private void LimpaCampos()
         {
@@ -33,6 +34,7 @@ namespace SysBanhoTosa.Views
             txtCEP.Text = "";
             txtCidade.Text = "";
             cboUf.SelectedIndex = -1;
+            cboSituacao.SelectedIndex = 0;
         }
         private void AtualizarGrid()
         {
@@ -50,7 +52,8 @@ namespace SysBanhoTosa.Views
                     objCliente.Endereco.Complemento,
                     objCliente.Endereco.Cep,
                     objCliente.Endereco.Cidade,
-                    objCliente.Endereco.Uf
+                    objCliente.Endereco.Uf,
+                    objCliente.Situacao
                 );
             }
         }
@@ -65,6 +68,7 @@ namespace SysBanhoTosa.Views
             objCliente.Nome = txtNome.Text;
             objCliente.Email = txtEmail.Text;
             objCliente.Telefone = txtTelefone.Text;
+            objCliente.Situacao = cboSituacao.Text;
 
             Endereco objEndereco = new Endereco();
             objEndereco.Logradouro = txtLogradouro.Text;
@@ -88,6 +92,7 @@ namespace SysBanhoTosa.Views
                     objClienteFor.Nome = dgvClientes.Rows[intI].Cells[1].Value.ToString();
                     objClienteFor.Email = dgvClientes.Rows[intI].Cells[2].Value.ToString();
                     objClienteFor.Telefone = dgvClientes.Rows[intI].Cells[3].Value.ToString();
+                    objClienteFor.Situacao = dgvClientes.Rows[intI].Cells[11].Value.ToString();
 
                     Endereco objEnderecoFor = new Endereco();
                     objEnderecoFor.Logradouro = dgvClientes.Rows[intI].Cells[4].Value.ToString();
@@ -123,39 +128,20 @@ namespace SysBanhoTosa.Views
             txtComplemento.Text = this.dgvClientes.CurrentRow.Cells[7].Value.ToString();
             txtCEP.Text = this.dgvClientes.CurrentRow.Cells[8].Value.ToString();
             txtCidade.Text = this.dgvClientes.CurrentRow.Cells[9].Value.ToString();
-            cboUf.SelectedItem = this.dgvClientes.CurrentRow.Cells[10].Value.ToString();
+            cboUf.SelectedItem = this.dgvClientes.CurrentRow.Cells[10].Value.ToString();            
+            cboSituacao.SelectedItem = this.dgvClientes.CurrentRow.Cells[11].Value.ToString();
             txtNome.Focus();
-        }
-
-        private void btnExluir_Click(object sender, EventArgs e)
-        {
-            if(txtCodigo.Text != "")
-            {
-                Cliente objCliente = new Cliente();                
-                objCliente.Id = int.Parse(txtCodigo.Text);                
-                objCliente.Nome = txtNome.Text;
-                objCliente.Email = txtEmail.Text;
-                objCliente.Telefone = txtTelefone.Text;
-
-                Endereco objEndereco = new Endereco();
-                objEndereco.Logradouro = txtLogradouro.Text;
-                objEndereco.Numero = txtNumero.Text;
-                objEndereco.Bairro = txtBairro.Text;
-                objEndereco.Complemento = txtComplemento.Text;
-                objEndereco.Cep = txtCEP.Text;
-                objEndereco.Cidade = txtCidade.Text;
-                objEndereco.Uf = cboUf.Text;
-
-                objCliente.Endereco = objEndereco;
-                objClientecontroller.ExcluirCliente(objCliente);
-                txtNome.Focus();
-            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             LimpaCampos();
             txtNome.Focus();
+        }
+
+        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

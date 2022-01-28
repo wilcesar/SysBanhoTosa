@@ -56,6 +56,7 @@ namespace SysBanhoTosa.Controllers
                 objCliente.Nome = strArrayArquivo[1];
                 objCliente.Email = strArrayArquivo[2];
                 objCliente.Telefone = strArrayArquivo[3];
+                objCliente.Situacao = strArrayArquivo[11];
 
                 Endereco objEndereco = new Endereco();
                 objEndereco.Logradouro = strArrayArquivo[4];
@@ -137,7 +138,8 @@ namespace SysBanhoTosa.Controllers
                 objCliente.Endereco.Complemento + SEPARADOR +
                 objCliente.Endereco.Cep + SEPARADOR +
                 objCliente.Endereco.Cidade + SEPARADOR +
-                objCliente.Endereco.Uf + SEPARADOR;
+                objCliente.Endereco.Uf + SEPARADOR+
+                objCliente.Situacao + SEPARADOR;
 
                 objClienteDAO.AdicionarLinhaCliente(strCliente);
 

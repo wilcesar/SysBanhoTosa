@@ -30,6 +30,12 @@ namespace SysBanhoTosa.Views
         private void InitializeComponent()
         {
             this.pnlCampos = new System.Windows.Forms.Panel();
+            this.lblValor = new System.Windows.Forms.Label();
+            this.txtValor = new System.Windows.Forms.TextBox();
+            this.cboSituacao = new System.Windows.Forms.ComboBox();
+            this.lblSituacao = new System.Windows.Forms.Label();
+            this.lblDescricao = new System.Windows.Forms.Label();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
@@ -39,11 +45,11 @@ namespace SysBanhoTosa.Views
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgvServicos = new System.Windows.Forms.DataGridView();
-            this.txtDescricao = new System.Windows.Forms.TextBox();
-            this.lblDescricao = new System.Windows.Forms.Label();
             this.clnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlCampos.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.pnlGrid.SuspendLayout();
@@ -52,6 +58,10 @@ namespace SysBanhoTosa.Views
             // 
             // pnlCampos
             // 
+            this.pnlCampos.Controls.Add(this.lblValor);
+            this.pnlCampos.Controls.Add(this.txtValor);
+            this.pnlCampos.Controls.Add(this.cboSituacao);
+            this.pnlCampos.Controls.Add(this.lblSituacao);
             this.pnlCampos.Controls.Add(this.lblDescricao);
             this.pnlCampos.Controls.Add(this.txtDescricao);
             this.pnlCampos.Controls.Add(this.txtCodigo);
@@ -62,6 +72,59 @@ namespace SysBanhoTosa.Views
             this.pnlCampos.Name = "pnlCampos";
             this.pnlCampos.Size = new System.Drawing.Size(447, 167);
             this.pnlCampos.TabIndex = 1;
+            // 
+            // lblValor
+            // 
+            this.lblValor.AutoSize = true;
+            this.lblValor.Location = new System.Drawing.Point(23, 86);
+            this.lblValor.Name = "lblValor";
+            this.lblValor.Size = new System.Drawing.Size(31, 13);
+            this.lblValor.TabIndex = 24;
+            this.lblValor.Text = "Valor";
+            // 
+            // txtValor
+            // 
+            this.txtValor.Location = new System.Drawing.Point(23, 102);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(95, 20);
+            this.txtValor.TabIndex = 23;
+            // 
+            // cboSituacao
+            // 
+            this.cboSituacao.FormattingEnabled = true;
+            this.cboSituacao.Items.AddRange(new object[] {
+            "ATIVO",
+            "INATIVO"});
+            this.cboSituacao.Location = new System.Drawing.Point(296, 102);
+            this.cboSituacao.Name = "cboSituacao";
+            this.cboSituacao.Size = new System.Drawing.Size(121, 21);
+            this.cboSituacao.TabIndex = 21;
+            // 
+            // lblSituacao
+            // 
+            this.lblSituacao.AutoSize = true;
+            this.lblSituacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSituacao.Location = new System.Drawing.Point(296, 86);
+            this.lblSituacao.Name = "lblSituacao";
+            this.lblSituacao.Size = new System.Drawing.Size(57, 13);
+            this.lblSituacao.TabIndex = 22;
+            this.lblSituacao.Text = "Situação";
+            // 
+            // lblDescricao
+            // 
+            this.lblDescricao.AutoSize = true;
+            this.lblDescricao.Location = new System.Drawing.Point(23, 46);
+            this.lblDescricao.Name = "lblDescricao";
+            this.lblDescricao.Size = new System.Drawing.Size(105, 13);
+            this.lblDescricao.TabIndex = 13;
+            this.lblDescricao.Text = "Descrição detalhada";
+            // 
+            // txtDescricao
+            // 
+            this.txtDescricao.Location = new System.Drawing.Point(23, 63);
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Size = new System.Drawing.Size(395, 20);
+            this.txtDescricao.TabIndex = 12;
             // 
             // txtCodigo
             // 
@@ -141,29 +204,15 @@ namespace SysBanhoTosa.Views
             this.dgvServicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clnId,
             this.clnNome,
-            this.clnDescricao});
+            this.clnDescricao,
+            this.clnValor,
+            this.clnSituacao});
             this.dgvServicos.Location = new System.Drawing.Point(3, 3);
             this.dgvServicos.Name = "dgvServicos";
             this.dgvServicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvServicos.Size = new System.Drawing.Size(516, 316);
             this.dgvServicos.TabIndex = 0;
             this.dgvServicos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServicos_CellDoubleClick);
-            // 
-            // txtDescricao
-            // 
-            this.txtDescricao.Location = new System.Drawing.Point(23, 63);
-            this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(395, 20);
-            this.txtDescricao.TabIndex = 12;
-            // 
-            // lblDescricao
-            // 
-            this.lblDescricao.AutoSize = true;
-            this.lblDescricao.Location = new System.Drawing.Point(23, 46);
-            this.lblDescricao.Name = "lblDescricao";
-            this.lblDescricao.Size = new System.Drawing.Size(105, 13);
-            this.lblDescricao.TabIndex = 13;
-            this.lblDescricao.Text = "Descrição detalhada";
             // 
             // clnId
             // 
@@ -181,7 +230,18 @@ namespace SysBanhoTosa.Views
             // 
             this.clnDescricao.HeaderText = "DESCRIÇÃO";
             this.clnDescricao.Name = "clnDescricao";
+            this.clnDescricao.Visible = false;
             this.clnDescricao.Width = 300;
+            // 
+            // clnValor
+            // 
+            this.clnValor.HeaderText = "VALOR";
+            this.clnValor.Name = "clnValor";
+            // 
+            // clnSituacao
+            // 
+            this.clnSituacao.HeaderText = "SITUAÇÃO";
+            this.clnSituacao.Name = "clnSituacao";
             // 
             // FormServicos
             // 
@@ -217,8 +277,14 @@ namespace SysBanhoTosa.Views
         private System.Windows.Forms.DataGridView dgvServicos;
         private System.Windows.Forms.Label lblDescricao;
         private System.Windows.Forms.TextBox txtDescricao;
+        private System.Windows.Forms.ComboBox cboSituacao;
+        private System.Windows.Forms.Label lblSituacao;
+        private System.Windows.Forms.Label lblValor;
+        private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnNome;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDescricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnValor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnSituacao;
     }
 }

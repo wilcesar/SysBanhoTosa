@@ -30,8 +30,9 @@ namespace SysBanhoTosa.Views
         private void InitializeComponent()
         {
             this.pnlCampos = new System.Windows.Forms.Panel();
+            this.cboSituacao = new System.Windows.Forms.ComboBox();
+            this.lblSituacao = new System.Windows.Forms.Label();
             this.cboTutor = new System.Windows.Forms.ComboBox();
-            this.txtTutor = new System.Windows.Forms.TextBox();
             this.lblTutor = new System.Windows.Forms.Label();
             this.lblRaca = new System.Windows.Forms.Label();
             this.lblEspecie = new System.Windows.Forms.Label();
@@ -48,10 +49,10 @@ namespace SysBanhoTosa.Views
             this.dgvPets = new System.Windows.Forms.DataGridView();
             this.clnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnIdDono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnNomeDono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnTutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnEspecie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnRaca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlCampos.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.pnlGrid.SuspendLayout();
@@ -60,8 +61,9 @@ namespace SysBanhoTosa.Views
             // 
             // pnlCampos
             // 
+            this.pnlCampos.Controls.Add(this.cboSituacao);
+            this.pnlCampos.Controls.Add(this.lblSituacao);
             this.pnlCampos.Controls.Add(this.cboTutor);
-            this.pnlCampos.Controls.Add(this.txtTutor);
             this.pnlCampos.Controls.Add(this.lblTutor);
             this.pnlCampos.Controls.Add(this.lblRaca);
             this.pnlCampos.Controls.Add(this.lblEspecie);
@@ -76,25 +78,39 @@ namespace SysBanhoTosa.Views
             this.pnlCampos.Size = new System.Drawing.Size(447, 167);
             this.pnlCampos.TabIndex = 0;
             // 
+            // cboSituacao
+            // 
+            this.cboSituacao.FormattingEnabled = true;
+            this.cboSituacao.Items.AddRange(new object[] {
+            "ATIVO",
+            "INATIVO"});
+            this.cboSituacao.Location = new System.Drawing.Point(297, 103);
+            this.cboSituacao.Name = "cboSituacao";
+            this.cboSituacao.Size = new System.Drawing.Size(121, 21);
+            this.cboSituacao.TabIndex = 5;
+            // 
+            // lblSituacao
+            // 
+            this.lblSituacao.AutoSize = true;
+            this.lblSituacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSituacao.Location = new System.Drawing.Point(297, 87);
+            this.lblSituacao.Name = "lblSituacao";
+            this.lblSituacao.Size = new System.Drawing.Size(57, 13);
+            this.lblSituacao.TabIndex = 20;
+            this.lblSituacao.Text = "Situação";
+            // 
             // cboTutor
             // 
             this.cboTutor.FormattingEnabled = true;
-            this.cboTutor.Location = new System.Drawing.Point(176, 106);
+            this.cboTutor.Location = new System.Drawing.Point(23, 103);
             this.cboTutor.Name = "cboTutor";
             this.cboTutor.Size = new System.Drawing.Size(242, 21);
-            this.cboTutor.TabIndex = 18;
-            // 
-            // txtTutor
-            // 
-            this.txtTutor.Location = new System.Drawing.Point(23, 106);
-            this.txtTutor.Name = "txtTutor";
-            this.txtTutor.Size = new System.Drawing.Size(121, 20);
-            this.txtTutor.TabIndex = 16;
+            this.cboTutor.TabIndex = 4;
             // 
             // lblTutor
             // 
             this.lblTutor.AutoSize = true;
-            this.lblTutor.Location = new System.Drawing.Point(23, 89);
+            this.lblTutor.Location = new System.Drawing.Point(23, 87);
             this.lblTutor.Name = "lblTutor";
             this.lblTutor.Size = new System.Drawing.Size(32, 13);
             this.lblTutor.TabIndex = 17;
@@ -161,7 +177,7 @@ namespace SysBanhoTosa.Views
             this.cboRaca.Location = new System.Drawing.Point(176, 62);
             this.cboRaca.Name = "cboRaca";
             this.cboRaca.Size = new System.Drawing.Size(242, 21);
-            this.cboRaca.TabIndex = 13;
+            this.cboRaca.TabIndex = 3;
             // 
             // cboEspecie
             // 
@@ -172,7 +188,7 @@ namespace SysBanhoTosa.Views
             this.cboEspecie.Location = new System.Drawing.Point(23, 62);
             this.cboEspecie.Name = "cboEspecie";
             this.cboEspecie.Size = new System.Drawing.Size(121, 21);
-            this.cboEspecie.TabIndex = 12;
+            this.cboEspecie.TabIndex = 2;
             // 
             // txtCodigo
             // 
@@ -206,7 +222,7 @@ namespace SysBanhoTosa.Views
             this.txtNome.Location = new System.Drawing.Point(176, 20);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(242, 20);
-            this.txtNome.TabIndex = 10;
+            this.txtNome.TabIndex = 1;
             // 
             // pnlBotoes
             // 
@@ -252,15 +268,16 @@ namespace SysBanhoTosa.Views
             this.dgvPets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clnId,
             this.clnNome,
-            this.clnIdDono,
-            this.clnNomeDono,
+            this.clnTutor,
             this.clnEspecie,
-            this.clnRaca});
+            this.clnRaca,
+            this.clnSituacao});
             this.dgvPets.Location = new System.Drawing.Point(3, 3);
             this.dgvPets.Name = "dgvPets";
             this.dgvPets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPets.Size = new System.Drawing.Size(516, 316);
             this.dgvPets.TabIndex = 0;
+            this.dgvPets.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPets_CellContentClick);
             this.dgvPets.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPets_CellDoubleClick);
             // 
             // clnId
@@ -275,17 +292,11 @@ namespace SysBanhoTosa.Views
             this.clnNome.Name = "clnNome";
             this.clnNome.Width = 170;
             // 
-            // clnIdDono
+            // clnTutor
             // 
-            this.clnIdDono.HeaderText = "ID DONO";
-            this.clnIdDono.Name = "clnIdDono";
-            this.clnIdDono.Width = 50;
-            // 
-            // clnNomeDono
-            // 
-            this.clnNomeDono.HeaderText = "NOME DONO";
-            this.clnNomeDono.Name = "clnNomeDono";
-            this.clnNomeDono.Width = 170;
+            this.clnTutor.HeaderText = "TUTOR";
+            this.clnTutor.Name = "clnTutor";
+            this.clnTutor.Width = 250;
             // 
             // clnEspecie
             // 
@@ -298,6 +309,11 @@ namespace SysBanhoTosa.Views
             this.clnRaca.HeaderText = "RAÇA";
             this.clnRaca.Name = "clnRaca";
             this.clnRaca.Visible = false;
+            // 
+            // clnSituacao
+            // 
+            this.clnSituacao.HeaderText = "SITUAÇÃO";
+            this.clnSituacao.Name = "clnSituacao";
             // 
             // FormPets
             // 
@@ -334,14 +350,15 @@ namespace SysBanhoTosa.Views
         private System.Windows.Forms.ComboBox cboEspecie;
         private System.Windows.Forms.Label lblRaca;
         private System.Windows.Forms.Label lblEspecie;
-        private System.Windows.Forms.TextBox txtTutor;
         private System.Windows.Forms.Label lblTutor;
+        private System.Windows.Forms.ComboBox cboTutor;
+        private System.Windows.Forms.ComboBox cboSituacao;
+        private System.Windows.Forms.Label lblSituacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnNome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnIdDono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnNomeDono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnTutor;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnEspecie;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnRaca;
-        private System.Windows.Forms.ComboBox cboTutor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnSituacao;
     }
 }

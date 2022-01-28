@@ -13,6 +13,7 @@ namespace SysBanhoTosa.Models.Classes
         private string telefone;
         private Endereco endereco;
         private string email;
+        private string situacao;
         
         public int Id
         {
@@ -39,5 +40,8 @@ namespace SysBanhoTosa.Models.Classes
             get => email;
             set => email = value;
         }
+        public string Situacao { 
+            get => situacao; 
+            set => situacao = value; }
     }
 }

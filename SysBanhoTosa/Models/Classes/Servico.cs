@@ -11,6 +11,8 @@ namespace SysBanhoTosa.Models.Classes
         private int id;
         private string nome;
         private string descricao;
+        private float valor;
+        private string situacao;
 
         public int Id
         {
@@ -27,6 +29,15 @@ namespace SysBanhoTosa.Models.Classes
         {
             get => descricao;
             set => descricao = value;
+        }
+        public float Valor { 
+            get => valor; 
+            set => valor = value; 
+        }
+        public string Situacao
+        {
+            get => situacao;
+            set => situacao = value;
         }
     }
 }

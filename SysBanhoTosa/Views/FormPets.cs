@@ -30,10 +30,10 @@ namespace SysBanhoTosa.Views
                 dgvPets.Rows.Add(
                     objPet.Id,
                     objPet.Nome,
-                    objPet.Tutor.Id,
-                    objClienteController.GetClienteById(objPet.Tutor.Id).Nome,
+                    objPet.Tutor.Id+"-"+objClienteController.GetClienteById(objPet.Tutor.Id).Nome,
                     objPet.Especie,
-                    objPet.Raca                    
+                    objPet.Raca,
+                    objPet.Situacao
                 );
             }
         }
@@ -41,16 +41,17 @@ namespace SysBanhoTosa.Views
         private void LimpaCampos()
         {
             txtCodigo.Text = "";
-            txtNome.Text = "";
-            txtTutor.Text = "";
+            txtNome.Text = "";            
             cboEspecie.SelectedIndex = 0;
-            cboRaca.SelectedIndex = -1;
+            cboRaca.SelectedIndex = -1;            
+            cboSituacao.SelectedIndex = 0;
 
-            
+            cboTutor.Items.Clear();
             foreach (Cliente objCliente in objClienteController.GetClientes())
             {
                 cboTutor.Items.Add(objCliente.Id + "-" + objCliente.Nome);
             }
+            cboTutor.SelectedIndex = -1;
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
@@ -63,6 +64,7 @@ namespace SysBanhoTosa.Views
             objPet.Nome = txtNome.Text;
             objPet.Especie = cboEspecie.Text;
             objPet.Raca = cboRaca.Text;
+            objPet.Situacao = cboSituacao.Text;
 
             Cliente objCliente = new Cliente();
             objCliente.Id= int.Parse(cboTutor.Text.Substring(0, cboTutor.Text.IndexOf("-")));
@@ -79,14 +81,12 @@ namespace SysBanhoTosa.Views
                     Pet objPetFor = new Pet();
                     objPetFor.Id = int.Parse(dgvPets.Rows[intI].Cells[0].Value.ToString());
                     objPetFor.Nome = dgvPets.Rows[intI].Cells[1].Value.ToString();
-                    objPetFor.Especie = dgvPets.Rows[intI].Cells[4].Value.ToString();
-                    objPetFor.Raca = dgvPets.Rows[intI].Cells[5].Value.ToString();
+                    objPetFor.Especie = dgvPets.Rows[intI].Cells[3].Value.ToString();
+                    objPetFor.Raca = dgvPets.Rows[intI].Cells[4].Value.ToString();
+                    objPetFor.Situacao = dgvPets.Rows[intI].Cells[5].Value.ToString();
 
-                    Cliente objClienteFor = new Cliente();
-                    objClienteFor.Id = int.Parse(dgvPets.Rows[intI].Cells[2].Value.ToString());
-
-                    objPetFor.Tutor = objClienteFor;
-
+                    string strCliente = dgvPets.Rows[intI].Cells[2].Value.ToString();
+                    objPetFor.Tutor = objClienteController.GetClienteById(int.Parse(strCliente.Substring(0, strCliente.IndexOf("-"))));
                     lstPets.Add(objPetFor);
                 }
 
@@ -104,10 +104,16 @@ namespace SysBanhoTosa.Views
         private void dgvPets_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             txtCodigo.Text = this.dgvPets.CurrentRow.Cells[0].Value.ToString();
-            txtNome.Text = this.dgvPets.CurrentRow.Cells[1].Value.ToString();
-            txtTutor.Text = this.dgvPets.CurrentRow.Cells[2].Value.ToString();
-            cboEspecie.Text = this.dgvPets.CurrentRow.Cells[4].Value.ToString();
-            cboRaca.Text = this.dgvPets.CurrentRow.Cells[5].Value.ToString();
+            txtNome.Text = this.dgvPets.CurrentRow.Cells[1].Value.ToString();  
+            cboTutor.Text = this.dgvPets.CurrentRow.Cells[2].Value.ToString();
+            cboEspecie.Text = this.dgvPets.CurrentRow.Cells[3].Value.ToString();
+            cboRaca.Text = this.dgvPets.CurrentRow.Cells[4].Value.ToString();
+            cboSituacao.SelectedItem = this.dgvPets.CurrentRow.Cells[5].Value.ToString();
+
+        }
+
+        private void dgvPets_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

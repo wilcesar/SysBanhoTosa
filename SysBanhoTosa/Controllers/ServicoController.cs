@@ -41,6 +41,8 @@ namespace SysBanhoTosa.Controllers
                 objServico.Id = int.Parse(strArrayArquivo[0]);
                 objServico.Nome = strArrayArquivo[1];
                 objServico.Descricao = strArrayArquivo[2];
+                objServico.Valor = float.Parse(strArrayArquivo[3]);
+                objServico.Situacao = strArrayArquivo[4];
 
                 lstServicos.Add(objServico);                
             }
@@ -69,7 +71,9 @@ namespace SysBanhoTosa.Controllers
             {
                 string strServico = intContador.ToString() + SEPARADOR +
                 objServico.Nome + SEPARADOR +
-                objServico.Descricao + SEPARADOR;
+                objServico.Descricao + SEPARADOR +
+                objServico.Valor + SEPARADOR +
+                objServico.Situacao + SEPARADOR;
 
                 objServicoDAO.AdicionarLinhaServico(strServico);
 
@@ -88,6 +92,8 @@ namespace SysBanhoTosa.Controllers
                     objServico.Id = int.Parse(strArrayArquivo[0]);
                     objServico.Nome = strArrayArquivo[1];
                     objServico.Descricao = strArrayArquivo[2];
+                    objServico.Valor = float.Parse(strArrayArquivo[3]);
+                    objServico.Situacao = strArrayArquivo[4];
                     break;
                 }
             }

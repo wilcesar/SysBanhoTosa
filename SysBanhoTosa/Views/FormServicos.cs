@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,9 @@ namespace SysBanhoTosa.Views
                 dgvServicos.Rows.Add(
                     objServico.Id,
                     objServico.Nome,
-                    objServico.Descricao
+                    objServico.Descricao,
+                    objServico.Valor,
+                    objServico.Situacao
                 );
             }
         }
@@ -38,6 +41,8 @@ namespace SysBanhoTosa.Views
             txtCodigo.Text = "";
             txtNome.Text = "";
             txtDescricao.Text = "";
+            txtValor.Text = "";
+            cboSituacao.SelectedIndex = 0;
         }
 
         private void FormServicos_Load(object sender, EventArgs e)
@@ -54,6 +59,8 @@ namespace SysBanhoTosa.Views
             }
             objServico.Nome = txtNome.Text;
             objServico.Descricao = txtDescricao.Text;
+            objServico.Valor = float.Parse(txtValor.Text, CultureInfo.InvariantCulture.NumberFormat);
+            objServico.Situacao = cboSituacao.Text;
 
             if (objServicoController.ValidaServico(objServico)){
                 List<Servico> lstServicos = new List<Servico>();
@@ -64,6 +71,8 @@ namespace SysBanhoTosa.Views
                     objServicoFor.Id = int.Parse(dgvServicos.Rows[intI].Cells[0].Value.ToString());
                     objServicoFor.Nome = dgvServicos.Rows[intI].Cells[1].Value.ToString();
                     objServicoFor.Descricao = dgvServicos.Rows[intI].Cells[2].Value.ToString();
+                    objServicoFor.Valor = float.Parse(dgvServicos.Rows[intI].Cells[3].Value.ToString());
+                    objServicoFor.Situacao = dgvServicos.Rows[intI].Cells[4].Value.ToString();
 
                     lstServicos.Add(objServicoFor);
                 }
@@ -83,6 +92,8 @@ namespace SysBanhoTosa.Views
             txtCodigo.Text = this.dgvServicos.CurrentRow.Cells[0].Value.ToString();
             txtNome.Text = this.dgvServicos.CurrentRow.Cells[1].Value.ToString();
             txtDescricao.Text = this.dgvServicos.CurrentRow.Cells[2].Value.ToString();
+            txtValor.Text = this.dgvServicos.CurrentRow.Cells[3].Value.ToString();
+            cboSituacao.Text = this.dgvServicos.CurrentRow.Cells[4].Value.ToString();
         }
     }
 }

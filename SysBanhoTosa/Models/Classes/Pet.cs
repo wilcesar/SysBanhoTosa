@@ -13,6 +13,7 @@ namespace SysBanhoTosa.Models.Classes
         private string especie;
         private string raca;
         private Cliente tutor;
+        private string situacao;
         public int Id
         {
             get => id;
@@ -37,6 +38,11 @@ namespace SysBanhoTosa.Models.Classes
         {
             get => tutor;
             set => tutor = value;
+        }
+        public string Situacao
+        {
+            get => situacao;
+            set => situacao = value;
         }
     }
 }

@@ -17,27 +17,32 @@ namespace SysBanhoTosa
         {
             InitializeComponent();
         }
+        
 
-        private void btnClientes_Click(object sender, EventArgs e)
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            FormClientes objFormCLientes = new FormClientes();
-            objFormCLientes.Show();
 
         }
 
-        private void btnPets_Click(object sender, EventArgs e)
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormClientes objFormCLientes = new FormClientes();
+            objFormCLientes.Show();
+        }
+
+        private void petsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormPets objFormPets = new FormPets();
             objFormPets.Show();
         }
 
-        private void btnServicos_Click(object sender, EventArgs e)
+        private void serviçosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormServicos objFormServicos = new FormServicos();
             objFormServicos.Show();
         }
 
-        private void btnLancamentoServicos_Click(object sender, EventArgs e)
+        private void serviçosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FormLancamentosServicos objFormLancamentosServicos = new FormLancamentosServicos();
             objFormLancamentosServicos.Show();

@@ -23,19 +23,20 @@ namespace SysBanhoTosa.Models
         /// Separador dos campos vindos do arquivo de texto.
         /// </summary>
         const string SEPARADOR = "|";
-
+       
         /// <summary>
-        /// Verifica se o arquivo texto existe, senão o cria. 
+        /// Verifica se o arquivo texto existe, senão o cria.
         /// </summary>
-        private void VerificaArquivoExiste()
+        /// <param name="pArquivo">Arquivo texto.</param>
+        private void VerificaArquivoExiste(string pArquivo)
         {
-            if (File.Exists(strCaminhoArquivo)) 
+            if (File.Exists(pArquivo)) 
             { 
-                stwArquivo = File.AppendText(strCaminhoArquivo);
+                stwArquivo = File.AppendText(pArquivo);
             }
             else
             {
-                stwArquivo = File.CreateText(strCaminhoArquivo);
+                stwArquivo = File.CreateText(pArquivo);
             }                
         }
 
@@ -51,9 +52,17 @@ namespace SysBanhoTosa.Models
         /// Adiciona uma linha nova ao arquivo texto.
         /// </summary>
         /// <param name="pLinha">String contendo a linha a ser adicionada.</param>
-        public void AdicionarLinhaLancamento(string pLinha)
+        /// /// <param name="pNomeArquivo">String contendo o nome do arquivo de texto.</param>
+        public void AdicionarLinhaLancamento(string pLinha, string pNomeArquivo)
         {
-            VerificaArquivoExiste();
+            if(pNomeArquivo == "")
+            {
+                VerificaArquivoExiste(strCaminhoArquivo);
+            }
+            else
+            {
+                VerificaArquivoExiste(Directory.GetCurrentDirectory()+pNomeArquivo);
+            }            
             stwArquivo.WriteLine(pLinha);
             stwArquivo.Close();
         }

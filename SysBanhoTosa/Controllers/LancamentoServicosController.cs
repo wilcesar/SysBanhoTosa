@@ -65,10 +65,13 @@ namespace SysBanhoTosa.Controllers
                 objLancamento.Cliente.Id + SEPARADOR +
                 objLancamento.Pet.Id + SEPARADOR +
                 objLancamento.Servico.Id + SEPARADOR +
-                objLancamento.Valor + SEPARADOR+
-                objLancamento.DataHora;
+                objLancamento.Valor + SEPARADOR +
+                objLancamento.DataHora + SEPARADOR +
+                objLancamento.Situacao + SEPARADOR +
+                objLancamento.Observacao+SEPARADOR;
+                ;
 
-                objLancamentoServicosDAO.AdicionarLinhaLancamento(strLancamento);
+                objLancamentoServicosDAO.AdicionarLinhaLancamento(strLancamento,"");
 
                 intContador++;
             }
@@ -101,7 +104,8 @@ namespace SysBanhoTosa.Controllers
                 pLancamento.Pet.Id + SEPARADOR +
                 pLancamento.Servico.Id + SEPARADOR +
                 pLancamento.Valor+ SEPARADOR +
-                pLancamento.DataHora+SEPARADOR;
+                pLancamento.DataHora+SEPARADOR+
+                pLancamento.Observacao + SEPARADOR;
         }
         /// <summary>
         /// Busca os lancamentos do arquivo texto.
@@ -122,11 +126,38 @@ namespace SysBanhoTosa.Controllers
                 objLancamento.Servico = objServicoController.GeServicoById(int.Parse(strArrayArquivo[3]));
                 objLancamento.Valor = float.Parse(strArrayArquivo[4]);
                 objLancamento.DataHora = DateTime.Parse(strArrayArquivo[5]);
-
+                objLancamento.Situacao = strArrayArquivo[6];
+                objLancamento.Observacao = strArrayArquivo[7];
                 lstLancamentos.Add(objLancamento);
             }
 
             return lstLancamentos;
+        }
+        /// <summary>
+        /// Impressão do serviço a ser feito.
+        /// </summary>
+        /// <param name="pLancamento">Lançamento que será executado.</param>
+        public void ImprimirLancamento(Lancamento pLancamento)
+        {
+            string strNomeArquivo = "\\Lancamento" + pLancamento.Id;
+            objLancamentoServicosDAO.AdicionarLinhaLancamento("PETSHOP BICHO DO MATO                                          Nº"+pLancamento.Id,strNomeArquivo);
+            objLancamentoServicosDAO.AdicionarLinhaLancamento("", strNomeArquivo);
+            objLancamentoServicosDAO.AdicionarLinhaLancamento("", strNomeArquivo);
+            objLancamentoServicosDAO.AdicionarLinhaLancamento("", strNomeArquivo);
+            objLancamentoServicosDAO.AdicionarLinhaLancamento("       Tutor: "+pLancamento.Cliente.Id+"-"+pLancamento.Cliente.Nome, strNomeArquivo);
+            objLancamentoServicosDAO.AdicionarLinhaLancamento("         Pet: "+pLancamento.Pet.Nome, strNomeArquivo);
+            objLancamentoServicosDAO.AdicionarLinhaLancamento("Espécie/Raça: "+ pLancamento.Pet.Especie+"/"+pLancamento.Pet.Raca, strNomeArquivo);
+
+            objLancamentoServicosDAO.AdicionarLinhaLancamento("", strNomeArquivo);
+            objLancamentoServicosDAO.AdicionarLinhaLancamento("", strNomeArquivo);
+            objLancamentoServicosDAO.AdicionarLinhaLancamento("", strNomeArquivo);
+
+            objLancamentoServicosDAO.AdicionarLinhaLancamento("        Data:"+ pLancamento.DataHora, strNomeArquivo);
+            objLancamentoServicosDAO.AdicionarLinhaLancamento("     Serviço:" + pLancamento.Servico.Nome, strNomeArquivo);
+            objLancamentoServicosDAO.AdicionarLinhaLancamento("    Valor R$:" + pLancamento.Valor, strNomeArquivo);
+            objLancamentoServicosDAO.AdicionarLinhaLancamento("Serv Detalhe:" + pLancamento.Servico.Descricao, strNomeArquivo);
+            objLancamentoServicosDAO.AdicionarLinhaLancamento("  Observação:" + pLancamento.Observacao, strNomeArquivo);
+
         }
     }
 }

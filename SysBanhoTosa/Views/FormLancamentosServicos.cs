@@ -31,6 +31,7 @@ namespace SysBanhoTosa.Views
         {
             InitializeComponent();
             AlimentaCombosBox();
+            AtualizarGrid();
         }
         private void AlimentaCombosBox()
         {            
@@ -54,6 +55,9 @@ namespace SysBanhoTosa.Views
             cboPet.SelectedIndex = 0;
             cboServico.SelectedIndex = 0;
             txtValor.Text = "";
+            cboSituacao.Text = "ATIVO";
+            rtfObservacao.Text = "";
+            cboTutor.Focus();
         }
 
         private void AtualizarGrid()
@@ -66,8 +70,10 @@ namespace SysBanhoTosa.Views
                     objLancamento.Cliente.Id+"-"+objLancamento.Cliente.Nome,
                     objLancamento.Pet.Id + "-" + objLancamento.Pet.Nome,
                     objLancamento.Servico.Id + "-" + objLancamento.Servico.Nome,
-                    objLancamento.DataHora,
-                    objLancamento.Valor
+                    objLancamento.Valor,
+                    objLancamento.DataHora,                    
+                    objLancamento.Situacao,
+                    objLancamento.Observacao
                 );
             }
         }
@@ -84,6 +90,9 @@ namespace SysBanhoTosa.Views
             objLancamento.Servico = objServicoController.GeServicoById(int.Parse(cboServico.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
             objLancamento.Valor = float.Parse(txtValor.Text);
             objLancamento.DataHora = dtpAgendamento.Value;
+            objLancamento.Situacao = cboSituacao.Text;
+            objLancamento.Observacao = rtfObservacao.Text;
+
             if (objLancamentoServicosController.ValidaLancamento(objLancamento))
             {
                 dgvLancamentos.Rows.Add(1,
@@ -91,7 +100,9 @@ namespace SysBanhoTosa.Views
                     objLancamento.Pet.Id,
                     objLancamento.Servico.Id,
                     objLancamento.Valor,
-                    objLancamento.DataHora);
+                    objLancamento.DataHora,
+                    objLancamento.Situacao,
+                    objLancamento.Observacao);
             }
 
         }
@@ -113,6 +124,9 @@ namespace SysBanhoTosa.Views
             objLancamento.Servico = objServicoController.GeServicoById(int.Parse(cboServico.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
             objLancamento.Valor = float.Parse(txtValor.Text);
             objLancamento.DataHora = dtpAgendamento.Value;
+            objLancamento.Situacao = cboSituacao.Text;
+            objLancamento.Observacao = rtfObservacao.Text;
+
             if (objLancamentoServicosController.ValidaLancamento(objLancamento))
             {
                                 
@@ -130,8 +144,10 @@ namespace SysBanhoTosa.Views
                     objLancamentoFor.Cliente =  objClienteController.GetClienteById(int.Parse(strCliente.Substring(0, strCliente.IndexOf("-"))));
                     objLancamentoFor.Pet = objPetController.GetPetById(int.Parse(strPet.ToString().Substring(0, strPet.IndexOf("-"))));
                     objLancamentoFor.Servico = objServicoController.GeServicoById(int.Parse(strServico.Substring(0, strServico.IndexOf("-"))));
-                    objLancamento.Valor = float.Parse(dgvLancamentos.Rows[intI].Cells[4].Value.ToString());
-                    objLancamento.DataHora = DateTime.Parse(dgvLancamentos.Rows[intI].Cells[5].Value.ToString());
+                    objLancamentoFor.Valor = float.Parse(dgvLancamentos.Rows[intI].Cells[4].Value.ToString());
+                    objLancamentoFor.DataHora = DateTime.Parse(dgvLancamentos.Rows[intI].Cells[5].Value.ToString());
+                    objLancamentoFor.Situacao = dgvLancamentos.Rows[intI].Cells[6].Value.ToString();
+                    objLancamentoFor.Observacao = dgvLancamentos.Rows[intI].Cells[7].Value.ToString();
 
                     lstLancamentos.Add(objLancamento);                    
                 }
@@ -139,6 +155,48 @@ namespace SysBanhoTosa.Views
                 AtualizarGrid();
                 LimpaCampos();
             }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            if (txtCodigo.Text != "")
+            {
+                Lancamento objLancamento = new Lancamento();
+
+                objLancamento.Id = int.Parse(txtCodigo.Text);
+                objLancamento.Cliente = objClienteController.GetClienteById(int.Parse(cboTutor.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
+                objLancamento.Pet = objPetController.GetPetById(int.Parse(cboPet.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
+                objLancamento.Servico = objServicoController.GeServicoById(int.Parse(cboServico.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
+                objLancamento.Valor = float.Parse(txtValor.Text);
+                objLancamento.DataHora = dtpAgendamento.Value;
+                objLancamento.Situacao = cboSituacao.Text;
+                objLancamento.Observacao = rtfObservacao.Text;
+
+                objLancamentoServicosController.ImprimirLancamento(objLancamento);
+            }
+        }
+
+        private void dgvLancamentos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtCodigo.Text = this.dgvLancamentos.CurrentRow.Cells[0].Value.ToString();           
+            cboTutor.Text = this.dgvLancamentos.CurrentRow.Cells[1].Value.ToString();
+            cboPet.Text = this.dgvLancamentos.CurrentRow.Cells[2].Value.ToString();
+            cboServico.Text = this.dgvLancamentos.CurrentRow.Cells[3].Value.ToString();
+            txtValor.Text = this.dgvLancamentos.CurrentRow.Cells[4].Value.ToString();
+            dtpAgendamento.Value = DateTime.Parse(this.dgvLancamentos.CurrentRow.Cells[5].Value.ToString());
+            cboSituacao.Text = this.dgvLancamentos.CurrentRow.Cells[6].Value.ToString();
+            rtfObservacao.Text = this.dgvLancamentos.CurrentRow.Cells[7].Value.ToString();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            txtCodigo.Text = "";
+            cboTutor.SelectedIndex = -1;
+            cboPet.SelectedIndex = -1;
+            cboServico.SelectedIndex = -1;
+            txtValor.Text = "0.00";            
+            cboSituacao.SelectedIndex = 0;
+            rtfObservacao.Text = "";
         }
     }
 }

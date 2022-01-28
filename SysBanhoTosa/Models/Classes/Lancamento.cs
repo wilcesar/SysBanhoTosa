@@ -14,6 +14,8 @@ namespace SysBanhoTosa.Models.Classes
         private Servico servico;
         private float valor;
         private DateTime dataHora;
+        private string situacao;
+        private string observacao;
 
         public int Id { get => id; set => id = value; }
 
@@ -26,6 +28,10 @@ namespace SysBanhoTosa.Models.Classes
         public float Valor { get => valor; set => valor = value ; }
 
         public DateTime DataHora { get => dataHora; set => dataHora = value; }
+        
+        public string Situacao { get => situacao; set =>situacao = value; }
+
+        public string Observacao { get => observacao; set => observacao = value; }
 
     }
 }

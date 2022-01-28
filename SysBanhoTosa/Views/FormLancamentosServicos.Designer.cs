@@ -30,6 +30,9 @@ namespace SysBanhoTosa.Views
         private void InitializeComponent()
         {
             this.pnlLancamento = new System.Windows.Forms.Panel();
+            this.lblData = new System.Windows.Forms.Label();
+            this.lblSituacao = new System.Windows.Forms.Label();
+            this.cboSituacao = new System.Windows.Forms.ComboBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.dtpAgendamento = new System.Windows.Forms.DateTimePicker();
@@ -43,19 +46,20 @@ namespace SysBanhoTosa.Views
             this.cboTutor = new System.Windows.Forms.ComboBox();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgvLancamentos = new System.Windows.Forms.DataGridView();
+            this.pnlBotoes = new System.Windows.Forms.Panel();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnConfirmar = new System.Windows.Forms.Button();
+            this.lblObservacao = new System.Windows.Forms.Label();
             this.clnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnPet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnServico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlBotoes = new System.Windows.Forms.Panel();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnConfirmar = new System.Windows.Forms.Button();
-            this.btnImprimir = new System.Windows.Forms.Button();
-            this.cboStatus = new System.Windows.Forms.ComboBox();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.lblData = new System.Windows.Forms.Label();
+            this.clnSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnObservacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rtfObservacao = new System.Windows.Forms.RichTextBox();
             this.pnlLancamento.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLancamentos)).BeginInit();
@@ -64,9 +68,11 @@ namespace SysBanhoTosa.Views
             // 
             // pnlLancamento
             // 
+            this.pnlLancamento.Controls.Add(this.rtfObservacao);
+            this.pnlLancamento.Controls.Add(this.lblObservacao);
             this.pnlLancamento.Controls.Add(this.lblData);
-            this.pnlLancamento.Controls.Add(this.lblStatus);
-            this.pnlLancamento.Controls.Add(this.cboStatus);
+            this.pnlLancamento.Controls.Add(this.lblSituacao);
+            this.pnlLancamento.Controls.Add(this.cboSituacao);
             this.pnlLancamento.Controls.Add(this.txtCodigo);
             this.pnlLancamento.Controls.Add(this.lblCodigo);
             this.pnlLancamento.Controls.Add(this.dtpAgendamento);
@@ -80,8 +86,39 @@ namespace SysBanhoTosa.Views
             this.pnlLancamento.Controls.Add(this.cboTutor);
             this.pnlLancamento.Location = new System.Drawing.Point(2, 0);
             this.pnlLancamento.Name = "pnlLancamento";
-            this.pnlLancamento.Size = new System.Drawing.Size(676, 159);
+            this.pnlLancamento.Size = new System.Drawing.Size(676, 185);
             this.pnlLancamento.TabIndex = 0;
+            // 
+            // lblData
+            // 
+            this.lblData.AutoSize = true;
+            this.lblData.Location = new System.Drawing.Point(122, 102);
+            this.lblData.Name = "lblData";
+            this.lblData.Size = new System.Drawing.Size(30, 13);
+            this.lblData.TabIndex = 15;
+            this.lblData.Text = "Data";
+            // 
+            // lblSituacao
+            // 
+            this.lblSituacao.AutoSize = true;
+            this.lblSituacao.Location = new System.Drawing.Point(10, 145);
+            this.lblSituacao.Name = "lblSituacao";
+            this.lblSituacao.Size = new System.Drawing.Size(49, 13);
+            this.lblSituacao.TabIndex = 14;
+            this.lblSituacao.Text = "Situação";
+            // 
+            // cboSituacao
+            // 
+            this.cboSituacao.FormattingEnabled = true;
+            this.cboSituacao.Items.AddRange(new object[] {
+            "1-ABERTO",
+            "2-EM PROCESSO",
+            "3-FINALIZADO",
+            "4-CANCELADO"});
+            this.cboSituacao.Location = new System.Drawing.Point(10, 161);
+            this.cboSituacao.Name = "cboSituacao";
+            this.cboSituacao.Size = new System.Drawing.Size(297, 21);
+            this.cboSituacao.TabIndex = 5;
             // 
             // txtCodigo
             // 
@@ -177,9 +214,9 @@ namespace SysBanhoTosa.Views
             // pnlGrid
             // 
             this.pnlGrid.Controls.Add(this.dgvLancamentos);
-            this.pnlGrid.Location = new System.Drawing.Point(2, 165);
+            this.pnlGrid.Location = new System.Drawing.Point(2, 191);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(758, 283);
+            this.pnlGrid.Size = new System.Drawing.Size(758, 257);
             this.pnlGrid.TabIndex = 1;
             // 
             // dgvLancamentos
@@ -192,12 +229,64 @@ namespace SysBanhoTosa.Views
             this.clnPet,
             this.clnServico,
             this.clnValor,
-            this.clnData});
+            this.clnData,
+            this.clnSituacao,
+            this.clnObservacao});
             this.dgvLancamentos.Location = new System.Drawing.Point(0, 3);
             this.dgvLancamentos.Name = "dgvLancamentos";
             this.dgvLancamentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLancamentos.Size = new System.Drawing.Size(754, 225);
+            this.dgvLancamentos.Size = new System.Drawing.Size(754, 280);
             this.dgvLancamentos.TabIndex = 0;
+            this.dgvLancamentos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLancamentos_CellDoubleClick);
+            // 
+            // pnlBotoes
+            // 
+            this.pnlBotoes.Controls.Add(this.btnImprimir);
+            this.pnlBotoes.Controls.Add(this.btnCancelar);
+            this.pnlBotoes.Controls.Add(this.btnConfirmar);
+            this.pnlBotoes.Location = new System.Drawing.Point(684, 0);
+            this.pnlBotoes.Name = "pnlBotoes";
+            this.pnlBotoes.Size = new System.Drawing.Size(77, 159);
+            this.pnlBotoes.TabIndex = 7;
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(1, 90);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(75, 37);
+            this.btnImprimir.TabIndex = 3;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(1, 47);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 37);
+            this.btnCancelar.TabIndex = 2;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnConfirmar
+            // 
+            this.btnConfirmar.Location = new System.Drawing.Point(1, 4);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(75, 37);
+            this.btnConfirmar.TabIndex = 7;
+            this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            // 
+            // lblObservacao
+            // 
+            this.lblObservacao.AutoSize = true;
+            this.lblObservacao.Location = new System.Drawing.Point(348, 96);
+            this.lblObservacao.Name = "lblObservacao";
+            this.lblObservacao.Size = new System.Drawing.Size(65, 13);
+            this.lblObservacao.TabIndex = 16;
+            this.lblObservacao.Text = "Observação";
             // 
             // clnId
             // 
@@ -231,74 +320,24 @@ namespace SysBanhoTosa.Views
             this.clnData.HeaderText = "DATA";
             this.clnData.Name = "clnData";
             // 
-            // pnlBotoes
+            // clnSituacao
             // 
-            this.pnlBotoes.Controls.Add(this.btnImprimir);
-            this.pnlBotoes.Controls.Add(this.btnCancelar);
-            this.pnlBotoes.Controls.Add(this.btnConfirmar);
-            this.pnlBotoes.Location = new System.Drawing.Point(684, 0);
-            this.pnlBotoes.Name = "pnlBotoes";
-            this.pnlBotoes.Size = new System.Drawing.Size(77, 159);
-            this.pnlBotoes.TabIndex = 7;
+            this.clnSituacao.HeaderText = "SITUAÇÃO";
+            this.clnSituacao.Name = "clnSituacao";
             // 
-            // btnCancelar
+            // clnObservacao
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(1, 47);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 37);
-            this.btnCancelar.TabIndex = 2;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.clnObservacao.HeaderText = "OBSERVAÇÃO";
+            this.clnObservacao.Name = "clnObservacao";
+            this.clnObservacao.Visible = false;
             // 
-            // btnConfirmar
+            // rtfObservacao
             // 
-            this.btnConfirmar.Location = new System.Drawing.Point(1, 4);
-            this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(75, 37);
-            this.btnConfirmar.TabIndex = 0;
-            this.btnConfirmar.Text = "Confirmar";
-            this.btnConfirmar.UseVisualStyleBackColor = true;
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Location = new System.Drawing.Point(1, 90);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(75, 37);
-            this.btnImprimir.TabIndex = 3;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            // 
-            // cboStatus
-            // 
-            this.cboStatus.FormattingEnabled = true;
-            this.cboStatus.Items.AddRange(new object[] {
-            "1-ABERTO",
-            "2-EM PROCESSO",
-            "3-FINALIZADO",
-            "4-CANCELADO"});
-            this.cboStatus.Location = new System.Drawing.Point(348, 118);
-            this.cboStatus.Name = "cboStatus";
-            this.cboStatus.Size = new System.Drawing.Size(297, 21);
-            this.cboStatus.TabIndex = 5;
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(348, 102);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(37, 13);
-            this.lblStatus.TabIndex = 14;
-            this.lblStatus.Text = "Status";
-            // 
-            // lblData
-            // 
-            this.lblData.AutoSize = true;
-            this.lblData.Location = new System.Drawing.Point(122, 102);
-            this.lblData.Name = "lblData";
-            this.lblData.Size = new System.Drawing.Size(30, 13);
-            this.lblData.TabIndex = 15;
-            this.lblData.Text = "Data";
+            this.rtfObservacao.Location = new System.Drawing.Point(348, 112);
+            this.rtfObservacao.Name = "rtfObservacao";
+            this.rtfObservacao.Size = new System.Drawing.Size(297, 70);
+            this.rtfObservacao.TabIndex = 6;
+            this.rtfObservacao.Text = "";
             // 
             // FormLancamentosServicos
             // 
@@ -335,18 +374,22 @@ namespace SysBanhoTosa.Views
         private System.Windows.Forms.DateTimePicker dtpAgendamento;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label lblCodigo;
+        private System.Windows.Forms.Panel pnlBotoes;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnConfirmar;
+        private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Label lblData;
+        private System.Windows.Forms.Label lblSituacao;
+        private System.Windows.Forms.ComboBox cboSituacao;
+        private System.Windows.Forms.Label lblObservacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnPet;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnServico;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnData;
-        private System.Windows.Forms.Panel pnlBotoes;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnConfirmar;
-        private System.Windows.Forms.Button btnImprimir;
-        private System.Windows.Forms.Label lblData;
-        private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.ComboBox cboStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnSituacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnObservacao;
+        private System.Windows.Forms.RichTextBox rtfObservacao;
     }
 }

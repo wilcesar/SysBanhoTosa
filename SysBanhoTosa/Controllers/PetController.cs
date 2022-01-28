@@ -14,9 +14,22 @@ namespace SysBanhoTosa.Controllers
         /// Separador dos campos vindos do arquivo de texto.
         /// </summary>
         const string SEPARADOR = "|";
+
+        /// <summary>
+        /// Objeto de acesso a dados de pet.
+        /// </summary>
         PetDAO objPetDAO = new PetDAO();
+
+        /// <summary>
+        /// Controller de clientes.
+        /// </summary>
         ClienteController objClienteController = new ClienteController();
 
+        /// <summary>
+        /// Valida o cadastro do pet foi alimentado corretamente.
+        /// </summary>
+        /// <param name="pPet">Objeto contendo o pet.</param>
+        /// <returns>True se os campos obrigatórios foram preenchidos corretamente.</returns>
         public Boolean ValidaPet(Pet pPet)
         {
             if (pPet.Nome == "")
@@ -28,6 +41,12 @@ namespace SysBanhoTosa.Controllers
                 return true;
             }
         }
+
+        /// <summary>
+        /// Gera a linha para ser salva no arquivo texto.
+        /// </summary>
+        /// <param name="pPet">Objeto contendo o pet</param>
+        /// <returns>Linha pronta para ser salva.</returns>
         private string GetLinhaObj(Pet pPet)
         {
             return pPet.Id + SEPARADOR +
@@ -37,6 +56,11 @@ namespace SysBanhoTosa.Controllers
                 pPet.Tutor.Id+SEPARADOR+
                 pPet.Situacao+SEPARADOR;
         }
+
+        /// <summary>
+        /// Gera lista dos pets que tem no arquivo texto.
+        /// </summary>
+        /// <returns>Lista de objetos contendo os pets.</returns>
         public List<Pet> GetPets()
         {
             List<Pet> lstPets = new List<Pet>();
@@ -62,6 +86,12 @@ namespace SysBanhoTosa.Controllers
 
             return lstPets;
         }
+
+        /// <summary>
+        /// Atualiza a lista de pets e cadastra o pet novo.
+        /// </summary>
+        /// <param name="pPet">Objeto com o novo pet.</param>
+        /// <param name="pListPets">Lista de pets desatualizada.</param>
         public void AtualizarPet(Pet pPet, List<Pet> pListPets)
         {
             if (pPet.Id == 0)
@@ -95,6 +125,12 @@ namespace SysBanhoTosa.Controllers
                 intContador++;
             }
         }
+
+        /// <summary>
+        /// Retorna determinado pet a partir do código.
+        /// </summary>
+        /// <param name="pId">Código do pet.</param>
+        /// <returns>Objeto contendo o pet.</returns>
         public Pet GetPetById(int pId)
         {
             Pet objPet = new Pet();

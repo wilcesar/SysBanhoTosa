@@ -142,6 +142,8 @@ namespace SysBanhoTosa.Controllers
             string strNomeArquivo = "\\Lancamento" + pLancamento.Id;
             objLancamentoServicosDAO.AdicionarLinhaLancamento("PETSHOP BICHO DO MATO                                          Nº"+pLancamento.Id,strNomeArquivo);
             objLancamentoServicosDAO.AdicionarLinhaLancamento("", strNomeArquivo);
+            objLancamentoServicosDAO.AdicionarLinhaLancamento("       Situacao: " + pLancamento.Situacao,strNomeArquivo);
+            objLancamentoServicosDAO.AdicionarLinhaLancamento("", strNomeArquivo);
             objLancamentoServicosDAO.AdicionarLinhaLancamento("", strNomeArquivo);
             objLancamentoServicosDAO.AdicionarLinhaLancamento("", strNomeArquivo);
             objLancamentoServicosDAO.AdicionarLinhaLancamento("       Tutor: "+pLancamento.Cliente.Id+"-"+pLancamento.Cliente.Nome, strNomeArquivo);

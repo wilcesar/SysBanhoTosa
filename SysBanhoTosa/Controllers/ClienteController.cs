@@ -10,9 +10,21 @@ namespace SysBanhoTosa.Controllers
 {
     class ClienteController
     {
+        /// <summary>
+        /// Separador dos campos vindos do arquivo de texto.
+        /// </summary>
         const string SEPARADOR = "|";
+
+        /// <summary>
+        /// Objeto de acesso a dados de cliente.
+        /// </summary>
         ClienteDAO objClienteDAO = new ClienteDAO();
 
+        /// <summary>
+        /// Valida o cadastro do cliente.
+        /// </summary>
+        /// <param name="pCliente">Objeto do cliente.</param>
+        /// <returns>True se os campos obrigatórios foram preenchidos corretamente.</returns>
         public Boolean ValidaCliente(Cliente pCliente)
         {
             if (pCliente.Nome == "")
@@ -29,21 +41,30 @@ namespace SysBanhoTosa.Controllers
             }
         }
 
-        private string GetLinhaObj(Cliente pClinete)
+        /// <summary>
+        /// Gera a linha para ser salva no arquivo texto.
+        /// </summary>
+        /// <param name="pCliente">Objeto contendo o cliente.</param>
+        /// <returns>Linha pronta para ser salva.</returns>
+        /// <summary>
+        private string GetLinhaObj(Cliente pCliente)
         {
-            return pClinete.Id + SEPARADOR +
-                pClinete.Nome + SEPARADOR +
-                pClinete.Email + SEPARADOR +
-                pClinete.Telefone + SEPARADOR +
-                pClinete.Endereco.Logradouro + SEPARADOR +
-                pClinete.Endereco.Numero + SEPARADOR +
-                pClinete.Endereco.Bairro + SEPARADOR +
-                pClinete.Endereco.Complemento + SEPARADOR +
-                pClinete.Endereco.Cep + SEPARADOR +
-                pClinete.Endereco.Cidade + SEPARADOR +
-                pClinete.Endereco.Uf + SEPARADOR;
+            return pCliente.Id + SEPARADOR +
+                pCliente.Nome + SEPARADOR +
+                pCliente.Email + SEPARADOR +
+                pCliente.Telefone + SEPARADOR +
+                pCliente.Endereco.Logradouro + SEPARADOR +
+                pCliente.Endereco.Numero + SEPARADOR +
+                pCliente.Endereco.Bairro + SEPARADOR +
+                pCliente.Endereco.Complemento + SEPARADOR +
+                pCliente.Endereco.Cep + SEPARADOR +
+                pCliente.Endereco.Cidade + SEPARADOR +
+                pCliente.Endereco.Uf + SEPARADOR;
         }
-
+        /// <summary>
+        /// Gera lista dos clientes que tem no arquivo texto.
+        /// </summary>
+        /// <returns>Lista de objetos contendo os clientes.</returns>
         public List<Cliente> GetClientes()
         {
             List<Cliente> lstClientes = new List<Cliente>();
@@ -76,6 +97,12 @@ namespace SysBanhoTosa.Controllers
 
             return lstClientes;            
         }
+
+        /// <summary>
+        /// Retorna determinado cliente a partir do código.
+        /// </summary>
+        /// <param name="pId">Código do cliente.</param>
+        /// <returns>Objeto contendo o cliente.</returns>
         public Cliente GetClienteById(int pId)
         {
             Cliente objCliente = new Cliente();
@@ -106,6 +133,11 @@ namespace SysBanhoTosa.Controllers
             return objCliente;
         }
 
+        /// <summary>
+        /// Atualiza a lista de clientes e cadastra o cliente novo.
+        /// </summary>
+        /// <param name="pCliente">Objeto com o novo cliente.</param>
+        /// <param name="pListClientes">Lista de clientes desatualizada.</param>
         public void AtualizarCliente(Cliente pCliente, List<Cliente> pListClientes)
         {
             if (pCliente.Id == 0)
@@ -146,17 +178,6 @@ namespace SysBanhoTosa.Controllers
                 intContador++;
             }
         }
-        public void ExcluirCliente(Cliente pCliente)
-        {
-            objClienteDAO.LimparArquivoClientes();
-            foreach (Cliente objCliente in GetClientes())
-            {
-                if (objCliente.Id != pCliente.Id)
-                {
-                    objClienteDAO.AdicionarLinhaCliente(GetLinhaObj(objCliente));
-                }
-            }
-
-        }
+        
     }
 }

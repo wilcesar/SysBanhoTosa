@@ -14,7 +14,14 @@ namespace SysBanhoTosa.Views
 {
     public partial class FormPets : Form
     {
+        /// <summary>
+        /// Objeto de controle de pets.
+        /// </summary>
         PetController objPetController = new PetController();
+
+        /// <summary>
+        /// Objeto de controle de clientes.
+        /// </summary>
         ClienteController objClienteController = new ClienteController();
         public FormPets()
         {
@@ -22,6 +29,10 @@ namespace SysBanhoTosa.Views
             LimpaCampos();
             AtualizarGrid();
         }
+
+        /// <summary>
+        /// Atualiza a grid conforme dados atualizados no arquivo texto.
+        /// </summary>
         private void AtualizarGrid()
         {
             dgvPets.Rows.Clear();
@@ -38,6 +49,9 @@ namespace SysBanhoTosa.Views
             }
         }
 
+        /// <summary>
+        /// Limpa os campos da tela.
+        /// </summary>
         private void LimpaCampos()
         {
             txtCodigo.Text = "";

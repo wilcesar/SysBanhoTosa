@@ -29,98 +29,98 @@ namespace SysBanhoTosa
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.mnsMenuPrincipal = new System.Windows.Forms.MenuStrip();
             this.tmiCadastros = new System.Windows.Forms.ToolStripMenuItem();
-            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.petsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.serviçosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lançamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.serviçosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.tmiClientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmiPets = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmiServicos = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmiLancamentos = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmiLancamentoServicos = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnsMenuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // mnsMenuPrincipal
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnsMenuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tmiCadastros,
-            this.lançamentosToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 4;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+            this.tmiLancamentos});
+            this.mnsMenuPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.mnsMenuPrincipal.Name = "mnsMenuPrincipal";
+            this.mnsMenuPrincipal.Size = new System.Drawing.Size(800, 24);
+            this.mnsMenuPrincipal.TabIndex = 4;
+            this.mnsMenuPrincipal.Text = "menuStrip1";
+            this.mnsMenuPrincipal.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // tmiCadastros
             // 
             this.tmiCadastros.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clientesToolStripMenuItem,
-            this.petsToolStripMenuItem,
-            this.serviçosToolStripMenuItem});
+            this.tmiClientes,
+            this.tmiPets,
+            this.tmiServicos});
             this.tmiCadastros.Name = "tmiCadastros";
             this.tmiCadastros.Size = new System.Drawing.Size(71, 20);
             this.tmiCadastros.Text = "Cadastros";
             // 
-            // clientesToolStripMenuItem
+            // tmiClientes
             // 
-            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.clientesToolStripMenuItem.Text = "Clientes";
-            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
+            this.tmiClientes.Name = "tmiClientes";
+            this.tmiClientes.Size = new System.Drawing.Size(180, 22);
+            this.tmiClientes.Text = "Clientes";
+            this.tmiClientes.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
-            // petsToolStripMenuItem
+            // tmiPets
             // 
-            this.petsToolStripMenuItem.Name = "petsToolStripMenuItem";
-            this.petsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.petsToolStripMenuItem.Text = "Pets";
-            this.petsToolStripMenuItem.Click += new System.EventHandler(this.petsToolStripMenuItem_Click);
+            this.tmiPets.Name = "tmiPets";
+            this.tmiPets.Size = new System.Drawing.Size(180, 22);
+            this.tmiPets.Text = "Pets";
+            this.tmiPets.Click += new System.EventHandler(this.petsToolStripMenuItem_Click);
             // 
-            // serviçosToolStripMenuItem
+            // tmiServicos
             // 
-            this.serviçosToolStripMenuItem.Name = "serviçosToolStripMenuItem";
-            this.serviçosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.serviçosToolStripMenuItem.Text = "Serviços";
-            this.serviçosToolStripMenuItem.Click += new System.EventHandler(this.serviçosToolStripMenuItem_Click);
+            this.tmiServicos.Name = "tmiServicos";
+            this.tmiServicos.Size = new System.Drawing.Size(180, 22);
+            this.tmiServicos.Text = "Serviços";
+            this.tmiServicos.Click += new System.EventHandler(this.serviçosToolStripMenuItem_Click);
             // 
-            // lançamentosToolStripMenuItem
+            // tmiLancamentos
             // 
-            this.lançamentosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.serviçosToolStripMenuItem1});
-            this.lançamentosToolStripMenuItem.Name = "lançamentosToolStripMenuItem";
-            this.lançamentosToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            this.lançamentosToolStripMenuItem.Text = "Lançamentos";
+            this.tmiLancamentos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tmiLancamentoServicos});
+            this.tmiLancamentos.Name = "tmiLancamentos";
+            this.tmiLancamentos.Size = new System.Drawing.Size(90, 20);
+            this.tmiLancamentos.Text = "Lançamentos";
             // 
-            // serviçosToolStripMenuItem1
+            // tmiLancamentoServicos
             // 
-            this.serviçosToolStripMenuItem1.Name = "serviçosToolStripMenuItem1";
-            this.serviçosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.serviçosToolStripMenuItem1.Text = "Serviços";
-            this.serviçosToolStripMenuItem1.Click += new System.EventHandler(this.serviçosToolStripMenuItem1_Click);
+            this.tmiLancamentoServicos.Name = "tmiLancamentoServicos";
+            this.tmiLancamentoServicos.Size = new System.Drawing.Size(180, 22);
+            this.tmiLancamentoServicos.Text = "Serviços";
+            this.tmiLancamentoServicos.Click += new System.EventHandler(this.serviçosToolStripMenuItem1_Click);
             // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.mnsMenuPrincipal);
+            this.MainMenuStrip = this.mnsMenuPrincipal;
             this.Name = "FormMenu";
             this.Text = "Sistema de banho e tosa";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.mnsMenuPrincipal.ResumeLayout(false);
+            this.mnsMenuPrincipal.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip mnsMenuPrincipal;
         private System.Windows.Forms.ToolStripMenuItem tmiCadastros;
-        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem petsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem serviçosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lançamentosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem serviçosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tmiClientes;
+        private System.Windows.Forms.ToolStripMenuItem tmiPets;
+        private System.Windows.Forms.ToolStripMenuItem tmiServicos;
+        private System.Windows.Forms.ToolStripMenuItem tmiLancamentos;
+        private System.Windows.Forms.ToolStripMenuItem tmiLancamentoServicos;
     }
 }
 

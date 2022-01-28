@@ -10,8 +10,21 @@ namespace SysBanhoTosa.Controllers
 {
     class ServicoController
     {
+        /// <summary>
+        /// Separador dos campos vindos do arquivo de texto.
+        /// </summary>
         const string SEPARADOR = "|";
+
+        /// <summary>
+        /// Objeto de acesso a dados de serviço.
+        /// </summary>
         ServicoDAO objServicoDAO = new ServicoDAO();
+
+        /// <summary>
+        /// Valida se o cadastro do serviço foi alimentado corretamente.
+        /// </summary>
+        /// <param name="pServico">Objeto contendo o serviço.</param>
+        /// <returns>True se os campos obrigatórios foram preenchidos corretamente.</returns>
         public Boolean ValidaServico(Servico pServico)
         {
             if (pServico.Nome == "")
@@ -23,12 +36,23 @@ namespace SysBanhoTosa.Controllers
                 return true;
             }
         }
+
+        /// <summary>
+        /// Gera a linha para ser salva no arquivo texto.
+        /// </summary>
+        /// <param name="pServico">Objeto contendo o serviço.</param>
+        /// <returns>Linha pronta para ser salva.</returns>
         private string GetLinhaObj(Servico pServico)
         {
             return pServico.Id + SEPARADOR +
                 pServico.Nome + SEPARADOR +
                 pServico.Descricao + SEPARADOR;
         }
+
+        /// <summary>
+        /// Gera lista dos serviços que tem no arquivo texto.
+        /// </summary>
+        /// <returns>Lista de objetos contendo os serviços.</returns>
         public List<Servico> GetServicos()
         {
             List<Servico> lstServicos = new List<Servico>();
@@ -48,6 +72,12 @@ namespace SysBanhoTosa.Controllers
             }
             return lstServicos;
         }
+
+        /// <summary>
+        /// Atualiza a lista de serviços e cadastra o serviço novo.
+        /// </summary>
+        /// <param name="pServico">Objeto com o novo serviço.</param>
+        /// <param name="pListServicos">Lista de serviços desatualizada.</param>
         public void AtualizarServico(Servico pServico, List<Servico> pListServicos)
         {
             if (pServico.Id == 0)
@@ -80,6 +110,12 @@ namespace SysBanhoTosa.Controllers
                 intContador++;
             }
         }
+
+        /// <summary>
+        /// Retorna determinado serviço a partir do código.
+        /// </summary>
+        /// <param name="pId">Código do serviço.</param>
+        /// <returns>Objeto contendo o serviço.</returns>
         public Servico GeServicoById(int pId)
         {
             Servico objServico = new Servico();

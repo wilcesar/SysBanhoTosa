@@ -15,12 +15,19 @@ namespace SysBanhoTosa.Views
 {
     public partial class FormServicos : Form
     {
+        /// <summary>
+        /// Objeto de controle de serviços.
+        /// </summary>
         ServicoController objServicoController = new ServicoController();
         public FormServicos()
         {
             InitializeComponent();
             AtualizarGrid();
         }
+
+        /// <summary>
+        /// Atualiza a grid conforme os dados atualizados vindo do arquivo de texto.
+        /// </summary>
         private void AtualizarGrid()
         {
             dgvServicos.Rows.Clear();
@@ -36,6 +43,9 @@ namespace SysBanhoTosa.Views
             }
         }
 
+        /// <summary>
+        /// Limpa os campos da tela;
+        /// </summary>
         private void LimpaCampos()
         {
             txtCodigo.Text = "";

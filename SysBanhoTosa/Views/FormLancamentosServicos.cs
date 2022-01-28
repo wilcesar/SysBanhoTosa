@@ -15,17 +15,23 @@ namespace SysBanhoTosa.Views
     public partial class FormLancamentosServicos : Form
     {
         /// <summary>
-        /// Controller de clientes
+        /// Objeto de controle de clientes.
         /// </summary>
+        /// 
         ClienteController objClienteController = new ClienteController();
         /// <summary>
-        /// Controller de pets
+        /// Objeto de controle de pets.
         /// </summary>
+        /// 
         PetController objPetController = new PetController();
         /// <summary>
-        /// Controller de serviços
+        /// Objeto de controle de serviços.
         /// </summary>
         ServicoController objServicoController = new ServicoController();
+
+        /// <summary>
+        /// Objeto de controle de lançamento de serviços.
+        /// </summary>
         LancamentoServicosController objLancamentoServicosController = new LancamentoServicosController();
         public FormLancamentosServicos()
         {
@@ -33,6 +39,9 @@ namespace SysBanhoTosa.Views
             AlimentaCombosBox();
             AtualizarGrid();
         }
+        /// <summary>
+        /// Alimenta os combobox da tela.
+        /// </summary>
         private void AlimentaCombosBox()
         {            
             foreach(Cliente objCliente in objClienteController.GetClientes())
@@ -48,6 +57,10 @@ namespace SysBanhoTosa.Views
                 cboServico.Items.Add(objServico.Id + "-" + objServico.Nome);
             }
         }
+
+        /// <summary>
+        /// Limpa os campos da tela.
+        /// </summary>
         private void LimpaCampos()
         {
             txtCodigo.Text = "";
@@ -60,6 +73,9 @@ namespace SysBanhoTosa.Views
             cboTutor.Focus();
         }
 
+        /// <summary>
+        /// Atualiza a grid, conforme o arquivo de texto.
+        /// </summary>
         private void AtualizarGrid()
         {
             dgvLancamentos.Rows.Clear();

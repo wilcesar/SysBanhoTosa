@@ -60,28 +60,31 @@ namespace SysBanhoTosa.Controllers
         /// <summary>
         /// Gera lista dos pets que tem no arquivo texto.
         /// </summary>
+        /// <param name="pSomenteAtivos"> Se true trás somente os ativos.</param>
         /// <returns>Lista de objetos contendo os pets.</returns>
-        public List<Pet> GetPets()
+        public List<Pet> GetPets(bool pSomenteAtivos)
         {
             List<Pet> lstPets = new List<Pet>();
 
             foreach (string strLinha in objPetDAO.GetPets())
             {
                 string[] strArrayArquivo = strLinha.Split('|');
+                if ((pSomenteAtivos && (strArrayArquivo[5] == "ATIVO")) || !pSomenteAtivos)
+                {
+                    Pet objPet = new Pet();
+                    objPet.Id = int.Parse(strArrayArquivo[0]);
+                    objPet.Nome = strArrayArquivo[1];
+                    objPet.Especie = strArrayArquivo[2];
+                    objPet.Raca = strArrayArquivo[3];
+                    objPet.Situacao = strArrayArquivo[5];
 
-                Pet objPet = new Pet();
-                objPet.Id = int.Parse(strArrayArquivo[0]);
-                objPet.Nome = strArrayArquivo[1];
-                objPet.Especie = strArrayArquivo[2];
-                objPet.Raca = strArrayArquivo[3];
-                objPet.Situacao = strArrayArquivo[5];
+                    Cliente objCliente = new Cliente();
+                    objCliente.Id = int.Parse(strArrayArquivo[4]);
 
-                Cliente objCliente = new Cliente();
-                objCliente.Id = int.Parse(strArrayArquivo[4]);
+                    objPet.Tutor = objCliente;
 
-                objPet.Tutor = objCliente;
-
-                lstPets.Add(objPet);
+                    lstPets.Add(objPet);
+                }
             }
 
             return lstPets;
@@ -159,13 +162,13 @@ namespace SysBanhoTosa.Controllers
         public List<Pet> GetPetsByCliente(int pClienteId)
         {
             List<Pet> lstPets = new List<Pet>();
-            Pet objPet = new Pet();
+            
             foreach (string strLinha in objPetDAO.GetPets())
             {
                 string[] strArrayArquivo = strLinha.Split('|');
                 if (pClienteId == int.Parse(strArrayArquivo[4]))
                 {
-
+                    Pet objPet = new Pet();
                     objPet.Id = int.Parse(strArrayArquivo[0]);
                     objPet.Nome = strArrayArquivo[1];
                     objPet.Especie = strArrayArquivo[2];

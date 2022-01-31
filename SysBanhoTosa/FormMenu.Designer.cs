@@ -64,21 +64,21 @@ namespace SysBanhoTosa
             // tmiClientes
             // 
             this.tmiClientes.Name = "tmiClientes";
-            this.tmiClientes.Size = new System.Drawing.Size(180, 22);
+            this.tmiClientes.Size = new System.Drawing.Size(117, 22);
             this.tmiClientes.Text = "Clientes";
             this.tmiClientes.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // tmiPets
             // 
             this.tmiPets.Name = "tmiPets";
-            this.tmiPets.Size = new System.Drawing.Size(180, 22);
+            this.tmiPets.Size = new System.Drawing.Size(117, 22);
             this.tmiPets.Text = "Pets";
             this.tmiPets.Click += new System.EventHandler(this.petsToolStripMenuItem_Click);
             // 
             // tmiServicos
             // 
             this.tmiServicos.Name = "tmiServicos";
-            this.tmiServicos.Size = new System.Drawing.Size(180, 22);
+            this.tmiServicos.Size = new System.Drawing.Size(117, 22);
             this.tmiServicos.Text = "Serviços";
             this.tmiServicos.Click += new System.EventHandler(this.serviçosToolStripMenuItem_Click);
             // 
@@ -93,7 +93,7 @@ namespace SysBanhoTosa
             // tmiLancamentoServicos
             // 
             this.tmiLancamentoServicos.Name = "tmiLancamentoServicos";
-            this.tmiLancamentoServicos.Size = new System.Drawing.Size(180, 22);
+            this.tmiLancamentoServicos.Size = new System.Drawing.Size(117, 22);
             this.tmiLancamentoServicos.Text = "Serviços";
             this.tmiLancamentoServicos.Click += new System.EventHandler(this.serviçosToolStripMenuItem1_Click);
             // 
@@ -104,6 +104,7 @@ namespace SysBanhoTosa
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.mnsMenuPrincipal);
             this.MainMenuStrip = this.mnsMenuPrincipal;
+            this.MinimumSize = new System.Drawing.Size(300, 200);
             this.Name = "FormMenu";
             this.Text = "Sistema de banho e tosa";
             this.mnsMenuPrincipal.ResumeLayout(false);

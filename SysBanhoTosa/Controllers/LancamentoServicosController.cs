@@ -2,6 +2,7 @@
 using SysBanhoTosa.Models.Classes;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -140,6 +141,10 @@ namespace SysBanhoTosa.Controllers
         public void ImprimirLancamento(Lancamento pLancamento)
         {
             string strNomeArquivo = "\\Lancamento" + pLancamento.Id+".txt";
+            /*File.WriteAllText($"{Directory.GetCurrentDirectory()}{strNomeArquivo}", $@"PETSHOP BICHO DO MATO                                          Nº{pLancamento.Id}
+
+       Situacao: {pLancamento.Situacao}");*/
+
             objLancamentoServicosDAO.AdicionarLinhaLancamento("PETSHOP BICHO DO MATO                                          Nº"+pLancamento.Id,strNomeArquivo);
             objLancamentoServicosDAO.AdicionarLinhaLancamento("", strNomeArquivo);
             objLancamentoServicosDAO.AdicionarLinhaLancamento("       Situacao: " + pLancamento.Situacao,strNomeArquivo);
@@ -159,6 +164,8 @@ namespace SysBanhoTosa.Controllers
             objLancamentoServicosDAO.AdicionarLinhaLancamento("    Valor R$:" + pLancamento.Valor, strNomeArquivo);
             objLancamentoServicosDAO.AdicionarLinhaLancamento("Serv Detalhe:" + pLancamento.Servico.Descricao, strNomeArquivo);
             objLancamentoServicosDAO.AdicionarLinhaLancamento("  Observação:" + pLancamento.Observacao, strNomeArquivo);
+
+            
 
         }
     }

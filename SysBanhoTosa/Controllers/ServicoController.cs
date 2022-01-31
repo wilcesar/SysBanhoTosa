@@ -52,23 +52,26 @@ namespace SysBanhoTosa.Controllers
         /// <summary>
         /// Gera lista dos serviços que tem no arquivo texto.
         /// </summary>
+        /// <param name="pSomenteAtivos"> Se true trás somente os ativos.</param>
         /// <returns>Lista de objetos contendo os serviços.</returns>
-        public List<Servico> GetServicos()
+        public List<Servico> GetServicos(bool pSomenteAtivos)
         {
             List<Servico> lstServicos = new List<Servico>();
 
             foreach (string strLinha in objServicoDAO.GetServicos())
             {
                 string[] strArrayArquivo = strLinha.Split('|');
+                if ((pSomenteAtivos && (strArrayArquivo[4] == "ATIVO")) || !pSomenteAtivos)
+                {
+                    Servico objServico = new Servico();
+                    objServico.Id = int.Parse(strArrayArquivo[0]);
+                    objServico.Nome = strArrayArquivo[1];
+                    objServico.Descricao = strArrayArquivo[2];
+                    objServico.Valor = float.Parse(strArrayArquivo[3]);
+                    objServico.Situacao = strArrayArquivo[4];
 
-                Servico objServico = new Servico();
-                objServico.Id = int.Parse(strArrayArquivo[0]);
-                objServico.Nome = strArrayArquivo[1];
-                objServico.Descricao = strArrayArquivo[2];
-                objServico.Valor = float.Parse(strArrayArquivo[3]);
-                objServico.Situacao = strArrayArquivo[4];
-
-                lstServicos.Add(objServico);                
+                    lstServicos.Add(objServico);
+                }           
             }
             return lstServicos;
         }

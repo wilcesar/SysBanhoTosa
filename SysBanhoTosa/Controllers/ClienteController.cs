@@ -64,34 +64,35 @@ namespace SysBanhoTosa.Controllers
         /// <summary>
         /// Gera lista dos clientes que tem no arquivo texto.
         /// </summary>
+        /// <param name="pSomenteAtivos"> Se true trás somente os ativos.</param>
         /// <returns>Lista de objetos contendo os clientes.</returns>
-        public List<Cliente> GetClientes()
+        public List<Cliente> GetClientes(bool pSomenteAtivos)
         {
             List<Cliente> lstClientes = new List<Cliente>();
             foreach (string strLinha in objClienteDAO.GetClientes())
             {
                 string[] strArrayArquivo = strLinha.Split('|');
+                if((pSomenteAtivos && (strArrayArquivo[11] == "ATIVO"))||!pSomenteAtivos){
+                    Cliente objCliente = new Cliente();
+                    objCliente.Id = int.Parse(strArrayArquivo[0]);
+                    objCliente.Nome = strArrayArquivo[1];
+                    objCliente.Email = strArrayArquivo[2];
+                    objCliente.Telefone = strArrayArquivo[3];
+                    objCliente.Situacao = strArrayArquivo[11];
 
-                Cliente objCliente = new Cliente();
-                objCliente.Id = int.Parse(strArrayArquivo[0]);
-                objCliente.Nome = strArrayArquivo[1];
-                objCliente.Email = strArrayArquivo[2];
-                objCliente.Telefone = strArrayArquivo[3];
-                objCliente.Situacao = strArrayArquivo[11];
+                    Endereco objEndereco = new Endereco();
+                    objEndereco.Logradouro = strArrayArquivo[4];
+                    objEndereco.Numero = strArrayArquivo[5];
+                    objEndereco.Bairro = strArrayArquivo[6];
+                    objEndereco.Complemento = strArrayArquivo[7];
+                    objEndereco.Cep = strArrayArquivo[8];
+                    objEndereco.Cidade = strArrayArquivo[9];
+                    objEndereco.Uf = strArrayArquivo[10];
 
-                Endereco objEndereco = new Endereco();
-                objEndereco.Logradouro = strArrayArquivo[4];
-                objEndereco.Numero = strArrayArquivo[5];
-                objEndereco.Bairro = strArrayArquivo[6];
-                objEndereco.Complemento = strArrayArquivo[7];
-                objEndereco.Cep = strArrayArquivo[8];
-                objEndereco.Cidade = strArrayArquivo[9];
-                objEndereco.Uf = strArrayArquivo[10];
+                    objCliente.Endereco = objEndereco;
 
-                objCliente.Endereco = objEndereco;
-
-                lstClientes.Add(objCliente);
-
+                    lstClientes.Add(objCliente);
+                }
             }
             
 

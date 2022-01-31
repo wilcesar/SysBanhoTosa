@@ -43,16 +43,21 @@ namespace SysBanhoTosa.Views
         /// Alimenta os combobox da tela.
         /// </summary>
         private void AlimentaCombosBox()
-        {            
-            foreach(Cliente objCliente in objClienteController.GetClientes())
+        {
+            cboTutor.Items.Add("");
+            foreach (Cliente objCliente in objClienteController.GetClientes(true))
             {
                 cboTutor.Items.Add(objCliente.Id+"-"+ objCliente.Nome);
             }
-            foreach(Pet objPet in objPetController.GetPets())
+
+            cboPet.Items.Add("");
+            foreach (Pet objPet in objPetController.GetPets(true))
             {
                 cboPet.Items.Add(objPet.Id + "-" + objPet.Nome);
             }
-            foreach(Servico objServico in objServicoController.GetServicos())
+
+            cboServico.Items.Add("");
+            foreach (Servico objServico in objServicoController.GetServicos(true))
             {
                 cboServico.Items.Add(objServico.Id + "-" + objServico.Nome);
             }
@@ -65,10 +70,10 @@ namespace SysBanhoTosa.Views
         {
             txtCodigo.Text = "";
             cboTutor.SelectedIndex = 0;
-            cboPet.SelectedIndex = 0;
+            cboPet.SelectedIndex = -1;
             cboServico.SelectedIndex = 0;
             txtValor.Text = "";
-            cboSituacao.Text = "ATIVO";
+            cboSituacao.SelectedIndex =0;
             rtfObservacao.Text = "";
             cboTutor.Focus();
         }
@@ -130,10 +135,16 @@ namespace SysBanhoTosa.Views
             {
                 objLancamento.Id = int.Parse(txtCodigo.Text);
             }
+            if (!float.TryParse(txtValor.Text, out float fltValor))
+            {
+                MessageBox.Show("O valor está incorreto", "Atenção");
+            }
+            //Tipo de dado para substituir o float
+            decimal decA = 0.0M;
             objLancamento.Cliente = objClienteController.GetClienteById(int.Parse(cboTutor.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
             objLancamento.Pet = objPetController.GetPetById(int.Parse(cboPet.Text.Substring(0, cboPet.Text.IndexOf("-"))));
             objLancamento.Servico = objServicoController.GeServicoById(int.Parse(cboServico.Text.Substring(0, cboServico.Text.IndexOf("-"))));
-            objLancamento.Valor = float.Parse(txtValor.Text);
+            objLancamento.Valor = fltValor;
             objLancamento.DataHora = dtpAgendamento.Value;
             objLancamento.Situacao = cboSituacao.Text;
             objLancamento.Observacao = rtfObservacao.Text;
@@ -202,27 +213,36 @@ namespace SysBanhoTosa.Views
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             txtCodigo.Text = "";
-            cboTutor.SelectedIndex = -1;
+            cboTutor.SelectedIndex = 0;
+            cboPet.Items.Clear();
             cboPet.SelectedIndex = -1;
-            cboServico.SelectedIndex = -1;
+            cboPet.Text = "";
+            cboServico.SelectedIndex = 0;
             txtValor.Text = "0.00";            
             cboSituacao.SelectedIndex = 0;
             rtfObservacao.Text = "";
+            
         }
 
         private void cboTutor_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboPet.Items.Clear();
-            foreach (Pet objPet in objPetController.GetPetsByCliente(int.Parse(cboTutor.Text.Substring(0, cboTutor.Text.IndexOf("-")))))
+            if (cboTutor.Text != "")
             {
-                cboPet.Items.Add(objPet.Id + "-" + objPet.Nome);
-            }
+                foreach (Pet objPet in objPetController.GetPetsByCliente(int.Parse(cboTutor.Text.Substring(0, cboTutor.Text.IndexOf("-")))))
+                {
+                    cboPet.Items.Add(objPet.Id + "-" + objPet.Nome);
+                }
+            };            
         }
 
         private void cboServico_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Servico objServico = objServicoController.GeServicoById(int.Parse(cboServico.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
-            txtValor.Text = objServico.Valor.ToString();
+            if(cboServico.Text != "")
+            {
+                Servico objServico = objServicoController.GeServicoById(int.Parse(cboServico.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
+                txtValor.Text = objServico.Valor.ToString();
+            }            
         }
     }
 }

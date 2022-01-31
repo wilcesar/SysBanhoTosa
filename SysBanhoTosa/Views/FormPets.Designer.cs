@@ -80,6 +80,7 @@ namespace SysBanhoTosa.Views
             // 
             // cboSituacao
             // 
+            this.cboSituacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSituacao.FormattingEnabled = true;
             this.cboSituacao.Items.AddRange(new object[] {
             "ATIVO",
@@ -101,6 +102,7 @@ namespace SysBanhoTosa.Views
             // 
             // cboTutor
             // 
+            this.cboTutor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTutor.FormattingEnabled = true;
             this.cboTutor.Location = new System.Drawing.Point(23, 103);
             this.cboTutor.Name = "cboTutor";
@@ -138,8 +140,10 @@ namespace SysBanhoTosa.Views
             // 
             // cboRaca
             // 
+            this.cboRaca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboRaca.FormattingEnabled = true;
             this.cboRaca.Items.AddRange(new object[] {
+            "",
             "Afegão ou Afghan Hound",
             "Affenpinscher",
             "Airedale Terrier",
@@ -181,8 +185,10 @@ namespace SysBanhoTosa.Views
             // 
             // cboEspecie
             // 
+            this.cboEspecie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEspecie.FormattingEnabled = true;
             this.cboEspecie.Items.AddRange(new object[] {
+            "",
             "Cachorro",
             "Gato"});
             this.cboEspecie.Location = new System.Drawing.Point(23, 62);
@@ -263,6 +269,7 @@ namespace SysBanhoTosa.Views
             // 
             // dgvPets
             // 
+            this.dgvPets.AllowUserToAddRows = false;
             this.dgvPets.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvPets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -274,46 +281,52 @@ namespace SysBanhoTosa.Views
             this.clnSituacao});
             this.dgvPets.Location = new System.Drawing.Point(3, 3);
             this.dgvPets.Name = "dgvPets";
+            this.dgvPets.ReadOnly = true;
             this.dgvPets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPets.Size = new System.Drawing.Size(516, 316);
             this.dgvPets.TabIndex = 0;
-            this.dgvPets.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPets_CellContentClick);
             this.dgvPets.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPets_CellDoubleClick);
             // 
             // clnId
             // 
             this.clnId.HeaderText = "ID";
             this.clnId.Name = "clnId";
+            this.clnId.ReadOnly = true;
             this.clnId.Width = 30;
             // 
             // clnNome
             // 
             this.clnNome.HeaderText = "NOME";
             this.clnNome.Name = "clnNome";
+            this.clnNome.ReadOnly = true;
             this.clnNome.Width = 170;
             // 
             // clnTutor
             // 
             this.clnTutor.HeaderText = "TUTOR";
             this.clnTutor.Name = "clnTutor";
+            this.clnTutor.ReadOnly = true;
             this.clnTutor.Width = 250;
             // 
             // clnEspecie
             // 
             this.clnEspecie.HeaderText = "ESPECIE";
             this.clnEspecie.Name = "clnEspecie";
+            this.clnEspecie.ReadOnly = true;
             this.clnEspecie.Visible = false;
             // 
             // clnRaca
             // 
             this.clnRaca.HeaderText = "RAÇA";
             this.clnRaca.Name = "clnRaca";
+            this.clnRaca.ReadOnly = true;
             this.clnRaca.Visible = false;
             // 
             // clnSituacao
             // 
             this.clnSituacao.HeaderText = "SITUAÇÃO";
             this.clnSituacao.Name = "clnSituacao";
+            this.clnSituacao.ReadOnly = true;
             // 
             // FormPets
             // 
@@ -323,6 +336,7 @@ namespace SysBanhoTosa.Views
             this.Controls.Add(this.pnlGrid);
             this.Controls.Add(this.pnlBotoes);
             this.Controls.Add(this.pnlCampos);
+            this.MinimumSize = new System.Drawing.Size(542, 531);
             this.Name = "FormPets";
             this.Text = "Cadastro de Pets";
             this.pnlCampos.ResumeLayout(false);

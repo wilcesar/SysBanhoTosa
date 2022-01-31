@@ -33,13 +33,13 @@ namespace SysBanhoTosa.Views
             txtComplemento.Text = "";
             txtCEP.Text = "";
             txtCidade.Text = "";
-            cboUf.SelectedIndex = -1;
+            cboUf.SelectedIndex = 0;
             cboSituacao.SelectedIndex = 0;
         }
         private void AtualizarGrid()
         {
             dgvClientes.Rows.Clear();            
-            foreach (Cliente objCliente in objClientecontroller.GetClientes())
+            foreach (Cliente objCliente in objClientecontroller.GetClientes(false))
             {
                 dgvClientes.Rows.Add(
                     objCliente.Id,

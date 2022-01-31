@@ -91,6 +91,7 @@ namespace SysBanhoTosa.Views
             // 
             // cboSituacao
             // 
+            this.cboSituacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSituacao.FormattingEnabled = true;
             this.cboSituacao.Items.AddRange(new object[] {
             "ATIVO",
@@ -199,6 +200,7 @@ namespace SysBanhoTosa.Views
             // 
             // dgvServicos
             // 
+            this.dgvServicos.AllowUserToAddRows = false;
             this.dgvServicos.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvServicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvServicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -209,6 +211,7 @@ namespace SysBanhoTosa.Views
             this.clnSituacao});
             this.dgvServicos.Location = new System.Drawing.Point(3, 3);
             this.dgvServicos.Name = "dgvServicos";
+            this.dgvServicos.ReadOnly = true;
             this.dgvServicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvServicos.Size = new System.Drawing.Size(516, 316);
             this.dgvServicos.TabIndex = 0;
@@ -218,18 +221,21 @@ namespace SysBanhoTosa.Views
             // 
             this.clnId.HeaderText = "ID";
             this.clnId.Name = "clnId";
+            this.clnId.ReadOnly = true;
             this.clnId.Width = 30;
             // 
             // clnNome
             // 
             this.clnNome.HeaderText = "NOME";
             this.clnNome.Name = "clnNome";
+            this.clnNome.ReadOnly = true;
             this.clnNome.Width = 170;
             // 
             // clnDescricao
             // 
             this.clnDescricao.HeaderText = "DESCRIÇÃO";
             this.clnDescricao.Name = "clnDescricao";
+            this.clnDescricao.ReadOnly = true;
             this.clnDescricao.Visible = false;
             this.clnDescricao.Width = 300;
             // 
@@ -237,11 +243,13 @@ namespace SysBanhoTosa.Views
             // 
             this.clnValor.HeaderText = "VALOR";
             this.clnValor.Name = "clnValor";
+            this.clnValor.ReadOnly = true;
             // 
             // clnSituacao
             // 
             this.clnSituacao.HeaderText = "SITUAÇÃO";
             this.clnSituacao.Name = "clnSituacao";
+            this.clnSituacao.ReadOnly = true;
             // 
             // FormServicos
             // 
@@ -251,8 +259,9 @@ namespace SysBanhoTosa.Views
             this.Controls.Add(this.pnlGrid);
             this.Controls.Add(this.pnlBotoes);
             this.Controls.Add(this.pnlCampos);
+            this.MinimumSize = new System.Drawing.Size(542, 531);
             this.Name = "FormServicos";
-            this.Text = "FormServicos";
+            this.Text = "Cadastro de serviços";
             this.Load += new System.EventHandler(this.FormServicos_Load);
             this.pnlCampos.ResumeLayout(false);
             this.pnlCampos.PerformLayout();

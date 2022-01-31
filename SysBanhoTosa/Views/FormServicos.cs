@@ -31,7 +31,7 @@ namespace SysBanhoTosa.Views
         private void AtualizarGrid()
         {
             dgvServicos.Rows.Clear();
-            foreach (Servico objServico in objServicoController.GetServicos())
+            foreach (Servico objServico in objServicoController.GetServicos(false))
             {
                 dgvServicos.Rows.Add(
                     objServico.Id,

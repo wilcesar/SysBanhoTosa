@@ -126,6 +126,7 @@ namespace SysBanhoTosa.Views
             // 
             // cboSituacao
             // 
+            this.cboSituacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSituacao.FormattingEnabled = true;
             this.cboSituacao.Items.AddRange(new object[] {
             "1-ABERTO",
@@ -177,7 +178,7 @@ namespace SysBanhoTosa.Views
             this.lblServico.Name = "lblServico";
             this.lblServico.Size = new System.Drawing.Size(43, 13);
             this.lblServico.TabIndex = 6;
-            this.lblServico.Text = "Servico";
+            this.lblServico.Text = "Serviço";
             // 
             // lblPet
             // 
@@ -206,6 +207,7 @@ namespace SysBanhoTosa.Views
             // 
             // cboServico
             // 
+            this.cboServico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboServico.FormattingEnabled = true;
             this.cboServico.Location = new System.Drawing.Point(348, 72);
             this.cboServico.Name = "cboServico";
@@ -215,6 +217,7 @@ namespace SysBanhoTosa.Views
             // 
             // cboPet
             // 
+            this.cboPet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPet.FormattingEnabled = true;
             this.cboPet.Location = new System.Drawing.Point(10, 72);
             this.cboPet.Name = "cboPet";
@@ -223,6 +226,7 @@ namespace SysBanhoTosa.Views
             // 
             // cboTutor
             // 
+            this.cboTutor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTutor.FormattingEnabled = true;
             this.cboTutor.Location = new System.Drawing.Point(348, 23);
             this.cboTutor.Name = "cboTutor";
@@ -240,6 +244,7 @@ namespace SysBanhoTosa.Views
             // 
             // dgvLancamentos
             // 
+            this.dgvLancamentos.AllowUserToAddRows = false;
             this.dgvLancamentos.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvLancamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLancamentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -253,6 +258,7 @@ namespace SysBanhoTosa.Views
             this.clnObservacao});
             this.dgvLancamentos.Location = new System.Drawing.Point(0, 3);
             this.dgvLancamentos.Name = "dgvLancamentos";
+            this.dgvLancamentos.ReadOnly = true;
             this.dgvLancamentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLancamentos.Size = new System.Drawing.Size(754, 280);
             this.dgvLancamentos.TabIndex = 0;
@@ -262,43 +268,51 @@ namespace SysBanhoTosa.Views
             // 
             this.clnId.HeaderText = "CÓDIGO";
             this.clnId.Name = "clnId";
+            this.clnId.ReadOnly = true;
             // 
             // clnCliente
             // 
             this.clnCliente.HeaderText = "TUTOR";
             this.clnCliente.Name = "clnCliente";
+            this.clnCliente.ReadOnly = true;
             // 
             // clnPet
             // 
             this.clnPet.HeaderText = "PET";
             this.clnPet.Name = "clnPet";
+            this.clnPet.ReadOnly = true;
             this.clnPet.Width = 200;
             // 
             // clnServico
             // 
             this.clnServico.HeaderText = "SERVIÇO";
             this.clnServico.Name = "clnServico";
+            this.clnServico.ReadOnly = true;
             this.clnServico.Width = 200;
             // 
             // clnValor
             // 
             this.clnValor.HeaderText = "VALOR";
             this.clnValor.Name = "clnValor";
+            this.clnValor.ReadOnly = true;
             // 
             // clnData
             // 
             this.clnData.HeaderText = "DATA";
             this.clnData.Name = "clnData";
+            this.clnData.ReadOnly = true;
             // 
             // clnSituacao
             // 
             this.clnSituacao.HeaderText = "SITUAÇÃO";
             this.clnSituacao.Name = "clnSituacao";
+            this.clnSituacao.ReadOnly = true;
             // 
             // clnObservacao
             // 
             this.clnObservacao.HeaderText = "OBSERVAÇÃO";
             this.clnObservacao.Name = "clnObservacao";
+            this.clnObservacao.ReadOnly = true;
             this.clnObservacao.Visible = false;
             // 
             // pnlBotoes
@@ -349,8 +363,9 @@ namespace SysBanhoTosa.Views
             this.Controls.Add(this.pnlBotoes);
             this.Controls.Add(this.pnlGrid);
             this.Controls.Add(this.pnlLancamento);
+            this.MinimumSize = new System.Drawing.Size(784, 489);
             this.Name = "FormLancamentosServicos";
-            this.Text = "Lancamento de servicos";
+            this.Text = "Lancamento de serviços";
             this.pnlLancamento.ResumeLayout(false);
             this.pnlLancamento.PerformLayout();
             this.pnlGrid.ResumeLayout(false);

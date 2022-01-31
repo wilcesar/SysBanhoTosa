@@ -30,6 +30,8 @@ namespace SysBanhoTosa.Views
         private void InitializeComponent()
         {
             this.pnlCampos = new System.Windows.Forms.Panel();
+            this.cboSituacao = new System.Windows.Forms.ComboBox();
+            this.lblSituacao = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -40,6 +42,18 @@ namespace SysBanhoTosa.Views
             this.txtNome = new System.Windows.Forms.TextBox();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.clnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnLogradouro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnBairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnComplemento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnCep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnCidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlEndereco = new System.Windows.Forms.Panel();
             this.txtCEP = new System.Windows.Forms.MaskedTextBox();
             this.lblCep = new System.Windows.Forms.Label();
@@ -58,20 +72,6 @@ namespace SysBanhoTosa.Views
             this.pnlBotoes = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
-            this.lblSituacao = new System.Windows.Forms.Label();
-            this.cboSituacao = new System.Windows.Forms.ComboBox();
-            this.clnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnLogradouro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnBairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnComplemento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnCep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnCidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnUf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlCampos.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
@@ -95,6 +95,28 @@ namespace SysBanhoTosa.Views
             this.pnlCampos.Name = "pnlCampos";
             this.pnlCampos.Size = new System.Drawing.Size(444, 292);
             this.pnlCampos.TabIndex = 0;
+            // 
+            // cboSituacao
+            // 
+            this.cboSituacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSituacao.FormattingEnabled = true;
+            this.cboSituacao.Items.AddRange(new object[] {
+            "ATIVO",
+            "INATIVO"});
+            this.cboSituacao.Location = new System.Drawing.Point(9, 100);
+            this.cboSituacao.Name = "cboSituacao";
+            this.cboSituacao.Size = new System.Drawing.Size(121, 21);
+            this.cboSituacao.TabIndex = 4;
+            // 
+            // lblSituacao
+            // 
+            this.lblSituacao.AutoSize = true;
+            this.lblSituacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSituacao.Location = new System.Drawing.Point(9, 84);
+            this.lblSituacao.Name = "lblSituacao";
+            this.lblSituacao.Size = new System.Drawing.Size(57, 13);
+            this.lblSituacao.TabIndex = 8;
+            this.lblSituacao.Text = "Situação";
             // 
             // txtCodigo
             // 
@@ -174,6 +196,7 @@ namespace SysBanhoTosa.Views
             // 
             // dgvClientes
             // 
+            this.dgvClientes.AllowUserToAddRows = false;
             this.dgvClientes.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -191,11 +214,91 @@ namespace SysBanhoTosa.Views
             this.clnSituacao});
             this.dgvClientes.Location = new System.Drawing.Point(0, 3);
             this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.ReadOnly = true;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientes.Size = new System.Drawing.Size(518, 196);
             this.dgvClientes.TabIndex = 0;
             this.dgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentClick);
             this.dgvClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellDoubleClick);
+            // 
+            // clnId
+            // 
+            this.clnId.HeaderText = "ID";
+            this.clnId.Name = "clnId";
+            this.clnId.ReadOnly = true;
+            this.clnId.Width = 40;
+            // 
+            // clnNome
+            // 
+            this.clnNome.HeaderText = "NOME";
+            this.clnNome.Name = "clnNome";
+            this.clnNome.ReadOnly = true;
+            // 
+            // clnEmail
+            // 
+            this.clnEmail.HeaderText = "E-MAIL";
+            this.clnEmail.Name = "clnEmail";
+            this.clnEmail.ReadOnly = true;
+            // 
+            // clnTelefone
+            // 
+            this.clnTelefone.HeaderText = "FONE";
+            this.clnTelefone.Name = "clnTelefone";
+            this.clnTelefone.ReadOnly = true;
+            // 
+            // clnLogradouro
+            // 
+            this.clnLogradouro.HeaderText = "LOGRADOURO";
+            this.clnLogradouro.Name = "clnLogradouro";
+            this.clnLogradouro.ReadOnly = true;
+            this.clnLogradouro.Visible = false;
+            // 
+            // clnNumero
+            // 
+            this.clnNumero.HeaderText = "NRO";
+            this.clnNumero.Name = "clnNumero";
+            this.clnNumero.ReadOnly = true;
+            this.clnNumero.Visible = false;
+            // 
+            // clnBairro
+            // 
+            this.clnBairro.HeaderText = "BAIRRO";
+            this.clnBairro.Name = "clnBairro";
+            this.clnBairro.ReadOnly = true;
+            this.clnBairro.Visible = false;
+            // 
+            // clnComplemento
+            // 
+            this.clnComplemento.HeaderText = "COMPLEMENTO";
+            this.clnComplemento.Name = "clnComplemento";
+            this.clnComplemento.ReadOnly = true;
+            this.clnComplemento.Visible = false;
+            // 
+            // clnCep
+            // 
+            this.clnCep.HeaderText = "CEP";
+            this.clnCep.Name = "clnCep";
+            this.clnCep.ReadOnly = true;
+            this.clnCep.Visible = false;
+            // 
+            // clnCidade
+            // 
+            this.clnCidade.HeaderText = "CIDADE";
+            this.clnCidade.Name = "clnCidade";
+            this.clnCidade.ReadOnly = true;
+            // 
+            // clnUf
+            // 
+            this.clnUf.HeaderText = "UF";
+            this.clnUf.Name = "clnUf";
+            this.clnUf.ReadOnly = true;
+            this.clnUf.Width = 30;
+            // 
+            // clnSituacao
+            // 
+            this.clnSituacao.HeaderText = "SITUACAO";
+            this.clnSituacao.Name = "clnSituacao";
+            this.clnSituacao.ReadOnly = true;
             // 
             // pnlEndereco
             // 
@@ -246,6 +349,7 @@ namespace SysBanhoTosa.Views
             // 
             // cboUf
             // 
+            this.cboUf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboUf.FormattingEnabled = true;
             this.cboUf.Items.AddRange(new object[] {
             "AC",
@@ -389,94 +493,6 @@ namespace SysBanhoTosa.Views
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
-            // lblSituacao
-            // 
-            this.lblSituacao.AutoSize = true;
-            this.lblSituacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSituacao.Location = new System.Drawing.Point(9, 84);
-            this.lblSituacao.Name = "lblSituacao";
-            this.lblSituacao.Size = new System.Drawing.Size(57, 13);
-            this.lblSituacao.TabIndex = 8;
-            this.lblSituacao.Text = "Situação";
-            // 
-            // cboSituacao
-            // 
-            this.cboSituacao.FormattingEnabled = true;
-            this.cboSituacao.Items.AddRange(new object[] {
-            "ATIVO",
-            "INATIVO"});
-            this.cboSituacao.Location = new System.Drawing.Point(9, 100);
-            this.cboSituacao.Name = "cboSituacao";
-            this.cboSituacao.Size = new System.Drawing.Size(121, 21);
-            this.cboSituacao.TabIndex = 4;
-            // 
-            // clnId
-            // 
-            this.clnId.HeaderText = "ID";
-            this.clnId.Name = "clnId";
-            this.clnId.Width = 40;
-            // 
-            // clnNome
-            // 
-            this.clnNome.HeaderText = "NOME";
-            this.clnNome.Name = "clnNome";
-            // 
-            // clnEmail
-            // 
-            this.clnEmail.HeaderText = "E-MAIL";
-            this.clnEmail.Name = "clnEmail";
-            // 
-            // clnTelefone
-            // 
-            this.clnTelefone.HeaderText = "FONE";
-            this.clnTelefone.Name = "clnTelefone";
-            // 
-            // clnLogradouro
-            // 
-            this.clnLogradouro.HeaderText = "LOGRADOURO";
-            this.clnLogradouro.Name = "clnLogradouro";
-            this.clnLogradouro.Visible = false;
-            // 
-            // clnNumero
-            // 
-            this.clnNumero.HeaderText = "NRO";
-            this.clnNumero.Name = "clnNumero";
-            this.clnNumero.Visible = false;
-            // 
-            // clnBairro
-            // 
-            this.clnBairro.HeaderText = "BAIRRO";
-            this.clnBairro.Name = "clnBairro";
-            this.clnBairro.Visible = false;
-            // 
-            // clnComplemento
-            // 
-            this.clnComplemento.HeaderText = "COMPLEMENTO";
-            this.clnComplemento.Name = "clnComplemento";
-            this.clnComplemento.Visible = false;
-            // 
-            // clnCep
-            // 
-            this.clnCep.HeaderText = "CEP";
-            this.clnCep.Name = "clnCep";
-            this.clnCep.Visible = false;
-            // 
-            // clnCidade
-            // 
-            this.clnCidade.HeaderText = "CIDADE";
-            this.clnCidade.Name = "clnCidade";
-            // 
-            // clnUf
-            // 
-            this.clnUf.HeaderText = "UF";
-            this.clnUf.Name = "clnUf";
-            this.clnUf.Width = 30;
-            // 
-            // clnSituacao
-            // 
-            this.clnSituacao.HeaderText = "SITUACAO";
-            this.clnSituacao.Name = "clnSituacao";
-            // 
             // FormClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -486,6 +502,7 @@ namespace SysBanhoTosa.Views
             this.Controls.Add(this.pnlEndereco);
             this.Controls.Add(this.pnlGrid);
             this.Controls.Add(this.pnlCampos);
+            this.MinimumSize = new System.Drawing.Size(542, 531);
             this.Name = "FormClientes";
             this.Text = "Cadastro de clientes";
             this.pnlCampos.ResumeLayout(false);

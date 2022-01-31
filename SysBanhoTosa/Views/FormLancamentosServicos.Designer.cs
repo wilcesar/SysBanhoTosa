@@ -57,10 +57,10 @@ namespace SysBanhoTosa.Views
             this.clnSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnObservacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlBotoes = new System.Windows.Forms.Panel();
+            this.btnImpRelatorio = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
-            this.btnImpRelatorio = new System.Windows.Forms.Button();
             this.pnlLancamento.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLancamentos)).BeginInit();
@@ -328,6 +328,16 @@ namespace SysBanhoTosa.Views
             this.pnlBotoes.Size = new System.Drawing.Size(77, 185);
             this.pnlBotoes.TabIndex = 7;
             // 
+            // btnImpRelatorio
+            // 
+            this.btnImpRelatorio.Location = new System.Drawing.Point(1, 133);
+            this.btnImpRelatorio.Name = "btnImpRelatorio";
+            this.btnImpRelatorio.Size = new System.Drawing.Size(75, 37);
+            this.btnImpRelatorio.TabIndex = 8;
+            this.btnImpRelatorio.Text = "Imprimir relatório";
+            this.btnImpRelatorio.UseVisualStyleBackColor = true;
+            this.btnImpRelatorio.Click += new System.EventHandler(this.btnImpRelatorio_Click);
+            // 
             // btnImprimir
             // 
             this.btnImprimir.Location = new System.Drawing.Point(1, 90);
@@ -358,16 +368,6 @@ namespace SysBanhoTosa.Views
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
-            // btnImpRelatorio
-            // 
-            this.btnImpRelatorio.Location = new System.Drawing.Point(1, 133);
-            this.btnImpRelatorio.Name = "btnImpRelatorio";
-            this.btnImpRelatorio.Size = new System.Drawing.Size(75, 37);
-            this.btnImpRelatorio.TabIndex = 8;
-            this.btnImpRelatorio.Text = "Imprimir relatório";
-            this.btnImpRelatorio.UseVisualStyleBackColor = true;
-            this.btnImpRelatorio.Click += new System.EventHandler(this.btnImpRelatorio_Click);
-            // 
             // FormLancamentosServicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,7 +378,7 @@ namespace SysBanhoTosa.Views
             this.Controls.Add(this.pnlLancamento);
             this.MinimumSize = new System.Drawing.Size(784, 489);
             this.Name = "FormLancamentosServicos";
-            this.Text = "Lancamento de serviços";
+            this.Text = "Lançamento de serviços";
             this.pnlLancamento.ResumeLayout(false);
             this.pnlLancamento.PerformLayout();
             this.pnlGrid.ResumeLayout(false);

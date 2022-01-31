@@ -77,7 +77,7 @@ namespace SysBanhoTosa.Views
             if (objServicoController.ValidaServico(objServico)){
                 List<Servico> lstServicos = new List<Servico>();
 
-                for (int intI = 0; intI < dgvServicos.Rows.Count - 1; intI++)
+                for (int intI = 0; intI < dgvServicos.Rows.Count; intI++)
                 {
                     Servico objServicoFor = new Servico();
                     objServicoFor.Id = int.Parse(dgvServicos.Rows[intI].Cells[0].Value.ToString());

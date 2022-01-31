@@ -98,7 +98,7 @@ namespace SysBanhoTosa.Views
             {                
                 
                 List<Cliente> lstClientes = new List<Cliente>();
-                for ( int intI = 0; intI < dgvClientes.Rows.Count-1; intI++)
+                for ( int intI = 0; intI < dgvClientes.Rows.Count; intI++)
                 {
                     Cliente objClienteFor = new Cliente();
                     objClienteFor.Id = int.Parse(dgvClientes.Rows[intI].Cells[0].Value.ToString());

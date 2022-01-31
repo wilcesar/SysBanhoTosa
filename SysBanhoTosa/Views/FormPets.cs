@@ -95,7 +95,7 @@ namespace SysBanhoTosa.Views
             if (objPetController.ValidaPet(objPet))
             {
                 List<Pet> lstPets = new List<Pet>();
-                for (int intI = 0; intI < dgvPets.Rows.Count - 1; intI++)
+                for (int intI = 0; intI < dgvPets.Rows.Count; intI++)
                 {
                     Pet objPetFor = new Pet();
                     objPetFor.Id = int.Parse(dgvPets.Rows[intI].Cells[0].Value.ToString());

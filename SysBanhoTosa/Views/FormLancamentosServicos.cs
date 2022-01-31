@@ -152,7 +152,7 @@ namespace SysBanhoTosa.Views
             {
                                 
                 List<Lancamento> lstLancamentos = new List<Lancamento>();
-                for (int intI = 0; intI < dgvLancamentos.Rows.Count - 1; intI++)
+                for (int intI = 0; intI < dgvLancamentos.Rows.Count; intI++)
                 {
                     string strCliente = dgvLancamentos.Rows[intI].Cells[1].Value.ToString();
                     string strPet = dgvLancamentos.Rows[intI].Cells[2].Value.ToString();

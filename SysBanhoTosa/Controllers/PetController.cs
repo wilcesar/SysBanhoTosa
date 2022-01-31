@@ -65,8 +65,8 @@ namespace SysBanhoTosa.Controllers
         public List<Pet> GetPets(bool pSomenteAtivos)
         {
             List<Pet> lstPets = new List<Pet>();
-
-            foreach (string strLinha in objPetDAO.GetPets())
+            var objPetsArquivo = objPetDAO.GetPets();
+            foreach (string strLinha in objPetsArquivo)
             {
                 string[] strArrayArquivo = strLinha.Split('|');
                 if ((pSomenteAtivos && (strArrayArquivo[5] == "ATIVO")) || !pSomenteAtivos)
@@ -137,7 +137,8 @@ namespace SysBanhoTosa.Controllers
         public Pet GetPetById(int pId)
         {
             Pet objPet = new Pet();
-            foreach (string strLinha in objPetDAO.GetPets())
+            var objPetsArquivo = objPetDAO.GetPets();
+            foreach (string strLinha in objPetsArquivo)
             {
                 string[] strArrayArquivo = strLinha.Split('|');
                 if (pId == int.Parse(strArrayArquivo[0]))
@@ -162,8 +163,8 @@ namespace SysBanhoTosa.Controllers
         public List<Pet> GetPetsByCliente(int pClienteId)
         {
             List<Pet> lstPets = new List<Pet>();
-            
-            foreach (string strLinha in objPetDAO.GetPets())
+            var objPetsArquivo = objPetDAO.GetPets();
+            foreach (string strLinha in objPetsArquivo)
             {
                 string[] strArrayArquivo = strLinha.Split('|');
                 if (pClienteId == int.Parse(strArrayArquivo[4]))

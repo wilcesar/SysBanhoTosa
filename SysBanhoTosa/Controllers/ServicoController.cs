@@ -57,8 +57,8 @@ namespace SysBanhoTosa.Controllers
         public List<Servico> GetServicos(bool pSomenteAtivos)
         {
             List<Servico> lstServicos = new List<Servico>();
-
-            foreach (string strLinha in objServicoDAO.GetServicos())
+            var objServicosArquivo = objServicoDAO.GetServicos();
+            foreach (string strLinha in objServicosArquivo)
             {
                 string[] strArrayArquivo = strLinha.Split('|');
                 if ((pSomenteAtivos && (strArrayArquivo[4] == "ATIVO")) || !pSomenteAtivos)
@@ -67,7 +67,7 @@ namespace SysBanhoTosa.Controllers
                     objServico.Id = int.Parse(strArrayArquivo[0]);
                     objServico.Nome = strArrayArquivo[1];
                     objServico.Descricao = strArrayArquivo[2];
-                    objServico.Valor = float.Parse(strArrayArquivo[3]);
+                    objServico.Valor = decimal.Parse(strArrayArquivo[3]);
                     objServico.Situacao = strArrayArquivo[4];
 
                     lstServicos.Add(objServico);
@@ -122,7 +122,8 @@ namespace SysBanhoTosa.Controllers
         public Servico GeServicoById(int pId)
         {
             Servico objServico = new Servico();
-            foreach (string strLinha in objServicoDAO.GetServicos())
+            var objServicosArquivo = objServicoDAO.GetServicos();
+            foreach (string strLinha in objServicosArquivo)
             {
                 string[] strArrayArquivo = strLinha.Split('|');
                 if (pId == int.Parse(strArrayArquivo[0]))
@@ -131,7 +132,7 @@ namespace SysBanhoTosa.Controllers
                     objServico.Id = int.Parse(strArrayArquivo[0]);
                     objServico.Nome = strArrayArquivo[1];
                     objServico.Descricao = strArrayArquivo[2];
-                    objServico.Valor = float.Parse(strArrayArquivo[3]);
+                    objServico.Valor = decimal.Parse(strArrayArquivo[3]);
                     objServico.Situacao = strArrayArquivo[4];
                     break;
                 }

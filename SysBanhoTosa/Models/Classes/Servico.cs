@@ -26,7 +26,7 @@ namespace SysBanhoTosa.Models.Classes
         /// <summary>
         /// Valor do serviço.
         /// </summary>
-        private float fltValor;
+        private decimal decValor;
 
         /// <summary>
         /// Situação cadastral do serviço(ATIVO/INATIVO).
@@ -63,9 +63,9 @@ namespace SysBanhoTosa.Models.Classes
         /// <summary>
         /// Get e set do valor do serviço.
         /// </summary>
-        public float Valor { 
-            get => fltValor; 
-            set => fltValor = value; 
+        public decimal Valor { 
+            get => decValor; 
+            set => decValor = value; 
         }
 
         /// <summary>

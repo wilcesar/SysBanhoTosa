@@ -14,6 +14,9 @@ namespace SysBanhoTosa.Views
 {
     public partial class FormClientes : Form
     {
+        /// <summary>
+        /// Objeto de controle de clientes.
+        /// </summary>
         ClienteController objClientecontroller = new ClienteController();
         public FormClientes()
         {
@@ -21,6 +24,10 @@ namespace SysBanhoTosa.Views
             AtualizarGrid();
             LimpaCampos();
         }
+
+        /// <summary>
+        /// Limpa os campos da tela.
+        /// </summary>
         private void LimpaCampos()
         {
             txtCodigo.Text = "";
@@ -36,10 +43,15 @@ namespace SysBanhoTosa.Views
             cboUf.SelectedIndex = 0;
             cboSituacao.SelectedIndex = 0;
         }
+
+        /// <summary>
+        /// Atualiza a grid de clientes.
+        /// </summary>
         private void AtualizarGrid()
         {
-            dgvClientes.Rows.Clear();            
-            foreach (Cliente objCliente in objClientecontroller.GetClientes(false))
+            dgvClientes.Rows.Clear();
+            var lstClientes = objClientecontroller.GetClientes(false);
+            foreach (Cliente objCliente in lstClientes)
             {
                 dgvClientes.Rows.Add(
                     objCliente.Id,

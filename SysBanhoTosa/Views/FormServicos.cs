@@ -31,7 +31,8 @@ namespace SysBanhoTosa.Views
         private void AtualizarGrid()
         {
             dgvServicos.Rows.Clear();
-            foreach (Servico objServico in objServicoController.GetServicos(false))
+            var lstSerivicos = objServicoController.GetServicos(false);
+            foreach (Servico objServico in lstSerivicos)
             {
                 dgvServicos.Rows.Add(
                     objServico.Id,
@@ -69,7 +70,7 @@ namespace SysBanhoTosa.Views
             }
             objServico.Nome = txtNome.Text;
             objServico.Descricao = txtDescricao.Text;
-            objServico.Valor = float.Parse(txtValor.Text, CultureInfo.InvariantCulture.NumberFormat);
+            objServico.Valor = decimal.Parse(txtValor.Text, CultureInfo.InvariantCulture.NumberFormat);
             objServico.Situacao = cboSituacao.Text;
 
             if (objServicoController.ValidaServico(objServico)){
@@ -81,7 +82,7 @@ namespace SysBanhoTosa.Views
                     objServicoFor.Id = int.Parse(dgvServicos.Rows[intI].Cells[0].Value.ToString());
                     objServicoFor.Nome = dgvServicos.Rows[intI].Cells[1].Value.ToString();
                     objServicoFor.Descricao = dgvServicos.Rows[intI].Cells[2].Value.ToString();
-                    objServicoFor.Valor = float.Parse(dgvServicos.Rows[intI].Cells[3].Value.ToString());
+                    objServicoFor.Valor = decimal.Parse(dgvServicos.Rows[intI].Cells[3].Value.ToString());
                     objServicoFor.Situacao = dgvServicos.Rows[intI].Cells[4].Value.ToString();
 
                     lstServicos.Add(objServicoFor);
@@ -104,6 +105,16 @@ namespace SysBanhoTosa.Views
             txtDescricao.Text = this.dgvServicos.CurrentRow.Cells[2].Value.ToString();
             txtValor.Text = this.dgvServicos.CurrentRow.Cells[3].Value.ToString();
             cboSituacao.Text = this.dgvServicos.CurrentRow.Cells[4].Value.ToString();
+        }
+
+        private void txtValor_Leave(object sender, EventArgs e)
+        {
+            if (!decimal.TryParse(txtValor.Text, out decimal decValor))
+            {
+                MessageBox.Show("O valor está incorreto", "Atenção");
+                txtValor.Text = "";
+                txtValor.Focus();
+            }
         }
     }
 }

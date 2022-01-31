@@ -31,7 +31,7 @@ namespace SysBanhoTosa.Models.Classes
         /// <summary>
         /// Valor do lançamento.
         /// </summary>
-        private float fltValor;
+        private decimal decValor;
 
         /// <summary>
         /// data e hora do serviço
@@ -71,7 +71,7 @@ namespace SysBanhoTosa.Models.Classes
         /// <summary>
         /// Get e Set do valor do lançamento.
         /// </summary>
-        public float Valor { get => fltValor; set => fltValor = value ; }
+        public decimal Valor { get => decValor; set => decValor = value ; }
 
         /// <summary>
         /// Get e set da data e hora do agendamento ou prestação.

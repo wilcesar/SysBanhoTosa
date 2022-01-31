@@ -204,6 +204,7 @@ namespace SysBanhoTosa.Views
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(95, 20);
             this.txtValor.TabIndex = 3;
+            this.txtValor.Leave += new System.EventHandler(this.txtValor_Leave);
             // 
             // cboServico
             // 

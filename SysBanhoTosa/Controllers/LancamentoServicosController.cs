@@ -115,8 +115,8 @@ namespace SysBanhoTosa.Controllers
         public List<Lancamento> GetLancamentos()
         {
             List<Lancamento> lstLancamentos = new List<Lancamento>();
-
-            foreach (string strLinha in objLancamentoServicosDAO.GetLancamentos()) 
+            var objServicosArquivo = objLancamentoServicosDAO.GetLancamentos();
+            foreach (string strLinha in objServicosArquivo) 
             {
                 string[] strArrayArquivo = strLinha.Split('|');
 
@@ -125,7 +125,7 @@ namespace SysBanhoTosa.Controllers
                 objLancamento.Cliente = objClienteController.GetClienteById(int.Parse(strArrayArquivo[1]));
                 objLancamento.Pet = objPetController.GetPetById(int.Parse(strArrayArquivo[2]));
                 objLancamento.Servico = objServicoController.GeServicoById(int.Parse(strArrayArquivo[3]));
-                objLancamento.Valor = float.Parse(strArrayArquivo[4]);
+                objLancamento.Valor = decimal.Parse(strArrayArquivo[4]);
                 objLancamento.DataHora = DateTime.Parse(strArrayArquivo[5]);
                 objLancamento.Situacao = strArrayArquivo[6];
                 objLancamento.Observacao = strArrayArquivo[7];
@@ -141,29 +141,23 @@ namespace SysBanhoTosa.Controllers
         public void ImprimirLancamento(Lancamento pLancamento)
         {
             string strNomeArquivo = "\\Lancamento" + pLancamento.Id+".txt";
-            /*File.WriteAllText($"{Directory.GetCurrentDirectory()}{strNomeArquivo}", $@"PETSHOP BICHO DO MATO                                          Nº{pLancamento.Id}
+            File.WriteAllText($"{Directory.GetCurrentDirectory()}{strNomeArquivo}", $@"PETSHOP BICHO DO MATO                                          Nº{pLancamento.Id}
 
-       Situacao: {pLancamento.Situacao}");*/
+            Situacao: {pLancamento.Situacao}
 
-            objLancamentoServicosDAO.AdicionarLinhaLancamento("PETSHOP BICHO DO MATO                                          Nº"+pLancamento.Id,strNomeArquivo);
-            objLancamentoServicosDAO.AdicionarLinhaLancamento("", strNomeArquivo);
-            objLancamentoServicosDAO.AdicionarLinhaLancamento("       Situacao: " + pLancamento.Situacao,strNomeArquivo);
-            objLancamentoServicosDAO.AdicionarLinhaLancamento("", strNomeArquivo);
-            objLancamentoServicosDAO.AdicionarLinhaLancamento("", strNomeArquivo);
-            objLancamentoServicosDAO.AdicionarLinhaLancamento("", strNomeArquivo);
-            objLancamentoServicosDAO.AdicionarLinhaLancamento("       Tutor: "+pLancamento.Cliente.Id+"-"+pLancamento.Cliente.Nome, strNomeArquivo);
-            objLancamentoServicosDAO.AdicionarLinhaLancamento("         Pet: "+pLancamento.Pet.Nome, strNomeArquivo);
-            objLancamentoServicosDAO.AdicionarLinhaLancamento("Espécie/Raça: "+ pLancamento.Pet.Especie+"/"+pLancamento.Pet.Raca, strNomeArquivo);
 
-            objLancamentoServicosDAO.AdicionarLinhaLancamento("", strNomeArquivo);
-            objLancamentoServicosDAO.AdicionarLinhaLancamento("", strNomeArquivo);
-            objLancamentoServicosDAO.AdicionarLinhaLancamento("", strNomeArquivo);
+                   Tutor: { pLancamento.Cliente.Id} - { pLancamento.Cliente.Nome}
+                     Pet: { pLancamento.Pet.Id} - { pLancamento.Pet.Nome}
+            Espécie/Raça:{pLancamento.Pet.Especie} / {pLancamento.Pet.Raca}
 
-            objLancamentoServicosDAO.AdicionarLinhaLancamento("        Data:"+ pLancamento.DataHora, strNomeArquivo);
-            objLancamentoServicosDAO.AdicionarLinhaLancamento("     Serviço:" + pLancamento.Servico.Nome, strNomeArquivo);
-            objLancamentoServicosDAO.AdicionarLinhaLancamento("    Valor R$:" + pLancamento.Valor, strNomeArquivo);
-            objLancamentoServicosDAO.AdicionarLinhaLancamento("Serv Detalhe:" + pLancamento.Servico.Descricao, strNomeArquivo);
-            objLancamentoServicosDAO.AdicionarLinhaLancamento("  Observação:" + pLancamento.Observacao, strNomeArquivo);
+
+
+                    Data:{pLancamento.DataHora}
+                 Serviço:{pLancamento.Servico.Nome}
+                Valor R$:{pLancamento.Valor}
+            Serv Detalhe:{pLancamento.Servico.Descricao}
+              Observação: {pLancamento.Observacao}");
+            
 
             System.Diagnostics.Process.Start(Directory.GetCurrentDirectory() + strNomeArquivo);
 

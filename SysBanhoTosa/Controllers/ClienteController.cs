@@ -69,7 +69,8 @@ namespace SysBanhoTosa.Controllers
         public List<Cliente> GetClientes(bool pSomenteAtivos)
         {
             List<Cliente> lstClientes = new List<Cliente>();
-            foreach (string strLinha in objClienteDAO.GetClientes())
+            var objClientesArquivo = objClienteDAO.GetClientes();
+            foreach (string strLinha in objClientesArquivo)
             {
                 string[] strArrayArquivo = strLinha.Split('|');
                 if((pSomenteAtivos && (strArrayArquivo[11] == "ATIVO"))||!pSomenteAtivos){
@@ -107,7 +108,8 @@ namespace SysBanhoTosa.Controllers
         public Cliente GetClienteById(int pId)
         {
             Cliente objCliente = new Cliente();
-            foreach (string strLinha in objClienteDAO.GetClientes())
+            var objClientesArquivo = objClienteDAO.GetClientes();
+            foreach (string strLinha in objClientesArquivo)
             {
                 string[] strArrayArquivo = strLinha.Split('|');
                 if (pId == int.Parse(strArrayArquivo[0]))

@@ -88,6 +88,7 @@ namespace SysBanhoTosa.Views
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(95, 20);
             this.txtValor.TabIndex = 23;
+            this.txtValor.Leave += new System.EventHandler(this.txtValor_Leave);
             // 
             // cboSituacao
             // 

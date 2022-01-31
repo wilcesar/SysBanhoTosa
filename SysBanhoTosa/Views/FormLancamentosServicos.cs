@@ -45,19 +45,22 @@ namespace SysBanhoTosa.Views
         private void AlimentaCombosBox()
         {
             cboTutor.Items.Add("");
-            foreach (Cliente objCliente in objClienteController.GetClientes(true))
+            var lstClientes = objClienteController.GetClientes(true);
+            foreach (Cliente objCliente in lstClientes)
             {
                 cboTutor.Items.Add(objCliente.Id+"-"+ objCliente.Nome);
             }
 
             cboPet.Items.Add("");
-            foreach (Pet objPet in objPetController.GetPets(true))
+            var lstPets = objPetController.GetPets(true);
+            foreach (Pet objPet in lstPets)
             {
                 cboPet.Items.Add(objPet.Id + "-" + objPet.Nome);
             }
 
             cboServico.Items.Add("");
-            foreach (Servico objServico in objServicoController.GetServicos(true))
+            var lstServicos = objServicoController.GetServicos(true);
+            foreach (Servico objServico in lstServicos)
             {
                 cboServico.Items.Add(objServico.Id + "-" + objServico.Nome);
             }
@@ -84,7 +87,8 @@ namespace SysBanhoTosa.Views
         private void AtualizarGrid()
         {
             dgvLancamentos.Rows.Clear();
-            foreach (Lancamento objLancamento in objLancamentoServicosController.GetLancamentos())
+            var lstLancamentos = objLancamentoServicosController.GetLancamentos();
+            foreach (Lancamento objLancamento in lstLancamentos)
             {
                 dgvLancamentos.Rows.Add(
                     objLancamento.Id,
@@ -109,7 +113,7 @@ namespace SysBanhoTosa.Views
             objLancamento.Cliente = objClienteController.GetClienteById(int.Parse(cboTutor.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
             objLancamento.Pet = objPetController.GetPetById(int.Parse(cboPet.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
             objLancamento.Servico = objServicoController.GeServicoById(int.Parse(cboServico.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
-            objLancamento.Valor = float.Parse(txtValor.Text);
+            objLancamento.Valor = decimal.Parse(txtValor.Text);
             objLancamento.DataHora = dtpAgendamento.Value;
             objLancamento.Situacao = cboSituacao.Text;
             objLancamento.Observacao = rtfObservacao.Text;
@@ -134,17 +138,12 @@ namespace SysBanhoTosa.Views
             if (txtCodigo.Text != "")
             {
                 objLancamento.Id = int.Parse(txtCodigo.Text);
-            }
-            if (!float.TryParse(txtValor.Text, out float fltValor))
-            {
-                MessageBox.Show("O valor está incorreto", "Atenção");
-            }
-            //Tipo de dado para substituir o float
-            decimal decA = 0.0M;
+            }            
+            //Tipo de dado para substituir o float            
             objLancamento.Cliente = objClienteController.GetClienteById(int.Parse(cboTutor.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
             objLancamento.Pet = objPetController.GetPetById(int.Parse(cboPet.Text.Substring(0, cboPet.Text.IndexOf("-"))));
             objLancamento.Servico = objServicoController.GeServicoById(int.Parse(cboServico.Text.Substring(0, cboServico.Text.IndexOf("-"))));
-            objLancamento.Valor = fltValor;
+            objLancamento.Valor = decimal.Parse(txtValor.Text);
             objLancamento.DataHora = dtpAgendamento.Value;
             objLancamento.Situacao = cboSituacao.Text;
             objLancamento.Observacao = rtfObservacao.Text;
@@ -166,7 +165,7 @@ namespace SysBanhoTosa.Views
                     objLancamentoFor.Cliente =  objClienteController.GetClienteById(int.Parse(strCliente.Substring(0, strCliente.IndexOf("-"))));
                     objLancamentoFor.Pet = objPetController.GetPetById(int.Parse(strPet.ToString().Substring(0, strPet.IndexOf("-"))));
                     objLancamentoFor.Servico = objServicoController.GeServicoById(int.Parse(strServico.Substring(0, strServico.IndexOf("-"))));
-                    objLancamentoFor.Valor = float.Parse(dgvLancamentos.Rows[intI].Cells[4].Value.ToString());
+                    objLancamentoFor.Valor = decimal.Parse(dgvLancamentos.Rows[intI].Cells[4].Value.ToString());
                     objLancamentoFor.DataHora = DateTime.Parse(dgvLancamentos.Rows[intI].Cells[5].Value.ToString());
                     objLancamentoFor.Situacao = dgvLancamentos.Rows[intI].Cells[6].Value.ToString();
                     objLancamentoFor.Observacao = dgvLancamentos.Rows[intI].Cells[7].Value.ToString();
@@ -189,7 +188,7 @@ namespace SysBanhoTosa.Views
                 objLancamento.Cliente = objClienteController.GetClienteById(int.Parse(cboTutor.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
                 objLancamento.Pet = objPetController.GetPetById(int.Parse(cboPet.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
                 objLancamento.Servico = objServicoController.GeServicoById(int.Parse(cboServico.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
-                objLancamento.Valor = float.Parse(txtValor.Text);
+                objLancamento.Valor = decimal.Parse(txtValor.Text);
                 objLancamento.DataHora = dtpAgendamento.Value;
                 objLancamento.Situacao = cboSituacao.Text;
                 objLancamento.Observacao = rtfObservacao.Text;
@@ -229,7 +228,8 @@ namespace SysBanhoTosa.Views
             cboPet.Items.Clear();
             if (cboTutor.Text != "")
             {
-                foreach (Pet objPet in objPetController.GetPetsByCliente(int.Parse(cboTutor.Text.Substring(0, cboTutor.Text.IndexOf("-")))))
+                var lstPetsByCliente = objPetController.GetPetsByCliente(int.Parse(cboTutor.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
+                foreach (Pet objPet in lstPetsByCliente)
                 {
                     cboPet.Items.Add(objPet.Id + "-" + objPet.Nome);
                 }
@@ -240,9 +240,19 @@ namespace SysBanhoTosa.Views
         {
             if(cboServico.Text != "")
             {
-                Servico objServico = objServicoController.GeServicoById(int.Parse(cboServico.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
+                Servico objServico = objServicoController.GeServicoById(int.Parse(cboServico.Text.Substring(0, cboServico.Text.IndexOf("-"))));
                 txtValor.Text = objServico.Valor.ToString();
             }            
+        }
+
+        private void txtValor_Leave(object sender, EventArgs e)
+        {
+            if (!decimal.TryParse(txtValor.Text, out decimal decValor))
+            {
+                MessageBox.Show("O valor está incorreto", "Atenção");
+                txtValor.Text = "";
+                txtValor.Focus();
+            }
         }
     }
 }

@@ -63,7 +63,9 @@ namespace SysBanhoTosa.Views
 
             cboTutor.Items.Clear();
             cboTutor.Items.Add("");
-            foreach (Cliente objCliente in objClienteController.GetClientes(false))
+
+            var lstClientes = objClienteController.GetClientes(false);
+            foreach (Cliente objCliente in lstClientes)
             {
                 cboTutor.Items.Add(objCliente.Id + "-" + objCliente.Nome);
             }

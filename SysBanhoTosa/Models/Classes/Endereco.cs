@@ -8,48 +8,101 @@ namespace SysBanhoTosa.Models.Classes
 {
     class Endereco
     {
-        private string logradouro;
-        private string numero;
-        private string bairro;
-        private string complemento;
-        private string cidade;
-        private string uf;
-        private string cep;
+        /// <summary>
+        /// Logradouro/rua do endereço.
+        /// </summary>
+        private string strLogradouro;
 
+        /// <summary>
+        /// Número do endereço no logradouro.
+        /// </summary>
+        private string strNumero;
+
+        /// <summary>
+        /// Bairro do endereço.
+        /// </summary>
+        private string strBairro;
+        /// <summary>
+        /// Complemento do endereço.
+        /// </summary>
+        private string strComplemento;
+
+        /// <summary>
+        /// Cidade onde fica o endereço.
+        /// </summary>
+        private string strCidade;
+
+        /// <summary>
+        /// Estado onde fica a cidade.
+        /// </summary>
+        private string strUf;
+
+        /// <summary>
+        /// CEP do endereço.
+        /// </summary>
+        private string strCep;
+
+        /// <summary>
+        /// Get e set do logradouro.
+        /// </summary>
         public string Logradouro
         {
-            get => logradouro;
-            set => logradouro = value;
+            get => strLogradouro;
+            set => strLogradouro = value;
         }
+
+        /// <summary>
+        /// Get e set do número do endereço.
+        /// </summary>
         public string Numero
         {
-            get => numero;
-            set => numero = value;
+            get => strNumero;
+            set => strNumero = value;
         }
+
+        /// <summary>
+        /// Get e set do bairro.
+        /// </summary>
         public string Bairro
         {
-            get => bairro;
-            set => bairro = value;
+            get => strBairro;
+            set => strBairro = value;
         }
+
+        /// <summary>
+        /// Get e set do complemento do endereço.
+        /// </summary>
         public string Complemento
         {
-            get => complemento;
-            set => complemento = value;
+            get => strComplemento;
+            set => strComplemento = value;
         }
+
+        /// <summary>
+        /// Get e set da cidade.
+        /// </summary>
         public string Cidade
         {
-            get => cidade;
-            set => cidade = value;
+            get => strCidade;
+            set => strCidade = value;
         }
+
+        /// <summary>
+        /// Get e set do estado.
+        /// </summary>
         public string Uf
         {
-            get => uf;
-            set => uf = value;
+            get => strUf;
+            set => strUf = value;
         }
+
+        /// <summary>
+        /// Get e set do CEP do endereço.
+        /// </summary>
         public string Cep
         {
-            get => cep;
-            set => cep = value;
+            get => strCep;
+            set => strCep = value;
         }
 
     }

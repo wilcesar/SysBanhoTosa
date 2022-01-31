@@ -125,7 +125,11 @@ namespace SysBanhoTosa.Views
                 objClientecontroller.AtualizarCliente(objCliente, lstClientes);
                 AtualizarGrid();
                 LimpaCampos();
-            };
+            }
+            else
+            {
+                MessageBox.Show("Os campos obrigatórios não estão preenchidos corretamente.", "Atenção");
+            }
 
         }
 

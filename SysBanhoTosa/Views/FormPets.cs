@@ -86,7 +86,10 @@ namespace SysBanhoTosa.Views
             objPet.Situacao = cboSituacao.Text;
 
             Cliente objCliente = new Cliente();
-            objCliente.Id= int.Parse(cboTutor.Text.Substring(0, cboTutor.Text.IndexOf("-")));
+            if(cboTutor.Text != "")
+            {
+                objCliente.Id = int.Parse(cboTutor.Text.Substring(0, cboTutor.Text.IndexOf("-")));
+            }            
 
             objPet.Tutor = objCliente;
 
@@ -112,6 +115,10 @@ namespace SysBanhoTosa.Views
                 objPetController.AtualizarPet(objPet, lstPets);
                 AtualizarGrid();
                 LimpaCampos();
+            }
+            else
+            {
+                MessageBox.Show("Os campos obrigatórios não estão preenchidos corretamente.", "Atenção");
             }
         }
 

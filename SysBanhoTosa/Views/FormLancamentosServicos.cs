@@ -37,6 +37,7 @@ namespace SysBanhoTosa.Views
         {
             InitializeComponent();
             AlimentaCombosBox();
+            LimpaCampos();
             AtualizarGrid();
         }
         /// <summary>
@@ -140,12 +141,27 @@ namespace SysBanhoTosa.Views
                 objLancamento.Id = int.Parse(txtCodigo.Text);
             }            
             //Tipo de dado para substituir o float            
-            objLancamento.Cliente = objClienteController.GetClienteById(int.Parse(cboTutor.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
-            objLancamento.Pet = objPetController.GetPetById(int.Parse(cboPet.Text.Substring(0, cboPet.Text.IndexOf("-"))));
-            objLancamento.Servico = objServicoController.GeServicoById(int.Parse(cboServico.Text.Substring(0, cboServico.Text.IndexOf("-"))));
-            objLancamento.Valor = decimal.Parse(txtValor.Text);
-            objLancamento.DataHora = dtpAgendamento.Value;
-            objLancamento.Situacao = cboSituacao.Text;
+            if(cboTutor.Text != "")
+            {
+                objLancamento.Cliente = objClienteController.GetClienteById(int.Parse(cboTutor.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
+            }
+            if (cboPet.Text != "")
+            {
+                objLancamento.Pet = objPetController.GetPetById(int.Parse(cboPet.Text.Substring(0, cboPet.Text.IndexOf("-"))));
+            }
+            if (cboServico.Text != "")
+            {
+                objLancamento.Servico = objServicoController.GeServicoById(int.Parse(cboServico.Text.Substring(0, cboServico.Text.IndexOf("-"))));
+            }
+            if (txtValor.Text != "")
+            {
+                objLancamento.Valor = decimal.Parse(txtValor.Text);
+            }
+            if(cboSituacao.Text != "")
+            {
+                objLancamento.Situacao = cboSituacao.Text;
+            }                
+            objLancamento.DataHora = dtpAgendamento.Value;            
             objLancamento.Observacao = rtfObservacao.Text;
 
             if (objLancamentoServicosController.ValidaLancamento(objLancamento))
@@ -175,6 +191,10 @@ namespace SysBanhoTosa.Views
                 objLancamentoServicosController.AtualizarLancamento(objLancamento, lstLancamentos);
                 AtualizarGrid();
                 LimpaCampos();
+            }
+            else
+            {
+                MessageBox.Show("Os campos obrigatórios não estão preenchidos corretamente.", "Atenção");
             }
         }
 

@@ -71,7 +71,11 @@ namespace SysBanhoTosa.Views
             }
             objServico.Nome = txtNome.Text;
             objServico.Descricao = txtDescricao.Text;
-            objServico.Valor = decimal.Parse(txtValor.Text, CultureInfo.InvariantCulture.NumberFormat);
+            if(txtValor.Text != "")
+            {
+                objServico.Valor = decimal.Parse(txtValor.Text, CultureInfo.InvariantCulture.NumberFormat);
+            }
+            
             objServico.Situacao = cboSituacao.Text;
 
             if (objServicoController.ValidaServico(objServico)){
@@ -91,6 +95,10 @@ namespace SysBanhoTosa.Views
                 objServicoController.AtualizarServico(objServico, lstServicos);
                 AtualizarGrid();
                 LimpaCampos();
+            }
+            else
+            {
+                MessageBox.Show("Os campos obrigatórios não estão preenchidos corretamente.", "Atenção");
             }
         }
 

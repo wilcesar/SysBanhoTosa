@@ -119,9 +119,10 @@ namespace SysBanhoTosa.Views
             // lblSituacao
             // 
             this.lblSituacao.AutoSize = true;
+            this.lblSituacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSituacao.Location = new System.Drawing.Point(10, 145);
             this.lblSituacao.Name = "lblSituacao";
-            this.lblSituacao.Size = new System.Drawing.Size(49, 13);
+            this.lblSituacao.Size = new System.Drawing.Size(57, 13);
             this.lblSituacao.TabIndex = 14;
             this.lblSituacao.Text = "Situação";
             // 
@@ -175,27 +176,30 @@ namespace SysBanhoTosa.Views
             // lblServico
             // 
             this.lblServico.AutoSize = true;
+            this.lblServico.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblServico.Location = new System.Drawing.Point(348, 55);
             this.lblServico.Name = "lblServico";
-            this.lblServico.Size = new System.Drawing.Size(43, 13);
+            this.lblServico.Size = new System.Drawing.Size(50, 13);
             this.lblServico.TabIndex = 6;
             this.lblServico.Text = "Serviço";
             // 
             // lblPet
             // 
             this.lblPet.AutoSize = true;
+            this.lblPet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPet.Location = new System.Drawing.Point(10, 56);
             this.lblPet.Name = "lblPet";
-            this.lblPet.Size = new System.Drawing.Size(23, 13);
+            this.lblPet.Size = new System.Drawing.Size(26, 13);
             this.lblPet.TabIndex = 5;
             this.lblPet.Text = "Pet";
             // 
             // lblTutor
             // 
             this.lblTutor.AutoSize = true;
+            this.lblTutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTutor.Location = new System.Drawing.Point(348, 7);
             this.lblTutor.Name = "lblTutor";
-            this.lblTutor.Size = new System.Drawing.Size(32, 13);
+            this.lblTutor.Size = new System.Drawing.Size(37, 13);
             this.lblTutor.TabIndex = 4;
             this.lblTutor.Text = "Tutor";
             // 

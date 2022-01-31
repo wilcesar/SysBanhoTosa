@@ -84,7 +84,7 @@ namespace SysBanhoTosa.Controllers
         /// <returns>true caso os campos foram preenchidos corretamente.</returns>
         public bool ValidaLancamento(Lancamento pLancamento)
         {
-            if ((pLancamento.Cliente == null) || (pLancamento.Pet == null) || (pLancamento.Servico == null))
+            if ((pLancamento.Cliente == null) || (pLancamento.Pet == null) || (pLancamento.Servico == null) || (pLancamento.Situacao == ""))
             {
                 return false;
             }

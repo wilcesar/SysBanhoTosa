@@ -54,6 +54,7 @@ namespace SysBanhoTosa.Views
             txtDescricao.Text = "";
             txtValor.Text = "";
             cboSituacao.SelectedIndex = 0;
+            txtNome.Focus();
         }
 
         private void FormServicos_Load(object sender, EventArgs e)

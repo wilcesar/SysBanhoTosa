@@ -70,6 +70,7 @@ namespace SysBanhoTosa.Views
                 cboTutor.Items.Add(objCliente.Id + "-" + objCliente.Nome);
             }
             cboTutor.SelectedIndex = 0;
+            txtNome.Focus();
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)

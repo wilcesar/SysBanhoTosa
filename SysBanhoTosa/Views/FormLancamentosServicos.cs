@@ -254,5 +254,10 @@ namespace SysBanhoTosa.Views
                 txtValor.Focus();
             }
         }
+
+        private void btnImpRelatorio_Click(object sender, EventArgs e)
+        {
+            objLancamentoServicosController.ImprimirRelatorioLancamentos();
+        }
     }
 }

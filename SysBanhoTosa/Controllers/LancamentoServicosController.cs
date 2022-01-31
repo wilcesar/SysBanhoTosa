@@ -14,7 +14,7 @@ namespace SysBanhoTosa.Controllers
         /// <summary>
         /// Separador dos campos vindos do arquivo de texto.
         /// </summary>
-        const string SEPARADOR = "|";        
+        const string SEPARADOR = "|";          
 
         /// <summary>
         /// Controller de clientes.
@@ -140,7 +140,7 @@ namespace SysBanhoTosa.Controllers
         /// <param name="pLancamento">Lançamento que será executado.</param>
         public void ImprimirLancamento(Lancamento pLancamento)
         {
-            string strNomeArquivo = "\\Lancamento" + pLancamento.Id+".txt";
+            string strNomeArquivo = "\\Lancamento" + pLancamento.Id + ".txt";
             File.WriteAllText($"{Directory.GetCurrentDirectory()}{strNomeArquivo}", $@"PETSHOP BICHO DO MATO                                          Nº{pLancamento.Id}
 
             Situacao: {pLancamento.Situacao}
@@ -157,12 +157,50 @@ namespace SysBanhoTosa.Controllers
                 Valor R$:{pLancamento.Valor}
             Serv Detalhe:{pLancamento.Servico.Descricao}
               Observação: {pLancamento.Observacao}");
-            
+
 
             System.Diagnostics.Process.Start(Directory.GetCurrentDirectory() + strNomeArquivo);
 
 
 
+        }
+        /// <summary>
+        /// Retorna o texto com os espaços necessários para ficar alinhado.
+        /// </summary>
+        /// <param name="pTexto">Texto a ser impresso.</param>
+        /// <param name="pEspaco">Tamanho que deve ter o texto.</param>
+        /// <returns>String formatada com os espaços a direita.</returns>
+        private string ImprimirComEspacos(string pTexto, int pEspaco)
+        {
+            int intTamanhoEspaco = pEspaco-pTexto.Length;
+            string strEspacos = new String(' ', intTamanhoEspaco);
+            return pTexto + strEspacos;
+        }
+        /// <summary>
+        /// Imprimir relatório de lançamentos.
+        /// </summary>
+        public void ImprimirRelatorioLancamentos()
+        {
+            string strNomeArquivo = "\\RelatorioLancamentos.txt";
+            var lstLancamentos = GetLancamentos();
+            
+            StringBuilder stbRelatorio = new StringBuilder();
+            stbRelatorio.AppendLine(ImprimirComEspacos("CÓDIGO", 9)+ 
+                ImprimirComEspacos("CLIENTE",50) +
+                ImprimirComEspacos("PET",30) +
+                ImprimirComEspacos("VALOR", 10) +
+                "SITUAÇÃO");
+                
+            foreach (Lancamento objLancamento in lstLancamentos)
+            {
+                stbRelatorio.AppendLine(ImprimirComEspacos(objLancamento.Id.ToString(),9) +
+                    ImprimirComEspacos(objLancamento.Cliente.Nome,50)  +
+                    ImprimirComEspacos(objLancamento.Pet.Nome, 30)  +
+                    ImprimirComEspacos(objLancamento.Valor.ToString(),10)+
+                    objLancamento.Situacao);
+            }
+            File.WriteAllText($"{Directory.GetCurrentDirectory()}{strNomeArquivo}", stbRelatorio.ToString());
+            System.Diagnostics.Process.Start(Directory.GetCurrentDirectory() + strNomeArquivo);
         }
     }
 }

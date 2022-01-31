@@ -60,6 +60,7 @@ namespace SysBanhoTosa.Views
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
+            this.btnImpRelatorio = new System.Windows.Forms.Button();
             this.pnlLancamento.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLancamentos)).BeginInit();
@@ -318,12 +319,13 @@ namespace SysBanhoTosa.Views
             // 
             // pnlBotoes
             // 
+            this.pnlBotoes.Controls.Add(this.btnImpRelatorio);
             this.pnlBotoes.Controls.Add(this.btnImprimir);
             this.pnlBotoes.Controls.Add(this.btnCancelar);
             this.pnlBotoes.Controls.Add(this.btnConfirmar);
             this.pnlBotoes.Location = new System.Drawing.Point(684, 0);
             this.pnlBotoes.Name = "pnlBotoes";
-            this.pnlBotoes.Size = new System.Drawing.Size(77, 159);
+            this.pnlBotoes.Size = new System.Drawing.Size(77, 185);
             this.pnlBotoes.TabIndex = 7;
             // 
             // btnImprimir
@@ -355,6 +357,16 @@ namespace SysBanhoTosa.Views
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            // 
+            // btnImpRelatorio
+            // 
+            this.btnImpRelatorio.Location = new System.Drawing.Point(1, 133);
+            this.btnImpRelatorio.Name = "btnImpRelatorio";
+            this.btnImpRelatorio.Size = new System.Drawing.Size(75, 37);
+            this.btnImpRelatorio.TabIndex = 8;
+            this.btnImpRelatorio.Text = "Imprimir relatório";
+            this.btnImpRelatorio.UseVisualStyleBackColor = true;
+            this.btnImpRelatorio.Click += new System.EventHandler(this.btnImpRelatorio_Click);
             // 
             // FormLancamentosServicos
             // 
@@ -409,5 +421,6 @@ namespace SysBanhoTosa.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn clnSituacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnObservacao;
         private System.Windows.Forms.RichTextBox rtfObservacao;
+        private System.Windows.Forms.Button btnImpRelatorio;
     }
 }

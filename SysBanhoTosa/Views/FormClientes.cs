@@ -42,6 +42,7 @@ namespace SysBanhoTosa.Views
             txtCidade.Text = "";
             cboUf.SelectedIndex = 0;
             cboSituacao.SelectedIndex = 0;
+            txtNome.Focus();
         }
 
         /// <summary>

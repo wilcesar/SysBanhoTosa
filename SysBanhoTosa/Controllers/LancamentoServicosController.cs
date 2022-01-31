@@ -139,7 +139,7 @@ namespace SysBanhoTosa.Controllers
         /// <param name="pLancamento">Lançamento que será executado.</param>
         public void ImprimirLancamento(Lancamento pLancamento)
         {
-            string strNomeArquivo = "\\Lancamento" + pLancamento.Id;
+            string strNomeArquivo = "\\Lancamento" + pLancamento.Id+".txt";
             objLancamentoServicosDAO.AdicionarLinhaLancamento("PETSHOP BICHO DO MATO                                          Nº"+pLancamento.Id,strNomeArquivo);
             objLancamentoServicosDAO.AdicionarLinhaLancamento("", strNomeArquivo);
             objLancamentoServicosDAO.AdicionarLinhaLancamento("       Situacao: " + pLancamento.Situacao,strNomeArquivo);

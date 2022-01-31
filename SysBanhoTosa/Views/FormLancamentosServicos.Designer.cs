@@ -30,6 +30,8 @@ namespace SysBanhoTosa.Views
         private void InitializeComponent()
         {
             this.pnlLancamento = new System.Windows.Forms.Panel();
+            this.rtfObservacao = new System.Windows.Forms.RichTextBox();
+            this.lblObservacao = new System.Windows.Forms.Label();
             this.lblData = new System.Windows.Forms.Label();
             this.lblSituacao = new System.Windows.Forms.Label();
             this.cboSituacao = new System.Windows.Forms.ComboBox();
@@ -46,11 +48,6 @@ namespace SysBanhoTosa.Views
             this.cboTutor = new System.Windows.Forms.ComboBox();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgvLancamentos = new System.Windows.Forms.DataGridView();
-            this.pnlBotoes = new System.Windows.Forms.Panel();
-            this.btnImprimir = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnConfirmar = new System.Windows.Forms.Button();
-            this.lblObservacao = new System.Windows.Forms.Label();
             this.clnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnPet = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +56,10 @@ namespace SysBanhoTosa.Views
             this.clnData = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnObservacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rtfObservacao = new System.Windows.Forms.RichTextBox();
+            this.pnlBotoes = new System.Windows.Forms.Panel();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnConfirmar = new System.Windows.Forms.Button();
             this.pnlLancamento.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLancamentos)).BeginInit();
@@ -88,6 +88,23 @@ namespace SysBanhoTosa.Views
             this.pnlLancamento.Name = "pnlLancamento";
             this.pnlLancamento.Size = new System.Drawing.Size(676, 185);
             this.pnlLancamento.TabIndex = 0;
+            // 
+            // rtfObservacao
+            // 
+            this.rtfObservacao.Location = new System.Drawing.Point(348, 112);
+            this.rtfObservacao.Name = "rtfObservacao";
+            this.rtfObservacao.Size = new System.Drawing.Size(297, 70);
+            this.rtfObservacao.TabIndex = 6;
+            this.rtfObservacao.Text = "";
+            // 
+            // lblObservacao
+            // 
+            this.lblObservacao.AutoSize = true;
+            this.lblObservacao.Location = new System.Drawing.Point(348, 96);
+            this.lblObservacao.Name = "lblObservacao";
+            this.lblObservacao.Size = new System.Drawing.Size(65, 13);
+            this.lblObservacao.TabIndex = 16;
+            this.lblObservacao.Text = "Observação";
             // 
             // lblData
             // 
@@ -156,7 +173,7 @@ namespace SysBanhoTosa.Views
             // lblServico
             // 
             this.lblServico.AutoSize = true;
-            this.lblServico.Location = new System.Drawing.Point(10, 55);
+            this.lblServico.Location = new System.Drawing.Point(348, 55);
             this.lblServico.Name = "lblServico";
             this.lblServico.Size = new System.Drawing.Size(43, 13);
             this.lblServico.TabIndex = 6;
@@ -165,7 +182,7 @@ namespace SysBanhoTosa.Views
             // lblPet
             // 
             this.lblPet.AutoSize = true;
-            this.lblPet.Location = new System.Drawing.Point(348, 56);
+            this.lblPet.Location = new System.Drawing.Point(10, 56);
             this.lblPet.Name = "lblPet";
             this.lblPet.Size = new System.Drawing.Size(23, 13);
             this.lblPet.TabIndex = 5;
@@ -190,18 +207,19 @@ namespace SysBanhoTosa.Views
             // cboServico
             // 
             this.cboServico.FormattingEnabled = true;
-            this.cboServico.Location = new System.Drawing.Point(10, 72);
+            this.cboServico.Location = new System.Drawing.Point(348, 72);
             this.cboServico.Name = "cboServico";
             this.cboServico.Size = new System.Drawing.Size(297, 21);
-            this.cboServico.TabIndex = 1;
+            this.cboServico.TabIndex = 2;
+            this.cboServico.SelectedIndexChanged += new System.EventHandler(this.cboServico_SelectedIndexChanged);
             // 
             // cboPet
             // 
             this.cboPet.FormattingEnabled = true;
-            this.cboPet.Location = new System.Drawing.Point(348, 72);
+            this.cboPet.Location = new System.Drawing.Point(10, 72);
             this.cboPet.Name = "cboPet";
             this.cboPet.Size = new System.Drawing.Size(297, 21);
-            this.cboPet.TabIndex = 2;
+            this.cboPet.TabIndex = 1;
             // 
             // cboTutor
             // 
@@ -210,6 +228,7 @@ namespace SysBanhoTosa.Views
             this.cboTutor.Name = "cboTutor";
             this.cboTutor.Size = new System.Drawing.Size(297, 21);
             this.cboTutor.TabIndex = 0;
+            this.cboTutor.SelectedIndexChanged += new System.EventHandler(this.cboTutor_SelectedIndexChanged);
             // 
             // pnlGrid
             // 
@@ -238,55 +257,6 @@ namespace SysBanhoTosa.Views
             this.dgvLancamentos.Size = new System.Drawing.Size(754, 280);
             this.dgvLancamentos.TabIndex = 0;
             this.dgvLancamentos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLancamentos_CellDoubleClick);
-            // 
-            // pnlBotoes
-            // 
-            this.pnlBotoes.Controls.Add(this.btnImprimir);
-            this.pnlBotoes.Controls.Add(this.btnCancelar);
-            this.pnlBotoes.Controls.Add(this.btnConfirmar);
-            this.pnlBotoes.Location = new System.Drawing.Point(684, 0);
-            this.pnlBotoes.Name = "pnlBotoes";
-            this.pnlBotoes.Size = new System.Drawing.Size(77, 159);
-            this.pnlBotoes.TabIndex = 7;
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Location = new System.Drawing.Point(1, 90);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(75, 37);
-            this.btnImprimir.TabIndex = 3;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(1, 47);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 37);
-            this.btnCancelar.TabIndex = 2;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnConfirmar
-            // 
-            this.btnConfirmar.Location = new System.Drawing.Point(1, 4);
-            this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(75, 37);
-            this.btnConfirmar.TabIndex = 7;
-            this.btnConfirmar.Text = "Confirmar";
-            this.btnConfirmar.UseVisualStyleBackColor = true;
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
-            // 
-            // lblObservacao
-            // 
-            this.lblObservacao.AutoSize = true;
-            this.lblObservacao.Location = new System.Drawing.Point(348, 96);
-            this.lblObservacao.Name = "lblObservacao";
-            this.lblObservacao.Size = new System.Drawing.Size(65, 13);
-            this.lblObservacao.TabIndex = 16;
-            this.lblObservacao.Text = "Observação";
             // 
             // clnId
             // 
@@ -331,13 +301,45 @@ namespace SysBanhoTosa.Views
             this.clnObservacao.Name = "clnObservacao";
             this.clnObservacao.Visible = false;
             // 
-            // rtfObservacao
+            // pnlBotoes
             // 
-            this.rtfObservacao.Location = new System.Drawing.Point(348, 112);
-            this.rtfObservacao.Name = "rtfObservacao";
-            this.rtfObservacao.Size = new System.Drawing.Size(297, 70);
-            this.rtfObservacao.TabIndex = 6;
-            this.rtfObservacao.Text = "";
+            this.pnlBotoes.Controls.Add(this.btnImprimir);
+            this.pnlBotoes.Controls.Add(this.btnCancelar);
+            this.pnlBotoes.Controls.Add(this.btnConfirmar);
+            this.pnlBotoes.Location = new System.Drawing.Point(684, 0);
+            this.pnlBotoes.Name = "pnlBotoes";
+            this.pnlBotoes.Size = new System.Drawing.Size(77, 159);
+            this.pnlBotoes.TabIndex = 7;
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(1, 90);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(75, 37);
+            this.btnImprimir.TabIndex = 3;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(1, 47);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 37);
+            this.btnCancelar.TabIndex = 2;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnConfirmar
+            // 
+            this.btnConfirmar.Location = new System.Drawing.Point(1, 4);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(75, 37);
+            this.btnConfirmar.TabIndex = 7;
+            this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // FormLancamentosServicos
             // 

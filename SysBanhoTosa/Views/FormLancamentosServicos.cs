@@ -131,8 +131,8 @@ namespace SysBanhoTosa.Views
                 objLancamento.Id = int.Parse(txtCodigo.Text);
             }
             objLancamento.Cliente = objClienteController.GetClienteById(int.Parse(cboTutor.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
-            objLancamento.Pet = objPetController.GetPetById(int.Parse(cboPet.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
-            objLancamento.Servico = objServicoController.GeServicoById(int.Parse(cboServico.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
+            objLancamento.Pet = objPetController.GetPetById(int.Parse(cboPet.Text.Substring(0, cboPet.Text.IndexOf("-"))));
+            objLancamento.Servico = objServicoController.GeServicoById(int.Parse(cboServico.Text.Substring(0, cboServico.Text.IndexOf("-"))));
             objLancamento.Valor = float.Parse(txtValor.Text);
             objLancamento.DataHora = dtpAgendamento.Value;
             objLancamento.Situacao = cboSituacao.Text;
@@ -160,7 +160,7 @@ namespace SysBanhoTosa.Views
                     objLancamentoFor.Situacao = dgvLancamentos.Rows[intI].Cells[6].Value.ToString();
                     objLancamentoFor.Observacao = dgvLancamentos.Rows[intI].Cells[7].Value.ToString();
 
-                    lstLancamentos.Add(objLancamento);                    
+                    lstLancamentos.Add(objLancamentoFor);                    
                 }
                 objLancamentoServicosController.AtualizarLancamento(objLancamento, lstLancamentos);
                 AtualizarGrid();
@@ -208,6 +208,21 @@ namespace SysBanhoTosa.Views
             txtValor.Text = "0.00";            
             cboSituacao.SelectedIndex = 0;
             rtfObservacao.Text = "";
+        }
+
+        private void cboTutor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cboPet.Items.Clear();
+            foreach (Pet objPet in objPetController.GetPetsByCliente(int.Parse(cboTutor.Text.Substring(0, cboTutor.Text.IndexOf("-")))))
+            {
+                cboPet.Items.Add(objPet.Id + "-" + objPet.Nome);
+            }
+        }
+
+        private void cboServico_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Servico objServico = objServicoController.GeServicoById(int.Parse(cboServico.Text.Substring(0, cboTutor.Text.IndexOf("-"))));
+            txtValor.Text = objServico.Valor.ToString();
         }
     }
 }

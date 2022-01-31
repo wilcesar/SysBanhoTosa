@@ -151,5 +151,31 @@ namespace SysBanhoTosa.Controllers
             }
             return objPet;
         }
+        /// <summary>
+        /// Retorna determinados pets a partir do código do seu tutor.
+        /// </summary>
+        /// <param name="pClienteId">Código do cliente/tutor.</param>
+        /// <returns>Lista de objetos contendo os pets.</returns>
+        public List<Pet> GetPetsByCliente(int pClienteId)
+        {
+            List<Pet> lstPets = new List<Pet>();
+            Pet objPet = new Pet();
+            foreach (string strLinha in objPetDAO.GetPets())
+            {
+                string[] strArrayArquivo = strLinha.Split('|');
+                if (pClienteId == int.Parse(strArrayArquivo[4]))
+                {
+
+                    objPet.Id = int.Parse(strArrayArquivo[0]);
+                    objPet.Nome = strArrayArquivo[1];
+                    objPet.Especie = strArrayArquivo[2];
+                    objPet.Raca = strArrayArquivo[3];
+                    objPet.Tutor = objClienteController.GetClienteById(int.Parse(strArrayArquivo[4]));
+                    objPet.Situacao = strArrayArquivo[5];
+                    lstPets.Add(objPet);
+                }
+            }
+            return lstPets;
+        }
     }
 }

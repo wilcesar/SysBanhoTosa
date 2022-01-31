@@ -165,7 +165,9 @@ namespace SysBanhoTosa.Controllers
             objLancamentoServicosDAO.AdicionarLinhaLancamento("Serv Detalhe:" + pLancamento.Servico.Descricao, strNomeArquivo);
             objLancamentoServicosDAO.AdicionarLinhaLancamento("  Observação:" + pLancamento.Observacao, strNomeArquivo);
 
-            
+            System.Diagnostics.Process.Start(Directory.GetCurrentDirectory() + strNomeArquivo);
+
+
 
         }
     }

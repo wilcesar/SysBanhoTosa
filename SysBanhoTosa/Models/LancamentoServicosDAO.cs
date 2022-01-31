@@ -66,6 +66,7 @@ namespace SysBanhoTosa.Models
             stwArquivo.WriteLine(pLinha);
             stwArquivo.Close();
         }
+        
 
         /// <summary>
         /// Lee o arquivo texto extraindo suas linhas.
